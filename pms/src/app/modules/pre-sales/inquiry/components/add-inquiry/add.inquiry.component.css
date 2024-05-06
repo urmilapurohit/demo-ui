@@ -1,0 +1,196 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/custom-helper.css");
+@import url("@styles/workspace-table.css");
+
+.grid-content-wrap .bottom-btn-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.grid-content-wrap .bottom-btn-wrap .btn-sm:not(:last-child) {
+    margin-right: 1rem;
+}
+
+::ng-deep.modal-wrapper .modal-footer button:last-child {
+    margin-left: 1rem;
+}
+
+.add-edit-sales-wrapper .sales-list-wrapper.form-group-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 -0.5rem;
+}
+
+.add-edit-sales-wrapper .role-history-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.add-edit-sales-wrapper .role-history-outer {
+    margin-top: 1.5rem;
+    padding: 0;
+    border-top: 0.1rem solid var(--tablecell-border);
+}
+
+::ng-deep .dark-theme .add-edit-sales-wrapper .role-history-outer {
+    border-top: 0.1rem solid var(--dark-white4) !important;
+}
+
+.add-edit-sales-wrapper .role-history-wrapper .history-block,
+.add-edit-sales-wrapper .role-history-wrapper .role-block {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.add-edit-sales-wrapper .role-history-wrapper .history-block {
+    padding: 1.1rem 0rem 2rem 1.5rem;
+}
+
+.add-edit-sales-wrapper .history-block .table-heading-wrapper .btn-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.add-edit-sales-wrapper .history-block .table-heading-wrapper .btn-wrapper .icon-btn+.icon-btn {
+    margin-left: 0.5rem;
+}
+
+.add-edit-sales-wrapper .role-history-wrapper .history-block .table-heading-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.add-edit-sales-wrapper .role-history-wrapper .history-block .table-heading-wrapper .table-heading {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.add-edit-sales-wrapper .role-history-wrapper .role-block {
+    padding: 1.8rem 3.5rem 1.5rem 0;
+}
+
+::ng-deep .add-edit-sales-wrapper .role-history-wrapper .role-block .custom-tabs .mat-mdc-tab .mdc-tab__text-label {
+    font-size: 1.4rem;
+}
+
+::ng-deep .add-edit-sales-wrapper .role-history-wrapper .role-block .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab {
+    padding-bottom: 2.1rem;
+}
+
+.add-edit-sales-wrapper .remark-item:first-child {
+    margin-top: 0;
+}
+
+.add-edit-sales-wrapper .remark-item {
+    border: 0.1rem solid var(--tablecell-border);
+    border-bottom-width: 0.3rem !important;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    margin-top: 1rem;
+}
+
+::ng-deep .dark-theme .add-edit-sales-wrapper .remark-item {
+    border: 0.1rem solid var(--dark-white4) !important;
+}
+
+.add-edit-sales-wrapper .remark-item:nth-child(odd) {
+    background-color: transparent;
+}
+
+.add-edit-sales-wrapper .remark-item:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+::ng-deep .dark-theme .add-edit-sales-wrapper .remark-item:nth-child(even) {
+    background-color: var(--dark-black4) !important;
+}
+
+.add-edit-sales-wrapper .remark-item .remark-by {
+    margin-bottom: 1rem;
+}
+
+.add-edit-sales-wrapper .remark-item .remark-by .remark-meta {
+    color: var(--breadcrumb-gray);
+    font-size: 1.2rem;
+}
+
+.add-edit-sales-wrapper .remark-item .remark-text {
+    padding-left: 0.8rem;
+    border-left: 0.1rem solid var(--black);
+}
+
+::ng-deep .dark-theme .add-edit-sales-wrapper .remark-item .remark-text {
+    border-left: 0.1rem solid var(--white) !important;
+}
+
+::ng-deep .add-edit-sales-wrapper .mat-mdc-tab-body-content .form-col+.form-col {
+    margin-top: 1.5rem;
+}
+
+.add-edit-sales-wrapper .svn-path-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-edit-sales-wrapper .svn-path {
+    padding-right: 1rem;
+}
+
+.add-edit-sales-wrapper .svn-path>span {
+    color: var(--breadcrumb-gray);
+}
+
+.add-edit-sales-wrapper .remarks-listing-block {
+    padding: 0rem 0rem;
+}
+
+.add-edit-sales-wrapper .remarks-listing-block .title {
+    font-size: 1.4rem;
+    padding-bottom: 2rem;
+    font-weight: 500;
+}
+
+.add-edit-sales-wrapper .remarks-listing-block .bottom-btn-wrap {
+    display: flex;
+    margin: 0 0 2.2rem;
+    padding: 0 0 2.5rem;
+    border-bottom: 0.1rem solid var(--tablecell-border);
+}
+
+::ng-deep .dark-theme .add-edit-sales-wrapper .remarks-listing-block .bottom-btn-wrap {
+    border-bottom: 0.1rem solid var(--dark-white4) !important;
+}
+
+.add-edit-sales-wrapper .remarks-listing-block .bottom-btn-wrap .btn-sm+.btn-sm {
+    margin-left: 1rem;
+}
+
+::ng-deep .custom-form-group.custom-textarea .mdc-text-field {
+    max-width: 781px !important;
+}
+
+/* tooltip changes */
+::ng-deep .custom-tooltip.refresh-tooltip::after {
+    left: calc(50% + 1rem);
+}
+
+::ng-deep .workspace-table .last-modified-column {
+    width: 15rem;
+    min-width: 15rem;
+    max-width: 15rem;
+}
+
+.add-inquiry-form {
+    max-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.form-row.has-three-col .form-col {
+    flex: 0 0 33.3%;
+    max-width: 33.3%;
+}

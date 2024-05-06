@@ -1,0 +1,29 @@
+<table mat-table [dataSource]="dataSource" class="ems-table auto-width no-stripe mat-elevation-z8">
+    <div *ngFor="let column of columnsData">
+        <ng-container matColumnDef="{{column.field}}">
+            <th mat-header-cell *matHeaderCellDef>{{column.header}}</th>
+            <td mat-cell *matCellDef="let element">
+                <div class="form-control">
+                    <mat-form-field class="input-wrapper">
+                        <input type="number" class="text-right" (keyup.enter)="onEnterPress()" [(ngModel)]="element[column.field]"
+                            value="{{element[column.field]}}" (blur)="blurEvent()" matInput />
+                    </mat-form-field>
+                </div>
+            </td>
+        </ng-container>
+    </div>
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element; let last = last; let i = index">
+            <button mat-icon-button (click)="deleteRow(i)">
+                <mat-icon>remove</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="last" (click)="addRow()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

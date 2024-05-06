@@ -1,0 +1,18 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+::ng-deep .workspace-table .news-event-title-column {
+    white-space: normal !important;
+    width: 30rem;
+    min-width: 30rem;
+    max-width: 30rem;
+}
+
+::ng-deep .workspace-table .news-event-column {
+    white-space: normal !important;
+    width: 26rem;
+    min-width: 26rem;
+    max-width: 26rem;
+}

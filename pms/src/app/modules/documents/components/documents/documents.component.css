@@ -1,0 +1,21 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+
+.iframe-block {
+    padding-top: 0 !important;
+    padding: 2rem;
+}
+
+.iframe-block iframe {
+    border-radius: 0.3rem;
+    width: 100%;
+    height: calc(100vh - 24.5rem);
+}
+
+.dropdown-link-wrapper .left-wrapper {
+    align-items: normal;
+}
+
+.filter-btn-wrapper {
+    margin-top: 2rem;
+}

@@ -1,0 +1,15 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+
+.grid-content-wrap .bottom-btn-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.grid-content-wrap .bottom-btn-wrap .btn-sm:not(:last-child) {
+    margin-right: 1rem;
+}
+
+::ng-deep.modal-wrapper .modal-footer button:last-child {
+    margin-left: 1rem;
+}

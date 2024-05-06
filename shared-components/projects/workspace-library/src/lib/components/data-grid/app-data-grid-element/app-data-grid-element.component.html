@@ -1,0 +1,111 @@
+<div class="root-element" *ngIf="isCellVisible" matTooltipPosition="below">
+    <ng-container *ngIf="isLoading">
+        <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+    </ng-container>
+    <ng-container *ngIf="!isLoading">
+        <ng-container [ngSwitch]="displayType">
+            <ng-container *ngSwitchCase="'Normal'">
+                <div (click)="cellClickCallback()" class="td-content" [ngClass]="column.customHeaderClassName">
+                    <div *ngIf="column.customRenderTemplate;else show_html_or_else">
+                        <ng-container *ngTemplateOutlet="getCustomRenderTemplate(); context:{ $implicit: rowData }"></ng-container>
+                    </div>
+                    <ng-template #show_html_or_else>
+                        <div *ngIf="column.showAsHtmlElement;else show_other" [innerHTML]="dataToShow" [ngClass]="{'line-clamp-one':column.showTooltip,
+                                    'text-red' :column.setCustomClass && setCustomStyleRed,
+                                    'text-darkblue' : column.setCustomClass && setCustomStyleDarkBlue,
+                                    'text-green': column.setCustomClass && setCustomStyleGreen}"
+                            [matTooltip]="toolTip"
+                            [matTooltipClass]="column.customToolTipConfig?.tooltipClass || ''"
+                            [matTooltipPosition]="column.customToolTipConfig?.position || 'above'">
+                        </div>
+                        <ng-template #show_other>
+                            <div [ngClass]="{'line-clamp-one':column.showTooltip,
+                                        'text-red' :column.setCustomClass && setCustomStyleRed,
+                                        'text-darkblue' : column.setCustomClass && setCustomStyleDarkBlue,
+                                        'text-green': column.setCustomClass && setCustomStyleGreen}"
+                                [matTooltip]="toolTip"
+                                [matTooltipClass]="column.customToolTipConfig?.tooltipClass || ''"
+                                [matTooltipPosition]="column.customToolTipConfig?.position || 'above'">{{ dataToShow }}
+                            </div>
+                        </ng-template>
+                    </ng-template>
+                </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Link'">
+                <a class="table-link" href="javascript:void(0)" (click)="cellClickCallback()"
+                    [matTooltip]="toolTip"
+                    [matTooltipClass]="column.customToolTipConfig?.tooltipClass || ''"
+                    [matTooltipPosition]="column.customToolTipConfig?.position || 'above'">
+                    {{ dataToShow }}
+                </a>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Icon'">
+                <em><img [src]="column.iconImagePath" (click)="cellClickCallback()" /></em>
+            </ng-container>
+            <ng-container *ngSwitchCase="'IconBoolean'">
+                <em *ngIf="dataToShow"><img [src]="column.trueIconImagePath"
+                        (click)="cellClickCallback()" /></em>
+                <em *ngIf="!dataToShow"><img [src]="column.falseIconImagePath"
+                        (click)="cellClickCallback()" /></em>
+            </ng-container>
+            <ng-container *ngSwitchCase="'ColorBox'">
+                <div>
+                    <div class="color-box" style="background: {{dataToShow}}"></div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'IconGroup'">
+                 <!-- display up and down arrow as per display order if Total Records is greater than one -->
+            <ng-container *ngIf="totalRecords>1">
+                <!-- display only down arrow if display order is one -->
+            <em *ngIf="displayOrder === 1">
+                    <div class="action-wrapper">
+                        <div class="action-inner">
+                            <div class="action-item">
+                                <a class="table-icon">
+                                    <img src="./assets/images/arrow-down-long.svg" alt="Arrow Down"
+                                        (click)="downClickCallback()" matTooltip="Move Down" style="cursor: pointer;"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            </em>
+            <!-- display only up arrow if display order is equal to totalRecords -->
+            <em *ngIf="displayOrder === totalRecords">
+                <div class="action-wrapper">
+                    <div class="action-inner">
+                        <div class="action-item">
+                            <a class="table-icon">
+                                <img src="./assets/images/arrow-up-long.svg" alt="Arrow Up"
+                                    (click)="upClickCallback()" matTooltip="Move Up" style="cursor: pointer;"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </em>
+            <!-- display up and down arrow if display order is in between one and totalRecords -->
+            <em *ngIf="displayOrder > 1 && displayOrder < totalRecords">
+                <div class="action-wrapper">
+                    <div class="action-inner">
+                        <div class="action-item">
+                            <a class="table-icon">
+                                <img src="./assets/images/arrow-up-long.svg" alt="Arrow Up"
+                                    (click)="upClickCallback()" matTooltip="Move Up" style="cursor: pointer;"/>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="action-inner">
+                        <div class="action-item">
+                            <a class="table-icon">
+                                <img src="./assets/images/arrow-down-long.svg" alt="Arrow Down"
+                                    (click)="downClickCallback()" matTooltip="Move Down" style="cursor: pointer;"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </em>
+        </ng-container>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>

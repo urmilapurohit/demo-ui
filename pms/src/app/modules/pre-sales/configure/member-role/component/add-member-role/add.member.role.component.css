@@ -1,0 +1,24 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+
+::ng-deep .filter-title-wrapper .title-link-wrap {
+    margin-bottom: 0 !important;
+}
+
+.checkbox-row lib-checkbox {
+    display: inline-block;
+    width: max-content;
+}
+
+.checkbox-row lib-checkbox+lib-checkbox {
+    margin-left: 2rem;
+}
+
+::ng-deep .form-row .custom-radio-checkbox-wrapper .custom-radio-checkbox-list {
+    margin-top: 0;
+}
+::ng-deep .form-row .custom-radio-checkbox-wrapper .custom-radio-checkbox-list{
+    min-height: max-content;
+}

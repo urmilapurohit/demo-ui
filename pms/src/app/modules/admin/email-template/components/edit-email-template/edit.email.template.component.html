@@ -1,0 +1,42 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Edit Email Template"
+            heading="Edit Email Template"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="editEmailTemplateFormGroup">
+                <div class="form-row edit-template-form">
+                    <div class="form-col mb-0">
+                        <div class="form-col full-width">
+                            <lib-form-field *ngIf="name" [config]="name" type="text"
+                                [isSubmitted]="submitted"></lib-form-field>
+                        </div>
+                        <div class="form-col full-width">
+                            <lib-form-field *ngIf="subject" [config]="subject" [isSubmitted]="submitted"
+                                type="text"></lib-form-field>
+                        </div>
+                        <div class="form-col full-width">
+                            <lib-form-field *ngIf="header" [config]="header" [isSubmitted]="submitted"
+                                type="text"></lib-form-field>
+                        </div>
+                        <div class="form-col full-width">
+                            <lib-form-field *ngIf="status" [config]="status" [isSubmitted]="submitted"
+                                type="dropdown"></lib-form-field>
+                        </div>
+                    </div>
+                    <div class="form-col mb-0">
+                        <lib-form-field *ngIf="token" [config]="token" [isSubmitted]="submitted"
+                            type="textarea"></lib-form-field>
+                    </div>
+                    <div class="form-col full-width editorTemplate">
+                        <mat-label>Email Content</mat-label>
+                        <app-ck-editor [config]="ckEditorConfig" [isSubmitted]="submitted"></app-ck-editor>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="grid-content-wrap">
+        <app-save-cancel-button [saveButtonConfig]="saveButtonConfig"
+          [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+    </div>
+</div>

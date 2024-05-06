@@ -1,0 +1,16 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Add/Remove Widget"
+      [showBackButton]="true" (handleBackClick)="handleBackBtn()" backButtonTitle="Back"
+      heading='Add/Remove Widget'></app-page-header>
+  </div>
+  <div class="grid-content-wrap" *ngIf="isWidgetTableVisible">
+    <div class="widget-settings-table-wrapper">
+      <lib-data-grid *ngIf="widgetDetailsGridConfig" [gridConfig]="widgetDetailsGridConfig"
+        [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+  </div>
+  <div class="grid-content-wrap" *ngIf="!isWidgetTableVisible">
+    <p class="message">You don't have the necessary permissions to Add / Remove Widget </p>
+  </div>
+</div>

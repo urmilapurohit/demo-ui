@@ -1,0 +1,27 @@
+<ng-container *ngIf="formGroup.get('isInEditMode')?.value; else ActionButtons">
+    <button mat-icon-button class="action-item table-icon-btn" matTooltip="Save" matTooltipPosition="above"
+        (click)="saveRecord()">
+        <ng-container>
+            <em><img src="assets/images/save.svg" alt="" /></em>
+        </ng-container>
+    </button>
+</ng-container>
+<ng-template #ActionButtons>
+    <div class="action-wrapper">
+        <ng-container *ngFor="let btn of actionButtons; let i=index">
+            <ng-container *ngIf="checkButtonVisible(btn)">
+                <ng-container *ngIf="!isLoading">
+                    <div class="action-inner">
+                        <div class="action-item">
+                            <lib-button [buttonConfig]="getAppButtonConfig(btn, i)"></lib-button>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="isLoading">
+                    <ngx-skeleton-loader count="1" appearance="circle"
+                        [theme]="{ height: '30px', width: '30px' }"></ngx-skeleton-loader>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</ng-template>

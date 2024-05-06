@@ -1,0 +1,31 @@
+<div class="modal-wrapper .modal-confirmation ">
+  <div class="modal-header">
+    <div class="title">
+      <h2>{{ data.title }}</h2>
+    </div>
+    <button type="button" mat-icon-button class="close-btn" mat-dialog-close tabindex="-1">
+      <img src="../../../../assets/images/close.svg" alt="Close" />
+    </button>
+  </div>
+  <div class="modal-content">
+    <div class="modal-content-wrapper">
+      <p>
+        {{data.bodyMessage}}
+      </p>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <ng-container *ngIf="data?.showConfirmBtn">
+      <button mat-button class="primary-btn"
+        (click)="dialogAction(data.confirmCallBackAction ?? 'yes')">{{data.confirmBtnName ?? "Confirm"}}</button>
+    </ng-container>
+    <ng-container *ngIf="data?.showCancelBtn">
+      <button mat-button class="primary-border-btn" (click)="dialogAction(data.cancelCallBackAction ?? 'no')">
+        {{data.cancelBtnName ?? "Cancel"}}</button>
+    </ng-container>
+    <ng-container *ngIf="data?.showCustomBtn">
+      <button mat-button [class]="data.customBtnClassname ?? 'primary-btn'"
+        (click)="data?.customBtnCallback()">Ok</button>
+    </ng-container>
+  </div>
+</div>

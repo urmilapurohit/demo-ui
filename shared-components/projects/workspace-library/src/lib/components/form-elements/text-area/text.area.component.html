@@ -1,0 +1,15 @@
+<div class="input-wrap">
+  <form [formGroup]="formGroup">
+    <mat-label [class.required-label]="config.isRequired">
+      {{config.label}}
+    </mat-label>
+    <mat-form-field class="custom-form-group custom-textarea">
+      <textarea matInput [class]="customClass" [placeholder]="placeholder ? placeholder : ''"
+        [formControlName]="config.formControlName" [rows]="config.rows ?? 1" (keyup)="onKeyUp($event)"
+        (blur)="onBlur($event)">
+    </textarea>
+    </mat-form-field>
+    <lib-show-error [ctrl]="config.formControlName" [formGroup]="formGroup"
+                [submit]="isSubmitted"></lib-show-error>
+  </form>
+</div>

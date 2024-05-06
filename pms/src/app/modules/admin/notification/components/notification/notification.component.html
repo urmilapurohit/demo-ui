@@ -1,0 +1,25 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" (handleAddClick)="addNotification()"
+            tooltipMessage="Add Notification" [showAddButton]="pagePermissions.isAddPermission"
+            heading="Notification"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="filterForm">
+                <lib-form-field *ngIf="notificationType" [config]="notificationType" type="dropdown"></lib-form-field>
+                <lib-form-field [config]="name" type="text"></lib-form-field>
+                <lib-form-field *ngIf="status" [config]="status" type="dropdown"></lib-form-field>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                </div>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="notificationsGridConfig" [gridConfig]="notificationsGridConfig"
+            [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+</div>

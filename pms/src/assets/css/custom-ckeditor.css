@@ -1,0 +1,39 @@
+::ng-deep .dark-theme .ck-toolbar {
+  background: var(--dark-white7);
+}
+
+::ng-deep .dark-theme .ck.ck-editor__editable {
+  background: var(--black);
+}
+
+::ng-deep .dark-theme .ck.ck-button {
+  color: var(--white);
+}
+
+::ng-deep .dark-theme .ck.ck-button:hover {
+  color: var(--black);
+}
+
+::ng-deep .dark-theme .ck.ck-button.ck-on {
+  color: var(--black);
+}
+
+::ng-deep .dark-theme .ck .ck-button__label {
+  color: var(--white);
+}
+
+::ng-deep .dark-theme .ck.ck-list__item .ck-button .ck-button__label {
+  color: var(--black);
+}
+
+::ng-deep .dark-theme .ck.ck-form .ck-button {
+  color: var(--black);
+}
+
+::ng-deep .dark-theme .ck.ck-form .ck.ck-dropdown .ck-dropdown__button .ck-button__label {
+  color: var(--black);
+}
+
+::ng-deep .ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
+  height: 19rem;
+}

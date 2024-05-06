@@ -1,0 +1,20 @@
+<div class="input-wrap custom-radio-checkbox-wrapper" *ngIf="config">
+  <mat-label>{{ config.label }}</mat-label>
+  <div class="custom-radio-checkbox-list">
+    <mat-radio-group
+      aria-label="Select an option"
+      [formControlName]="config.formControlName"
+      (change)="change($event)"
+    >
+      <ng-container *ngFor="let option of config.options">
+        <mat-radio-button
+          class="custom-radio"
+          [value]="option.value"
+          [checked]="option.checked"
+        >
+          {{ option.label }}
+        </mat-radio-button>
+      </ng-container>
+    </mat-radio-group>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="modal-wrapper">
+  <div class="modal-header">
+    <div class="title">
+      <h2>{{ manageTeamData.title }}</h2>
+    </div>
+    <button type="button" mat-icon-button class="close-btn" mat-dialog-close>
+      <img src="./assets/images/close.svg" alt="Close" class="light" />
+      <img src="./assets/images/close-gray.svg" alt="Close Gray" class="dark" />
+    </button>
+  </div>
+  <div class="modal-content">
+    <div class="modal-content-wrapper">
+      <form class="modal-form" [formGroup]="technicalSkillFormGroup">
+        <div class="form-row">
+          <div class="form-col full-width">
+            <lib-form-field *ngIf="technicalSkillDropdownOptions" [config]="technicalSkillDropdownConfig"
+              type="dropdown"></lib-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="btn-wrap">
+      <lib-button [buttonConfig]="cancelButtonConfig"></lib-button>
+      <lib-button [buttonConfig]="saveButtonConfig"></lib-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="[]" [showAddButton]="false" tooltipMessage="Employee Profile" [showBackButton]="true"
+            (handleBackClick)="handleBackBtn()" backButtonTitle="Back" heading='Employee Profile'></app-page-header>
+    </div>
+    <form [formGroup]="editProfileForm">
+        <div class="profile-details-block">
+            <div class="image-block">
+                <img  *ngIf="profileDetails.profilePhoto" [src]="(profileDetails.profilePhoto && profileDetails.profilePhoto.fileContents && profileDetails.profilePhoto.contentType ? 'data:' + profileDetails.profilePhoto.contentType + ';base64,' + profileDetails.profilePhoto.fileContents : '')"
+                    alt="Member" />
+                <img *ngIf="!profileDetails.profilePhoto" src="../../../../../../assets/images/preview-bg-icon.jpg" alt="Member" />
+            </div>
+            <div class="content-block">
+                <h2>{{profileDetails.userName}}</h2>
+                <div class="profile-edit-wrapper">
+                    <ul>
+                        <li>
+                            <div class="profile-edit-block">
+                                <em><img src="./assets/images/profile-icon-gray.svg" alt="profile icon"></em>
+                                <span>{{profileDetails.empNo}}</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile-edit-block">
+                                <em><img src="./assets/images/email-icon.svg" alt=""></em>
+                                <span *ngIf="editToggle">
+                                    <span>{{profileDetails.email}}</span>
+                                </span>
+                                <span *ngIf="!editToggle">
+                                    <div class="field-wrapper">
+                                        <lib-form-field *ngIf="email" [config]="email" type="text"
+                                            [isSubmitted]="submitted"></lib-form-field>
+                                        <lib-form-field *ngIf="emailSelect" [config]="emailSelect" type="dropdown"
+                                            [isSubmitted]="submitted"></lib-form-field>
+                                    </div>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="profile-edit-block">
+                                <em><img src="./assets/images/telephone-receiver.svg" alt="telephone icon"></em>
+                                <span *ngIf="editToggle">
+                                    <span>{{profileDetails.contactNo}}</span>
+                                </span>
+                                <span *ngIf="!editToggle">
+                                    <div class="input-wrap">
+                                        <lib-form-field *ngIf="contactNo" [config]="contactNo" type="text"
+                                            [isSubmitted]="submitted"></lib-form-field>
+                                    </div>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="btn-sm">
+                        <lib-button [buttonConfig]="systemConfigButton"></lib-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-info-wrapper">
+            <ul>
+                <li>
+                    <span class="title-col">Full Name:</span>
+                    <span class="detail-col">{{profileDetails.fullName}}</span>
+                </li>
+                <li>
+                    <span class="title-col">joining date:</span>
+                    <span class="detail-col">{{profileDetails.joinDate}}</span>
+                </li>
+                <li>
+                    <span class="title-col">Experience:</span>
+                    <span class="detail-col">{{profileDetails.experience ? profileDetails.experience : ''}} years</span>
+                </li>
+                <li>
+                    <span class="title-col">department:</span>
+                    <span class="detail-col">{{profileDetails.department}}</span>
+                </li>
+                <li>
+                    <span class="title-col">Designation:</span>
+                    <span class="detail-col">{{profileDetails.designation}}</span>
+                </li>
+                <li class="edit-field">
+                    <span class="title-col">Blood Group:</span>
+                    <span *ngIf="editToggle">
+                        {{profileDetails.bloodGroup}}
+                    </span>
+                    <span *ngIf="!editToggle">
+                        <lib-form-field *ngIf="bloodGroup" [config]="bloodGroup" type="text"
+                            [isSubmitted]="submitted"></lib-form-field>
+                    </span>
+                </li>
+                <li class="edit-field">
+                    <span class="title-col">Any Diseases:</span>
+                    <span *ngIf="editToggle">
+                        {{profileDetails.diseasesInfo}}
+                    </span>
+                    <span *ngIf="!editToggle">
+                        <lib-form-field *ngIf="diseasesInfo" [config]="diseasesInfo" type="textarea"
+                            [isSubmitted]="submitted"></lib-form-field>
+                    </span>
+
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="title-col">Date of Birth:</span>
+                    <span class="detail-col">{{profileDetails.birthDate}}</span>
+                </li>
+                <li>
+                    <span class="title-col">Gender:</span>
+                    <span class="detail-col" *ngIf="profileDetails?.gender===1">Male</span>
+                    <span class="detail-col" *ngIf="profileDetails?.gender===2">Female</span>
+                </li>
+                <li>
+                    <span class="title-col">Card Number:</span>
+                    <span class="detail-col">{{profileDetails.cardNo}}</span>
+                </li>
+                <li>
+                    <span class="title-col">Office:</span>
+                    <span class="detail-col">{{profileDetails.office}}</span>
+                </li>
+                <li>
+                    <span class="title-col"> Reporting Person:</span>
+                    <span class="detail-col">{{profileDetails.reportingPerson}}</span>
+                </li>
+                <li>
+                    <span class="title-col">Project Manager:</span>
+                    <span class="detail-col">{{profileDetails.projectManagerName}}</span>
+                </li>
+                <li class="edit-field">
+                    <span class="title-col">Emergency Contact No*:</span>
+                    <span *ngIf="editToggle">
+                        {{profileDetails.emergencyContactNo}}
+                    </span>
+                    <span *ngIf="!editToggle">
+                        <lib-form-field *ngIf="emergencyContactNo" [config]="emergencyContactNo" type="text"
+                            [isSubmitted]="submitted"></lib-form-field>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="profile-edit-controls">
+            <div class="btn-sm">
+                <lib-button [buttonConfig]="toggleEditButton" *ngIf="editToggle"></lib-button>
+                <lib-button [buttonConfig]="toggleSaveButton" *ngIf="!editToggle"></lib-button>
+            </div>
+        </div>
+    </form>
+</div>

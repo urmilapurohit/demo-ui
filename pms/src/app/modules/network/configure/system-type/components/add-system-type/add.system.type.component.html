@@ -1,0 +1,50 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false"
+      [heading]="isEdit ? 'Edit System Type': 'Add System Type'"></app-page-header>
+    <div class="dropdown-link-wrapper">
+      <form class="left-wrapper" [formGroup]="addSystemTypeFormGroup">
+        <div class="form-row add-group-form sm">
+          <div class="form-col">
+            <lib-form-field *ngIf="name" [config]="name" type="text" [isSubmitted]="submitted"></lib-form-field>
+          </div>
+          <div class="form-col full-width">
+            <div class="btn-sm">
+              <lib-button [buttonConfig]="addItemTypeBtnConfig"></lib-button>
+            </div>
+          </div>
+          <div formArrayName="itemTypes" class="add-item-wrapper">
+            <div class="form-col full-width">
+              <div *ngFor="let item of itemTypes.controls; let i=index">
+                <form [formGroup]="itemFormGroup(i)" class="add-item-form">
+                  <div class="form-row">
+                    <div class="form-col">
+                      <lib-form-field [config]="itemType" type="dropdown" [isSubmitted]="submitted"></lib-form-field>
+                    </div>
+                    <div class="form-col">
+                      <lib-form-field *ngIf="isRequired" [config]="isRequired" type="slidetoggle"
+                        [isSubmitted]="submitted"></lib-form-field>
+                    </div>
+                    <div class="form-col">
+                      <div class="btn-wrapper">
+                        <lib-button [buttonConfig]="deleteBtnConfigHandler(i)"></lib-button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="form-col">
+            <lib-form-field *ngIf="status" [config]="status" type="dropdown" [isSubmitted]="submitted"></lib-form-field>
+          </div>
+        </div>
+      </form>
+      <div class="right-wrapper"></div>
+    </div>
+  </div>
+  <div class="grid-content-wrap">
+    <app-save-cancel-button [saveButtonConfig]="saveButtonConfig"
+      [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+  </div>
+</div>

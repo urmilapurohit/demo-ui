@@ -1,0 +1,204 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+@import url("@styles/custom-helper.css");
+
+.right-wrapper .btn-wrapper {
+    display: flex;
+}
+
+.right-wrapper .btn-wrapper .icon-btn {
+    margin-left: 1rem;
+}
+
+.pre-sales-wrapper .workspace-table-wrapper .custom-dropdown-wrapper {
+    max-width: 300px;
+    margin-left: auto;
+    margin-bottom: 2rem;
+}
+
+.pre-sales-wrapper .filter-title-wrapper .right-wrapper {
+    margin-bottom: 0;
+}
+
+/* form elements styles */
+.pre-sales-wrapper .sales-list-wrapper.form-group-wrapper {
+    margin: 0 -0.5rem;
+}
+
+.sales-list-wrapper .sales-list-item .btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem solid var(--tablecell-border);
+    margin-bottom: 2rem;
+}
+
+::ng-deep .dark-theme .sales-list-wrapper .sales-list-item .btn-wrapper {
+    border-bottom: 0.1rem solid var(--dark-white4) !important;
+}
+
+.sales-list-wrapper .sales-list-item .btn-sm {
+    display: flex;
+}
+
+::ng-deep .dark-theme .sales-list-wrapper .sales-list-item .btn-sm img,
+::ng-deep .dark-theme .sales-list-wrapper .sales-list-item .chip-list img {
+    filter: brightness(0) invert(1) !important;
+}
+
+.sales-list-wrapper .sales-list-item .btn-sm button:not(:first-child) {
+    margin-left: 1.5rem !important;
+}
+
+.sales-list-wrapper .sales-list-item .btn-sm .input-wrap {
+    margin-left: 2rem;
+}
+
+.sales-list-wrapper .sales-list-item .chip-title {
+    padding-right: 1rem;
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.sales-list-wrapper .sales-list-item .chip-outer .chip-wrapper {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+::ng-deep .dark-theme .sales-list-wrapper .sales-list-item .chip-list {
+    background-color: var(--dark-white7) !important;
+}
+
+.sales-list-wrapper .sales-list-item .chip-outer .chip-wrapper img {
+    width: 0.8rem;
+    height: 0.8rem;
+    cursor: pointer;
+    position: relative;
+    top: -0.1rem;
+}
+
+.sales-list-wrapper .sales-list-item .chip-outer .chip-wrapper em {
+    margin-left: 0.8rem;
+}
+
+.sales-list-wrapper .sales-list-item .left-wrapper,
+.sales-list-wrapper .sales-list-item .right-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.sales-list-wrapper .sales-list-item .left-wrapper .input-wrap:not(:last-child),
+.sales-list-wrapper .sales-list-item .left-wrapper .btn-sm:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.sales-list-wrapper .sales-list-item .left-wrapper .input-wrap.custom-radio-checkbox-wrapper:not(:first-child) {
+    margin-left: 1rem;
+}
+
+.sales-list-wrapper .sales-list-item .right-wrapper .input-wrap {
+    margin-right: 1rem;
+}
+
+.sales-list-wrapper .sales-list-item .right-wrapper mat-label {
+    display: none;
+}
+
+.hide-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.sales-list-wrapper .sales-list-item .search-chip-dropdown-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--tablecell-border);
+    padding-bottom: 2rem;
+}
+
+::ng-deep .dark-theme .sales-list-wrapper .sales-list-item .search-chip-dropdown-wrapper {
+    border-bottom: 0.1rem solid var(--dark-white4) !important;
+}
+
+.sales-list-wrapper .sales-list-item .search-chip-dropdown-wrapper .chip-block .chip-outer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sales-list-wrapper .sales-list-item .search-chip-dropdown-wrapper .chip-block {
+    flex: 0 0 calc(100% - 30rem);
+    max-width: calc(100% - 30rem);
+    padding-right: 3rem;
+}
+
+.sales-list-wrapper .sales-list-item .search-chip-dropdown-wrapper .dropdown-block {
+    flex: 0 0 30rem;
+    max-width: 30rem;
+}
+
+/* tooltip */
+::ng-deep .custom-tooltip.history-action-btn-tooltip::after {
+    left: calc(50% + 1.8rem);
+}
+
+::ng-deep .workspace-table .pre-sale-date-column {
+    min-width: 10.2rem;
+    max-width: 10.2rem;
+    width: 10.2rem;
+}
+
+::ng-deep .workspace-table .country-column {
+    min-width: 12rem;
+    max-width: 12rem;
+    width: 12rem;
+}
+
+::ng-deep .workspace-table .rating {
+    min-width: 6.5rem;
+    max-width: 6.5rem;
+    width: 6.5rem;
+}
+
+::ng-deep .workspace-table .ba-column {
+    min-width: 17.8rem;
+    max-width: 17.8rem;
+    width: 17.8rem;
+    white-space: normal !important;
+}
+
+::ng-deep .workspace-table .source-column {
+    min-width: 7.8rem;
+    max-width: 7.8rem;
+    width: 7.8rem;
+}
+
+::ng-deep .workspace-table .budget-column {
+    min-width: 10rem;
+    max-width: 10rem;
+    width: 10rem;
+}
+
+::ng-deep .workspace-table .project-column {
+    max-width: 20rem;
+    min-width: 20rem;
+    white-space: normal !important;
+}
+
+::ng-deep .workspace-table .remark-column {
+    max-width: 20rem;
+    min-width: 20rem;
+    white-space: normal !important;
+}
+
+::ng-deep .workspace-table .pre-sale-date-column .ng-star-inserted,
+::ng-deep .workspace-table .pre-sale-date-column .mat-sort-header-content,
+::ng-deep .workspace-table .country-column .ng-star-inserted,
+::ng-deep .workspace-table .country-column .mat-sort-header-content {
+    white-space: normal;
+}

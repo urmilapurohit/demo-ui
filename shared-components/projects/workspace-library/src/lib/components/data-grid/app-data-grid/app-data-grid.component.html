@@ -1,0 +1,220 @@
+<form [formGroup]="gridForm">
+    <ng-container *ngIf="isColumnsLoaded">
+        <div class="workspace-table-wrapper">
+            <div class="workspace-table-responsive">
+                <table matSort matSortDisableClear [multiTemplateDataRows]="gridConfig.nestedGrid?.isContainNestedTable" (matSortChange)="sortTable($event)" mat-table matSort
+                    matSortDisableClear [ngClass]="!isLoading ? 'visible' : 'hidden'"
+                    [ngClass]="{'workspace-table has-child-table mat-elevation-z8': !gridConfig.nestedGrid?.isChildTable,
+                    'workspace-nested-table': gridConfig.nestedGrid?.isChildTable,
+                    'visible': !isLoading,
+                    'hidden' : isLoading}"
+                    [matSortActive]="defaultSortColumn ?? ''" [matSortDirection]="defaultSortDir"
+                    class="workspace-table mat-elevation-z8" [dataSource]="outputData">
+                    <ng-container *ngFor="let tableColumn of gridConfig?.columns"
+                        [matColumnDef]="tableColumn.title ? tableColumn.title :''"
+                        [sticky]="tableColumn.isStickyColumn ? true:false ">
+                        <!-- Tabel header  -->
+                        <th [disabled]="!tableColumn.isSortable" [ngClass]="tableColumn.customHeaderClassName"
+                            [mat-sort-header]="tableColumn.field ? tableColumn.field :''" mat-header-cell
+                            *matHeaderCellDef [class.hidden]="tableColumn?.isHidden"
+                            [ngStyle]="getColumnStyle(tableColumn)">
+                            <!-- Header with edit config -->
+                            <ng-container *ngIf="tableColumn.headerEditConfig; else NormalHeader">
+                                <div [ngSwitch]="tableColumn.headerEditConfig.controlType">
+                                    <ng-container *ngSwitchCase="'checkbox'">
+                                        <lib-checkbox
+                                            [config]="tableColumn.headerEditConfig.controlConfig"></lib-checkbox>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                            <!-- Normal Header -->
+                            <ng-template #NormalHeader sticky>
+                                <span>{{tableColumn?.title}}</span>
+                            </ng-template>
+                        </th>
+
+                        <!-- Table data -->
+                        <td mat-cell *matCellDef="let element; let i = index;" [class.hidden]="tableColumn.isHidden"
+                            [ngStyle]="getColumnStyle(tableColumn)"
+                            [class.data-grid-edit-cell]="element?.get('isInEditMode')?.value"
+                            [ngClass]="getTDClass(tableColumn, element)">
+
+                            <!-- for edit element config -->
+                            <ng-container *ngIf="tableColumn.editConfig?.isEditable; else NormalCell">
+                                <ng-container *ngIf="isLoading">
+                                    <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+                                </ng-container>
+                                <ng-container *ngIf="!isLoading">
+                                    <div [ngSwitch]="tableColumn.editConfig?.controlType">
+                                        <ng-container *ngSwitchCase="'checkbox'">
+                                            <lib-checkbox
+                                                *ngIf="tableColumn.editConfig?.controlType && isControlVisible(i,tableColumn, element)"
+                                                [config]="getCheckBoxConfig(i, tableColumn, element)"></lib-checkbox>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'text'">
+                                            <lib-data-grid-edit-element [formGroup]="element"
+                                                [disabled]="tableColumn.editConfig?.isDisabled ?? false"
+                                                [validationForForm]="gridConfig.validationFor"
+                                                [gridFromGroup]="gridForm"
+                                                (enterClickEvent)="onEditElementEnterClick(tableColumn)"
+                                                [column]="tableColumn" [index]="i"
+                                                [rowData]="getOriginalDataFromFormGroup(element)">
+                                            </lib-data-grid-edit-element>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'custom-input'">
+                                            <div class="input-action-wrapper rent-slip-action-wrapper">
+                                                <mat-form-field
+                                                    *ngIf="!tableColumn.isNoInputRestriction && !tableColumn.customTextField"
+                                                    class="input-wrapper custom-input-box"
+                                                    [ngClass]="tableColumn.field === 'total' ? 'total-value-text-box' : 'simple-value-text-box'">
+                                                    <input type="text" matInput
+                                                        [formControlName]="getTextBoxControl(i, tableColumn)"
+                                                        (keyup)="onTextBoxKeyUp($event, i, tableColumn)"
+                                                        mask="separator" thousandSeparator="," appNumbersOnly />
+                                                </mat-form-field>
+                                                <mat-form-field
+                                                    *ngIf="tableColumn.isNoInputRestriction && !tableColumn.customTextField"
+                                                    class="input-wrapper custom-input-box"
+                                                    [ngClass]="tableColumn.field === 'total' ? 'total-value-text-box' : 'custom-simple-value-text-box'">
+                                                    <input type="text" matInput
+                                                        [formControlName]="getTextBoxControl(i, tableColumn)"
+                                                        (change)="textBoxValueChange($event, i, tableColumn)"
+                                                        mask="separator" thousandSeparator="," [maxLength]="11" />
+                                                </mat-form-field>
+                                                <mat-form-field *ngIf="tableColumn.customTextField"
+                                                    class="input-wrapper"
+                                                    [ngClass]="{'highlight-invalid-control':tableColumn?.showError && isInvalid(i, tableColumn)}">
+                                                    <input type="text" matInput
+                                                        [formControlName]="getTextBoxControl(i, tableColumn)"
+                                                        (change)="textBoxValueChange($event, i, tableColumn)"
+                                                        [maxLength]="20" />
+                                                </mat-form-field>
+                                                <div class="action-wrapper"
+                                                    *ngIf="tableColumn?.editConfig?.displayCopyBtn && tableColumn?.editConfig?.displayCopyBtn === true">
+                                                    <div class="action-inner">
+                                                        <div class="action-item">
+                                                            <img class="copy-btn"
+                                                                src="../../../assets/images/copy-icon.svg"
+                                                                alt="Copy Icon"
+                                                                (click)="copyBtnClick(i, tableColumn)" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'dropdown'">
+                                            <div class="custom-dropdown-wrapper"
+                                                *ngIf="tableColumn.editConfig?.controlType && isControlVisible(i,tableColumn, element)">
+                                                <mat-form-field class="custom-form-group sm-form-group"
+                                                    [ngClass]="{'highlight-invalid-control':tableColumn?.showError && isInvalid(i, tableColumn)}">
+                                                    <mat-select
+                                                        [formControlName]="getTextBoxControl(i, tableColumn, element)"
+                                                        (selectionChange)="selectionChange($event, tableColumn)">
+                                                        <mat-option
+                                                            *ngFor="let item of (tableColumn.editConfig?.dataFieldKey ? getDropdownFieldData(tableColumn, element) : tableColumn.editConfig?.dropDownData | async)"
+                                                            [value]="item.id">
+                                                            {{item.text}}
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'slidetoggle'">
+                                            <div class="custom-switch-wrapper">
+                                                <mat-slide-toggle [disabled]="true" class="custom-switch"
+                                                    [formControlName]="getSlideToggleControl(i, tableColumn)"
+                                                    (change)="tableColumn.editConfig?.slideToogleChange($event,element)">
+                                                </mat-slide-toggle>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </ng-container>
+                            </ng-container>
+
+                            <!-- For data displaying in td  -->
+                            <ng-template #NormalCell>
+                                <lib-data-grid-element [isLoading]="isLoading" [formGroup]="element"
+                                    [totalRecords]="totalRecords" [column]="tableColumn"
+                                    [rowData]="getOriginalDataFromFormGroup(element)">
+                                </lib-data-grid-element>
+                            </ng-template>
+                        </td>
+                    </ng-container>
+                    <ng-container sticky matColumnDef="position" *ngIf="gridConfig?.displayIndexNumber">
+                        <th mat-header-cell class="index-column" *matHeaderCellDef>{{gridConfig.indexColumnHeaderName
+                            ?? "Position"}}</th>
+                        <td mat-cell *matCellDef="let element; let i = index">
+                            <ng-container *ngIf="!isLoading">
+                                {{ getIndexNumber(i) }}
+                            </ng-container>
+                            <ng-container *ngIf="isLoading">
+                                <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="actions" stickyEnd
+                        *ngIf="gridConfig.actionButtons && gridConfig.actionButtons.length > 0">
+                        <th mat-header-cell [class]="'action-count-'.concat(gridConfig.actionButtons.length.toString())"
+                            *matHeaderCellDef>Actions
+                        </th>
+                        <td mat-cell *matCellDef="let element; let i = index"
+                            [class]="'action-count-'.concat(gridConfig.actionButtons.length.toString())">
+                            <lib-data-grid-action-element [isLoading]="isLoading" [formGroup]="element"
+                                [columns]="dataColumns" [rowData]="getOriginalDataFromFormGroup(element)"
+                                [actionButtons]="gridConfig.actionButtons" [gridEditConfig]="editConfig"
+                                [getCurrentPaginationFn]="getCurrentPagination" [getRowFullDataFn]="getRowFullData">
+                            </lib-data-grid-action-element>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="nestedAction" 
+                        *ngIf="gridConfig.nestedGrid && gridConfig.nestedGrid.nestedActionButtons && gridConfig.nestedGrid.nestedActionButtons.length > 0">
+                        <th class="action-column sr-no-column" mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element; let i = index">
+                            <lib-data-grid-action-element [isLoading]="isLoading" [formGroup]="element"
+                                [columns]="dataColumns" [rowData]="getOriginalDataFromFormGroup(element)"
+                                [actionButtons]="gridConfig.nestedGrid && gridConfig.nestedGrid.nestedActionButtons ? gridConfig.nestedGrid.nestedActionButtons : []" [gridEditConfig]="editConfig"
+                                [getCurrentPaginationFn]="getCurrentPagination" [getRowFullDataFn]="getRowFullData">
+                            </lib-data-grid-action-element>
+                        </td>
+                    </ng-container>
+
+                    <ng-container *ngIf="gridConfig.nestedGrid?.isContainNestedTable" matColumnDef="expandedDetail">
+                        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length" >
+                            <div class="example-element-detail" [@detailExpand]="isExpandedTableRow(element) ? 'expanded' : 'collapsed'">
+                                <div class="inner-table-wrapper workspace-table-wrapper" *ngIf="isExpandedTableRow(element)">
+                                    <lib-data-grid *ngIf="getNestedGridConfig(element)" [gridConfig]="getNestedGridConfig(element)"
+                                        [isLoading]="false"></lib-data-grid>
+                                </div>
+                            </div>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <ng-container *ngIf="!gridConfig.nestedGrid?.isContainNestedTable">
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </ng-container>
+                    <ng-container *ngIf="gridConfig.nestedGrid?.isContainNestedTable">
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.main-table-row]="isMainTableRow(row)" [class.contains-expanded-row]="isExpandedTableRow(row)" ></tr>
+                        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="innertable-detail-row"></tr>
+                    </ng-container>
+                </table>
+                <!-- If no grid Data Found -->
+                <div class="grid-no-data"
+                    *ngIf="(totalRecords === 0 || outputData.filteredData.length === 0) && gridConfig?.isNoRecordFound && !isLoading">
+                    <span>{{ "No Records Found" }}</span>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <ng-container *ngIf="!featuresConfig.hidePagination">
+                <div class="pagination-status-container">
+                    <div class="inner-container">
+                        <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" [length]="totalRecords"
+                            [pageSize]="defaultPageSize" (page)="pageEvent($event)" showFirstLastButtons>
+                        </mat-paginator>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</form>

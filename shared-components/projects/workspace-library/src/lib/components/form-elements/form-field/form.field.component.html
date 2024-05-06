@@ -1,0 +1,29 @@
+<div class="w-100" [ngSwitch]="type">
+  <ng-container *ngSwitchCase="'text'">
+    <lib-text-field [config]="configTypeText" [isSubmitted]="isSubmitted"></lib-text-field>
+  </ng-container>
+  <ng-container *ngSwitchCase="'password'">
+    <lib-text-field [config]="configTypeText" [isSubmitted]="isSubmitted"></lib-text-field>
+  </ng-container>
+  <ng-container *ngSwitchCase="'textarea'">
+    <lib-text-area [config]="configTypeTextArea" [isSubmitted]="isSubmitted"></lib-text-area>
+  </ng-container>
+  <ng-container *ngSwitchCase="'checkbox'">
+    <lib-checkbox [config]="configTypeCheckbox"></lib-checkbox>
+  </ng-container>
+  <ng-container *ngSwitchCase="'datepicker'">
+    <lib-date-field [config]="config" [isSubmitted]="isSubmitted" [startView]="getConfigTypeStartView"></lib-date-field>
+  </ng-container>
+  <ng-container *ngSwitchCase="'slidetoggle'">
+    <lib-slide-toggle [config]="configTypeSlideToggle"></lib-slide-toggle>
+  </ng-container>
+  <ng-container *ngSwitchCase="'dropdown'">
+    <lib-dropdown [config]="configTypeDropdown" [isSubmitted]="isSubmitted"></lib-dropdown>
+  </ng-container>
+  <ng-container *ngSwitchCase="'radio'">
+    <lib-radiobutton [config]="configTypeRadio"></lib-radiobutton>
+  </ng-container>
+  <ng-container *ngSwitchCase="'autocomplete'">
+    <lib-auto-complete [config]="configTypeAutoComplete" [isSubmitted]="isSubmitted"></lib-auto-complete>
+  </ng-container>
+</div>

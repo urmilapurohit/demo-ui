@@ -1,0 +1,9 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]="false" heading="Immediate Senior History" [showBackButton]="true" backButtonTitle="Back To Manage" (handleBackClick)="backButtonClick()"></app-page-header>
+      </div>
+      <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="immediateSeniorGridConfig" [gridConfig]="immediateSeniorGridConfig" [resetSort]="resetSorting"
+            [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+</div>

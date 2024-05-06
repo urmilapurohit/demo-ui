@@ -1,0 +1,36 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false"
+      [heading]="isEdit ? 'Edit Designation': 'Add Designation'"></app-page-header>
+    <div class="dropdown-link-wrapper">
+      <form class="left-wrapper" [formGroup]="addDesignationFormGroup">
+        <div class="form-row add-group-form sm">
+          <div class="form-col">
+            <lib-form-field *ngIf="name" [config]="name" type="text" [isSubmitted]="submitted"></lib-form-field>
+          </div>
+          <div class="form-col">
+            <lib-form-field *ngIf="abbreviation" [config]="abbreviation" type="text"
+              [isSubmitted]="submitted"></lib-form-field>
+          </div>
+          <div class="form-col">
+            <lib-form-field *ngIf="canBeProjectMember" [config]="canBeProjectMember" [isSubmitted]="submitted"
+              type="checkbox"></lib-form-field>
+          </div>
+          <div class="form-col">
+            <lib-form-field *ngIf="canBeAssessor" [config]="canBeAssessor" [isSubmitted]="submitted"
+              type="checkbox"></lib-form-field>
+          </div>
+          <div class="form-col">
+            <lib-form-field *ngIf="canBeReviewer" [config]="canBeReviewer" [isSubmitted]="submitted"
+              type="checkbox"></lib-form-field>
+          </div>
+        </div>
+      </form>
+      <div class="right-wrapper"></div>
+    </div>
+  </div>
+  <div class="grid-content-wrap">
+    <app-save-cancel-button [saveButtonConfig]="saveButtonConfig"
+      [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+  </div>
+</div>

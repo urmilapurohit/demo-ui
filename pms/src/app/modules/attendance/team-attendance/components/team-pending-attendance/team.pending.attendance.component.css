@@ -1,0 +1,86 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/attendance-table.css");
+
+.dropdown-link-wrapper .left-wrapper.pending-attendance {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.dropdown-link-wrapper .left-wrapper.pending-attendance .pending-attendance-count {
+    height: 4rem;
+    line-height: 4rem;
+}
+
+.dropdown-link-wrapper .left-wrapper.pending-attendance .pending-attendance-count .count {
+    color: var(--primary-color);
+}
+
+::ng-deep body.dark-theme .dropdown-link-wrapper .left-wrapper.pending-attendance .pending-attendance-count .count,
+body.dark-theme .dropdown-link-wrapper .left-wrapper.pending-attendance .pending-attendance-count .count {
+    color: var(----dark-white6) !important;
+}
+
+.grid-content-wrap .pending-table-wrapper+.bottom-btn-wrap {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.grid-content-wrap .pending-table-wrapper+.bottom-btn-wrap .btn-sm:not(:last-child) {
+    margin-right: 1rem;
+}
+
+::ng-deep .workspace-table.pending-attendance-table .name-column,
+.workspace-table.pending-attendance-table .name-column {
+    width: 36rem;
+    min-width: 36rem;
+    max-width: 36rem;
+    white-space: normal !important;
+}
+
+::ng-deep .workspace-table.pending-attendance-table .ro-name-column:not(:last-child),
+.workspace-table.pending-attendance-table .ro-name-column:not(:last-child) {
+    width: 40rem;
+    min-width: 40rem;
+    max-width: 40rem;
+    white-space: normal !important;
+}
+
+.wrapper {
+    height: 55vh;
+}
+
+::ng-deep .workspace-table-wrapper .border {
+    border-top: 1px solid var(--tablecell-border) !important;
+}
+
+::ng-deep .dark-theme .workspace-table-wrapper .border {
+    border-top: 1px solid var(--dark-black5) !important;
+}
+
+::ng-deep table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 !important;
+}
+
+
+::ng-deep table thead tr th {
+    transform: translateY(-1px);
+    border-bottom: inset 1px solid var(--tablecell-border) !important;
+}
+
+::ng-deep table tbody tr:first-child td {
+    border-top: none !important;
+}
+
+::ng-deep .workspace-table.mat-mdc-table thead th.mat-sort-header[aria-sort="descending"] .mat-sort-header-arrow {
+    background-image: url("../../../../../../assets/images/ascending-arrow.svg");
+}
+
+
+::ng-deep .workspace-table.mat-mdc-table thead th.mat-sort-header[aria-sort="ascending"] .mat-sort-header-arrow {
+    background-image: url("../../../../../../assets/images/descending-arrow.svg");
+}

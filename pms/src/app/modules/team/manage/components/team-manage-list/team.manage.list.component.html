@@ -1,0 +1,41 @@
+<div class="dropdown-link-wrapper mb-10">
+    <form class="left-wrapper" [formGroup]="filterForm">
+      <lib-form-field [config]="searchName" type="text"></lib-form-field>
+      <lib-form-field *ngIf="designationDropdownConfig" [config]="designationDropdownConfig" type="dropdown"></lib-form-field>
+      <lib-form-field *ngIf="teamLeadDropdownConfig" [config]="teamLeadDropdownConfig" type="dropdown"></lib-form-field>
+      <lib-form-field *ngIf="technicalSkillDropdownConfig" [config]="technicalSkillDropdownConfig" type="dropdown"></lib-form-field>
+      <div class="btn-sm">
+          <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+      </div>
+      <div class="btn-sm">
+          <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+      </div>
+    </form>
+  </div>
+  <ng-template #technicalSkillTD let-row *ngIf="isEditPermission">
+    <div class="chip-outer">                  
+      <ul class="chip-wrapper">
+        <ng-container *ngIf="row && row.technicalSkills">
+          <ng-container *ngFor="let skill of row.technicalSkills.split(',')">
+            <li class="chip-list" *ngIf="skill">
+              <span>{{ skill }}</span>
+            </li>
+          </ng-container>
+        </ng-container>
+        <li>
+          <button
+            mat-icon-button
+            class="table-icon-btn"
+            (click)="openTechnicalSkillDialog(row)"
+          >
+            <img
+              src="./assets/images/edit-pencil-gray.svg"
+              alt="Edit Technical Skill"
+            />
+          </button>
+        </li>
+      </ul>
+    </div>
+  </ng-template>
+  <lib-data-grid *ngIf="manageTeamGridConfig" [gridConfig]="manageTeamGridConfig" [resetSort]="resetSorting"
+        [isLoading]="isGridLoading"></lib-data-grid>

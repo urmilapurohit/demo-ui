@@ -1,0 +1,29 @@
+<div class="auth-wrapper" style="background-image: url('../../../assets/images/auth-banner.jpg');">
+    <div class="auth-box">
+        <div class="logo">
+            <img src="../../../../assets/images/workspace-logo.svg" alt="site-logo">
+        </div>
+        <ng-container *ngIf="alertMessage">
+            <div [class.success-message-account]="isFromForgotPassword"
+                [class.error-message-account]="!isFromForgotPassword">
+                {{alertMessage}}
+            </div>
+        </ng-container>
+        <form [formGroup]="loginForm">
+            <div class="mb-2">
+                <lib-form-field [config]="userName" [isSubmitted]="submitted" type="text"></lib-form-field>
+            </div>
+            <div class="mb-2">
+                <lib-form-field [config]="password" [isSubmitted]="submitted" type="password"></lib-form-field>
+            </div>
+            <div class="control-wrapper">
+                <mat-checkbox class="custom-check">Remember me</mat-checkbox>
+                <a routerLink="/forgot-password" class="link-underline" title="Forgot your password?">Forgot your
+                    password?</a>
+            </div>
+        </form>
+        <div class="btn-sm">
+            <lib-button [buttonConfig]="logInBtnConfig"></lib-button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+@import url("../../../../../../assets/css/filter-block.css");
+@import url("../../../../../../assets/css/form-elements.css");
+@import url("../../../../../../assets/css/workspace-table.css");
+@import url("../../../../../../assets/css/custom-helper.css");
+
+::ng-deep .workspace-table tr th.index-column,
+::ng-deep .workspace-table tr td.index-column {
+    width: 4rem !important;
+}
+
+::ng-deep .workspace-table tr th.name-column,
+::ng-deep .workspace-table tr td.name-column {
+    width: 20rem;
+}
+
+::ng-deep .workspace-table tr th.technical-column,
+::ng-deep .workspace-table tr td.technical-column {
+    width: 27rem;
+}
+
+::ng-deep .workspace-table tr th.designation-column,
+::ng-deep .workspace-table tr td.designation-column {
+    width: 6rem;
+}
+
+::ng-deep .workspace-table tr th.experience-column,
+::ng-deep .workspace-table tr td.experience-column {
+    width: 6rem;
+}
+
+::ng-deep .workspace-table tr th.assignHours-column,
+::ng-deep .workspace-table tr td.assignHours-column {
+    width: 7rem;
+}
+
+::ng-deep .workspace-table tr th.ro-column,
+::ng-deep .workspace-table tr td.ro-column {
+    width: 25rem;
+}
+
+::ng-deep .workspace-table .table-icon-btn {
+    background-color: transparent;
+    width: 2.7rem;
+    height: 2.7rem;
+    margin-top: 0.2rem;
+    margin-left: 0.3rem;
+}
+
+::ng-deep .workspace-table .table-icon-btn.mat-mdc-icon-button .mat-mdc-button-ripple,
+::ng-deep .workspace-table .table-icon-btn.mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before {
+    display: none;
+}
+
+::ng-deep .workspace-table .table-icon-btn img {
+    width: 1.3rem !important;
+    height: 1.3rem !important;
+}
+
+::ng-deep .workspace-table .chip-outer {
+    align-items: flex-start;
+}

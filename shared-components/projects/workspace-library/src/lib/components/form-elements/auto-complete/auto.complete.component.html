@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup">
+  <div class="input-wrap">
+    <mat-label *ngIf="config.label" [class.required-label]="config.isRequired">{{ config.label }}</mat-label>
+    <mat-form-field [class]="config.customFormFieldClass">
+      <input type="text" [placeholder]="config.placeholder" matInput
+        [formControlName]="config.formControlName" [matAutocomplete]="auto" (input)="onInput($event)" />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">{{ option }}</mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+  <lib-show-error [ctrl]="config.formControlName" [formGroup]="formGroup" [submit]="isSubmitted"></lib-show-error>
+</form>

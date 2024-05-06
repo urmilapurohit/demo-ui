@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+cd ./pms && npx lint-staged --allow-empty
+cd ..
+cd ./account && npx lint-staged --allow-empty

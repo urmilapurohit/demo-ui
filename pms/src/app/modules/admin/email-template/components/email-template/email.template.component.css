@@ -1,0 +1,10 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+::ng-deep .workspace-table tr th.subject-column,
+::ng-deep .workspace-table tr td.subject-column {
+    width: 250px;
+    white-space: normal;
+}

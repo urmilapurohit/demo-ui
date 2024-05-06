@@ -1,0 +1,409 @@
+.m-0 {
+  margin: 0;
+}
+
+.m-10 {
+  margin: 1rem;
+}
+
+.m-15 {
+  margin: 1.5rem;
+}
+
+.m-20 {
+  margin: 2rem;
+}
+
+.m-25 {
+  margin: 2.5rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-5 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-10 {
+  margin-bottom: 1rem;
+}
+
+.mb-15 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-20 {
+  margin-bottom: 2rem;
+}
+
+.mb-25 {
+  margin-bottom: 2.5rem;
+}
+
+.mx-10 {
+  margin: 0 1rem;
+}
+
+.my-10 {
+  margin: 1rem 0;
+}
+
+.mx-15 {
+  margin: 0 1.5rem;
+}
+
+.my-15 {
+  margin: 1.5rem 0;
+}
+
+.mx-20 {
+  margin: 0 2rem;
+}
+
+.my-20 {
+  margin: 2rem 0;
+}
+
+.mx-25 {
+  margin: 0 2.5rem;
+}
+
+.my-25 {
+  margin: 2.5rem 0;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+/* margin minus */
+.-ml-10 {
+  margin-left: -10px;
+}
+
+/* padding properties  */
+.p-10 {
+  padding: 1rem;
+}
+
+.p-15 {
+  padding: 1.5rem;
+}
+
+.p-20 {
+  padding: 2rem;
+}
+
+.p-25 {
+  padding: 2.5rem;
+}
+
+.pb-10 {
+  padding-bottom: 1rem;
+}
+
+.pb-15 {
+  padding-bottom: 1.5rem;
+}
+
+.pb-20 {
+  padding-bottom: 2rem;
+}
+
+.pb-25 {
+  padding-bottom: 2.5rem;
+}
+
+.px-05 {
+  padding: 0 0.5rem;
+}
+
+.px-10 {
+  padding: 0 1rem;
+}
+
+.py-10 {
+  padding: 1rem 0;
+}
+
+.px-15 {
+  padding: 0 1.5rem;
+}
+
+.py-15 {
+  padding: 1.5rem 0;
+}
+
+.px-20 {
+  padding: 0 2rem;
+}
+
+.py-20 {
+  padding: 2rem 0;
+}
+
+.px-25 {
+  padding: 0 2.5rem;
+}
+
+.py-25 {
+  padding: 2.5rem 0;
+}
+
+/* flex col properties  */
+.form-group-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin: 0 -1.5rem -3rem;
+}
+
+.form-group {
+  padding: 0 1.5rem 3rem;
+}
+
+.col-1 {
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+
+.col-2 {
+  max-width: 50%;
+  flex: 0 0 50%;
+}
+
+.col-3 {
+  max-width: 33.33%;
+  flex: 0 0 33.33%;
+}
+
+.col-4 {
+  max-width: 25%;
+  flex: 0 0 25%;
+}
+
+.col-5 {
+  max-width: 20%;
+  flex: 0 0 20%;
+}
+
+.primary-btn-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.primary-btn-wrapper .btn-sm:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inlineblock {
+  display: inline-block;
+}
+
+/* custom-tabs */
+
+::ng-deep .custom-tabs .mdc-tab {
+  padding: 0 0 2.1rem;
+  min-width: auto;
+  height: auto !important;
+}
+
+::ng-deep .custom-tabs .mdc-tab {
+  flex-grow: 0 !important;
+}
+
+::ng-deep .custom-tabs .mdc-tab:not(:last-child) {
+  margin: 0 16px 0 0;
+}
+
+::ng-deep .custom-tabs .mat-mdc-tab-header {
+  border-bottom: 1px solid var(--tablecell-border);
+  margin: 0 0 1.5rem;
+}
+
+::ng-deep .custom-tabs .mat-mdc-tab .mdc-tab__text-label {
+  color: var(--black) !important;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+::ng-deep .custom-tabs .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: var(--blue2) !important;
+  font-weight: 500;
+}
+
+::ng-deep .custom-tabs .mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color: var(--blue2) !important;
+}
+
+::ng-deep .custom-tabs .mat-mdc-tab .mdc-tab__ripple,
+::ng-deep .custom-tabs .mat-mdc-tab .mat-ripple {
+  display: none;
+}
+
+::ng-deep .dark-theme .custom-tabs .mat-mdc-tab-header {
+  border-color: var(--dark-black5);
+}
+
+::ng-deep .dark-theme .custom-tabs .mat-mdc-tab .mdc-tab__text-label {
+  color: var(--white) !important;
+}
+
+::ng-deep .dark-theme .custom-tabs .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: var(--blue2) !important;
+}
+
+::ng-deep .btn-sm-group {
+  border: 1px solid var(--light-gray6) !important;
+  border-radius: 2px !important;
+}
+
+::ng-deep .btn-sm-group .mat-button-toggle-appearance-standard {
+  color: var(--black);
+  height: 40px;
+  line-height: 40px;
+  background: var(--white);
+}
+
+::ng-deep .btn-sm-group .mat-button-toggle-appearance-standard .mat-button-toggle-button {
+  height: 100%;
+}
+
+::ng-deep .btn-sm-group .mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+  color: var(--black);
+  background: var(--hover-gray);
+}
+
+::ng-deep .btn-sm-group .mat-button-toggle-appearance-standard img {
+  filter: brightness(46.4%);
+}
+
+::ng-deep .btn-sm-group .mat-button-toggle-appearance-standard:hover img,
+::ng-deep .btn-sm-group .mat-button-toggle-appearance-standard.mat-button-toggle-checked img {
+  filter: brightness(0);
+}
+
+::ng-deep .btn-sm-group .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  line-height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .btn-sm-group.mat-button-toggle-group-appearance-standard .mat-button-toggle-appearance-standard+.mat-button-toggle-appearance-standard {
+  border-left: 1px solid var(--light-gray6);
+}
+
+::ng-deep .dark-theme .btn-sm-group .mat-button-toggle-appearance-standard {
+  background: var(--dark-black);
+  color: var(--white);
+}
+
+::ng-deep .dark-theme .btn-sm-group .mat-button-toggle-appearance-standard.mat-button-toggle-checked {
+  color: var(--white);
+  background: var(--dark-white2);
+}
+
+::ng-deep .dark-theme .btn-sm-group {
+  border: 1px solid var(--dark-white4) !important;
+}
+
+::ng-deep .dark-theme .btn-sm-group.mat-button-toggle-group-appearance-standard .mat-button-toggle-appearance-standard+.mat-button-toggle-appearance-standard {
+  border-left: 1px solid var(--dark-white4);
+}
+
+::ng-deep .dark-theme .btn-sm-group .mat-button-toggle-appearance-standard img {
+  filter: brightness(0) invert(1);
+}
+
+/* chip */
+.chip-outer {
+  display: inline-flex;
+  align-items: center;
+}
+
+.chip-outer .chip-wrapper {
+  display: inline-flex;
+}
+
+.chip-outer .table-icon-btn {
+  display: inline-flex;
+}
+
+::ng-deep .chip-wrapper .mat-mdc-chip {
+  background-color: var(--hover-gray) !important;
+  border-radius: 2px !important;
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+  height: auto !important;
+}
+
+::ng-deep .chip-wrapper .mat-mdc-chip .mdc-evolution-chip__text-label {
+  font-size: 1.2rem;
+  color: var(--black) !important;
+  line-height: normal;
+  padding: 4px;
+}
+
+::ng-deep .chip-wrapper .mat-mdc-chip:hover .mat-mdc-chip-focus-overlay {
+  opacity: 0;
+}
+
+::ng-deep .chip-wrapper.mdc-evolution-chip-set .mdc-evolution-chip-set__chips {
+  margin-left: -3px;
+}
+
+::ng-deep .chip-wrapper.mdc-evolution-chip-set .mdc-evolution-chip {
+  margin-left: 3px;
+}
+
+::ng-deep .chip-wrapper .mat-mdc-standard-chip .mdc-evolution-chip__action--primary {
+  padding: 0;
+}
+
+::ng-deep .chip-outer .chip-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+}
+
+::ng-deep .chip-outer .chip-wrapper .chip-list {
+  /* background-color: var(--hover-gray); */
+  background-color: var(--white);
+  border: 0.1rem solid var(--light-gray3);
+  border-left-width: 0.3rem;
+  border-radius: 0px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  height: auto;
+  margin-left: 4px;
+  font-size: 1.2rem;
+  color: var(--black) !important;
+  line-height: normal;
+  padding: 4px 4px 4px 5px;
+  cursor: default;
+}
+
+::ng-deep .dark-theme .chip-wrapper .mat-mdc-chip {
+  background-color: var(--dark-white2) !important;
+}
+
+::ng-deep .dark-theme .chip-outer .chip-wrapper .chip-list {
+  background-color: transparent;
+  color: var(--dark-white) !important;
+  border-color: var(--dark-chips);
+}
+
+::ng-deep .dark-theme .chip-wrapper .mat-mdc-chip .mdc-evolution-chip__text-label {
+  color: var(--white) !important;
+}

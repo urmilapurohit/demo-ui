@@ -1,0 +1,107 @@
+<div class="grid-wrapper-inner resource-management-wrapper">
+  <div class="filter-title-wrapper pb-15">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false" heading="Manage"></app-page-header>
+  </div>
+  <ng-template #reportingManagerDropDown let-row>
+    <div class="ro-input-wrapper">
+      <ul>
+        <ng-container *ngIf="row && row.reportingToMember && !(row.id === reportingMemberId)">
+          <li>{{row.reportingToMember}}</li>
+          <li>
+            <button mat-icon-button class="action-item table-icon-btn" (click)="openDropDown(row)"
+              *ngIf="pagePermissions.isEditPermission">
+              <img src="./assets/images/edit-pencil-gray.svg" alt="Edit Reporting Member" />
+            </button>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="isDropDown && (row.id === reportingMemberId)">
+          <li>
+            <form class="modal-form" [formGroup]="manageTeamForm">
+              <lib-form-field *ngIf="reportingMemberDropdown" [config]="reportingMemberDropdown"
+                type="dropdown"></lib-form-field>
+            </form>
+          </li>
+          <li>
+            <button mat-icon-button class="action-item table-icon-btn" (click)="closeDropDown()">
+              <img src="./assets/images/cancel-icon.svg" />
+            </button>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </ng-template>
+
+  <div class="grid-content-wrap">
+    <form class="sales-list-wrapper form-group-wrapper" [formGroup]="filterForm">
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="employeeWorkStatus" [config]="employeeWorkStatus" type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="projectNature" [config]="projectNature" type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="allocationType" [config]="allocationType" type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="employeeName" [config]="employeeName" type="text"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="employeeStatus" [config]="employeeStatus" type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="designation" [config]="designation" type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="department" [config]="department" type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="type" [config]="type" type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="pm_tl" [config]="pm_tl" type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-10">
+        <lib-form-field *ngIf="technicalSkillDropdownConfig" [config]="technicalSkillDropdownConfig"
+          type="dropdown"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-20" *ngIf="isDaily || isWeekly">
+        <lib-form-field *ngIf="startDate" [config]="startDate" type="datepicker"
+          [isSubmitted]="submitted"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-20" *ngIf="isWeekly">
+        <lib-form-field *ngIf="endDate" [config]="endDate" type="datepicker" [isSubmitted]="submitted"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-20" *ngIf="isMonthly">
+        <lib-form-field *ngIf="monthDropDown" [config]="monthDropDown" type="dropdown"
+          [isSubmitted]="submitted"></lib-form-field>
+      </div>
+      <div class="sales-list-item col-5 px-05 mb-20" *ngIf="isMonthly">
+        <lib-form-field *ngIf="yearDropDown" [config]="yearDropDown" type="dropdown"
+          [isSubmitted]="submitted"></lib-form-field>
+      </div>
+
+      <div class="sales-list-item col-1 px-05">
+        <div class="btn-wrapper">
+          <div>
+            <lib-form-field *ngIf="excludeResignedEmployee" class="checkbox-filter" [config]="excludeResignedEmployee"
+              type="checkbox"></lib-form-field>
+          </div>
+          <div>
+            <lib-form-field *ngIf="nonBilledOnly" class="checkbox-filter" [config]="nonBilledOnly"
+              type="checkbox"></lib-form-field>
+          </div>
+
+          <div class="btn-sm">
+            <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+          </div>
+          <div class="btn-sm">
+            <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <lib-data-grid *ngIf="resourceManageGridConfig" [gridConfig]="resourceManageGridConfig" [resetSort]="resetSorting"
+      [isLoading]="isGridLoading"></lib-data-grid>
+  </div>
+</div>

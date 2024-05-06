@@ -1,0 +1,27 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems"
+            [showSaveButton]="pagePermissions.isEditPermission && teamEfficiencyReportList.length > 0" (handleSaveClick)="onSave()"
+            tooltipMessage="Save" heading="Efficiency Report Configuration"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="filterForm">
+                <lib-form-field [config]="projectManager" type="dropdown" [isSubmitted]="submitted"></lib-form-field>
+                <div class="filter-btn-wrapper">
+                    <div class="inner-wrapper">
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                        </div>
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="grid-content-wrap" *ngIf="teamEfficiencyReportList.length">
+        <lib-data-grid *ngIf="teamEfficiencyReportGridConfig" [gridConfig]="teamEfficiencyReportGridConfig"
+            [isLoading]="isGridLoading" [resetSort]="resetSorting"></lib-data-grid>
+    </div>
+</div>

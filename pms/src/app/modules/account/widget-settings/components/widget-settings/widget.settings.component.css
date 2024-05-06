@@ -1,0 +1,31 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+
+::ng-deep .widget-settings-table-wrapper {
+  max-width: 400px;
+  width: 100%;
+}
+
+::ng-deep .widget-settings-table.mat-mdc-table tr td.mat-mdc-cell:first-child {
+  width: 300px;
+}
+
+::ng-deep .widget-settings-table .custom-switch-wrapper {
+  text-align: center;
+}
+
+::ng-deep .workspace-table thead .mat-mdc-header-row {
+  display: none;
+}
+
+::ng-deep .message {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  min-height: 3.6rem;
+  background-color: #D1EDFF;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  color: #4573D2;
+}

@@ -1,0 +1,3 @@
+{
+  "eslint.workingDirectories": ["./account", "./pms", "./pass","./shared-components","./admin"]
+}

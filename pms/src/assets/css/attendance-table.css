@@ -1,0 +1,832 @@
+/* attendance-table  */
+::ng-deep .filter-title-wrapper+.attendance-table-outer {
+  padding-top: 0;
+}
+
+::ng-deep .attendance-table-outer {
+  /* padding: 1.5rem; */
+  overflow: hidden;
+}
+
+::ng-deep .note-scenario-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: -1rem;
+}
+
+::ng-deep .attendance-table-outer .scenario-wrapper {
+  display: flex;
+  margin: 0 -0.5rem 0.5rem;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+::ng-deep .attendance-table-outer .note-scenario-wrapper .note-wrapper {
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+::ng-deep .attendance-table-outer .note-scenario-wrapper .note-wrapper p {
+  font-size: 1.3rem;
+}
+
+::ng-deep .attendance-table-outer .note-scenario-wrapper .note-wrapper .red-font {
+  color: var(--error);
+}
+
+::ng-deep .attendance-table-outer .scenario-item {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem 0.5rem;
+}
+
+::ng-deep .attendance-table-outer .color-box {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+::ng-deep .attendance-table-outer .full-leave-box {
+  background-color: var(--red2) !important;
+}
+
+::ng-deep .attendance-table-outer .half-leave-box {
+  background-color: var(--hover-gray) !important;
+}
+
+::ng-deep .attendance-table-outer .color-box.today-box {
+  border: 0.1rem solid var(--blue2) !important;
+}
+
+::ng-deep .attendance-table-outer .weekend-box {
+  background-color: var(--light-gray) !important;
+}
+
+::ng-deep .attendance-table-outer .holiday-box {
+  background-color: var(--light-green2) !important;
+}
+
+::ng-deep .attendance-table-outer .mat-mdc-table th,
+.attendance-table-outer .mat-mdc-table td {
+  padding: 0;
+  max-width: 3rem;
+  text-align: center;
+}
+
+::ng-deep .attendance-table-outer .mat-mdc-table .today-box {
+  box-shadow: 0 0 0px 1px var(--blue2) inset;
+}
+
+::ng-deep .attendance-table-outer .mat-mdc-table th {
+  background-color: var(--blue7);
+}
+
+::ng-deep .attendance-table-outer .mat-mdc-table th>.day {
+  display: block;
+  text-transform: uppercase;
+}
+
+::ng-deep .attendance-table-outer .attendance-month-wrapper {
+  margin-top: 1.5rem;
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  background-color: var(--white);
+  height: 4rem;
+  align-items: center;
+  border: 1px solid var(--tablecell-border);
+  border-bottom: 0;
+}
+
+::ng-deep .attendance-table-outer .justify-center {
+  justify-content: center;
+}
+
+::ng-deep .attendance-table-outer .mat-mdc-select-value .mat-mdc-select-min-line {
+  display: none;
+}
+
+::ng-deep .attendance-table-outer h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+/* table css start  */
+::ng-deep .attendance-table {
+  box-shadow: none;
+  width: 100%;
+  border: 0.1rem solid var(--tablecell-border) !important;
+  border-right: none !important;
+  border-left: none !important;
+}
+
+::ng-deep .attendance-table thead .mat-mdc-header-row th:last-child,
+::ng-deep .attendance-table tbody .mat-mdc-row td:last-child {
+  border-right: none !important;
+}
+
+::ng-deep .attendance-table thead .mat-mdc-header-row,
+::ng-deep .attendance-table tbody .mat-mdc-row {
+  height: 4rem;
+}
+
+::ng-deep .attendance-table thead .mat-mdc-header-row th {
+  background-color: var(--light-gray10);
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  vertical-align: middle;
+  border: none;
+  line-height: 1.35;
+  white-space: nowrap;
+  font-weight: 400;
+  border-right: 0.1rem solid var(--tablecell-border);
+  background-clip: padding-box;
+  border-bottom: 0.1rem solid var(--tablecell-border);
+}
+
+::ng-deep .attendance-table thead .mat-mdc-header-row th:last-child {
+  border-right: none;
+}
+
+::ng-deep .attendance-table tbody .mat-mdc-row td {
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 1.3rem;
+  font-weight: 400;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: none;
+  border-right: 0.1rem solid var(--tablecell-border);
+  position: relative;
+  background-clip: inherit;
+}
+
+::ng-deep .attendance-table .first-letter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+::ng-deep .attendance-table mat-select .mat-mdc-select-arrow-wrapper {
+  display: none;
+}
+
+::ng-deep .attendance-table .mat-mdc-form-field {
+  width: 100%;
+}
+
+::ng-deep .attendance-table .mat-mdc-text-field-wrapper {
+  padding: 0;
+}
+
+::ng-deep .cdk-overlay-pane {
+  min-width: 10.5rem !important;
+}
+
+::ng-deep .cdk-overlay-pane .mat-mdc-option .mdc-list-item__primary-text {
+  font-size: 1.3rem !important;
+}
+
+::ng-deep .attendance-table .mdc-text-field--filled {
+  background-color: transparent !important;
+}
+
+::ng-deep .attendance-table .mat-mdc-form-field-infix {
+  padding: 0.4rem 0.4rem !important;
+  min-height: 4rem !important;
+}
+
+::ng-deep .attendance-table .mat-mdc-select {
+  line-height: 32px;
+}
+
+::ng-deep .mat-mdc-option:has(.mdc-list-item__primary-text:empty) {
+  display: none;
+}
+
+/* 
+::ng-deep .attendance-table-wrapper {
+    padding: 0 2rem 2rem;
+  } */
+::ng-deep .attendance-table-wrapper:empty {
+  padding: 0;
+}
+
+::ng-deep .attendance-table-wrapper .ems-table-responsive {
+  overflow-x: auto;
+}
+
+::ng-deep .ems-table {
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: none;
+  border-radius: 0;
+}
+
+::ng-deep .ems-table.auto-width {
+  width: auto;
+  min-width: auto;
+}
+
+::ng-deep .ems-table tr th {
+  background-color: var(--blue7);
+  color: var(--blue3);
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  vertical-align: middle;
+  border: none;
+  line-height: 1.35;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+::ng-deep .ems-table .custom-check .mdc-label {
+  color: var(--blue3);
+  font-size: 12px;
+  transform: scale(1);
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+::ng-deep .ems-table tr .center-text {
+  text-align: center;
+}
+
+::ng-deep .ems-table tr td {
+  background-color: var(--white);
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 400;
+  padding: 0.4rem 1rem;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: none;
+  border-bottom: 1px solid var(--tablecell-border);
+}
+
+::ng-deep .ems-table tr td:first-letter {
+  text-transform: uppercase;
+}
+
+::ng-deep .ems-table tr:nth-child(even) td {
+  background-color: var(--light-gray5);
+}
+
+/* ::ng-deep .ems-table tr .input-wrapper .mat-mdc-text-field-wrapper :nth-child(even) {
+    background-color:var(--light-gray5);
+  } */
+::ng-deep .no-stripe.ems-table tr:nth-child(even) td {
+  background-color: var(--white);
+}
+
+::ng-deep .ems-table tr td .primary-btn.small-btn {
+  height: 2.6rem !important;
+  font-size: 1.2rem !important;
+}
+
+::ng-deep .ems-table tr td .text-link {
+  text-decoration: underline;
+  color: var(--blue1);
+  cursor: pointer;
+}
+
+::ng-deep .ems-table .table-icon-btn {
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: transparent;
+  transition: all 0.5s;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 7px !important;
+}
+
+::ng-deep .ems-table .table-icon-btn:hover {
+  background-color: var(--light-gray5);
+}
+
+::ng-deep .ems-table .table-icon-btn em {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+::ng-deep .ems-table .table-icon-btn img {
+  width: 1.6rem;
+  height: 1.6rem;
+  vertical-align: top;
+}
+
+::ng-deep .ems-table .action-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .ems-table .table-badge {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.5rem;
+}
+
+::ng-deep .ems-table .table-badge.applied {
+  background-color: var(--blue4);
+  color: var(--blue5);
+}
+
+::ng-deep .ems-table .table-badge.approved {
+  background-color: var(--light-green);
+  color: var(--green);
+}
+
+::ng-deep .ems-table .table-badge.rejected {
+  background-color: var(--light-red);
+  color: var(--dark-red);
+}
+
+::ng-deep .ems-table .table-badge.paid {
+  background-color: var(--light-purple);
+  color: var(--purple);
+}
+
+::ng-deep .ems-table .action-column {
+  width: 9.4rem;
+}
+
+::ng-deep .ems-table tr th.bonus-column,
+::ng-deep .ems-table tr td.bonus-column {
+  white-space: inherit;
+}
+
+::ng-deep .ems-table tr th.index-column,
+::ng-deep .ems-table tr td.index-column {
+  width: 7rem;
+}
+
+::ng-deep .ems-table tr .action-column .input-action-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .ems-table thead .mat-mdc-header-row {
+  height: 4rem;
+}
+
+::ng-deep .ems-table tbody .mat-mdc-row {
+  height: 4rem;
+}
+
+::ng-deep .mat-mdc-paginator {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  overflow: hidden;
+}
+
+::ng-deep .mat-mdc-paginator-container {
+  min-height: auto !important;
+  padding: 0 0.5rem !important;
+  justify-content: flex-start !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container {
+  padding: 2rem 0 0;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size {
+  align-items: center;
+  margin-right: 1.8rem;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-label {
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 400;
+  margin-right: 1.2rem;
+  margin-left: 0;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select {
+  width: 7rem;
+  height: 4rem;
+  padding: 0;
+  margin: 0;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper {
+  padding: 0;
+  border: none !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex {
+  height: 4rem !important;
+  line-height: 4rem !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix {
+  padding: 0;
+  width: 100%;
+  height: 4rem;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select {
+  height: 4rem !important;
+  line-height: 3.8rem !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  /* border-radius: 5px; */
+  border-color: var(--light-gray6) !important;
+  border-width: 1px !important;
+  /* background: var(--white); */
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select .mat-mdc-select-arrow svg {
+  display: none;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-value {
+  flex: 0 0 calc(100% - 2.4rem);
+  max-width: calc(100% - 2.4rem);
+  padding: 0 0.5rem 0 1.3rem;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-value .mat-mdc-select-value-text {
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-arrow-wrapper {
+  flex: 0 0 2.4rem;
+  max-width: 2.4rem;
+  height: 3.4rem;
+  /* height: inherit; */
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-arrow-wrapper .mat-mdc-select-arrow {
+  height: 100%;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-arrow-wrapper .mat-mdc-select-arrow:before {
+  top: 50% !important;
+  transition: all 0.3s;
+  transform: translateY(-50%) !important;
+}
+
+::ng-deep .mat-mdc-select[aria-expanded="true"] .mat-mdc-select-arrow:before {
+  transform: rotate(180deg) !important;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-paginator-range-label {
+  margin: 0 0.8rem 0 0;
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button {
+  padding: 0.5rem;
+  height: 3.8rem;
+  width: 3.8rem;
+  opacity: 1 !important;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button[disabled] {
+  cursor: default;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button:hover {
+  background-color: #f8f8f8;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-first {
+  background-image: url("../images/page-first.svg");
+  background-position: center;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-first[disabled] {
+  opacity: 0.2;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-previous {
+  background-image: url("../images/page-prev.svg");
+  background-position: center;
+  background-size: 0.8rem;
+  background-repeat: no-repeat;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-previous[disabled] {
+  opacity: 0.2;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-next {
+  background-image: url("../images/page-next.svg");
+  background-position: center;
+  background-size: 0.7rem;
+  background-repeat: no-repeat;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-next[disabled] {
+  opacity: 0.2;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-last {
+  background-image: url("../images/page-last.svg");
+  background-position: center;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-last[disabled] {
+  opacity: 0.2;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button svg {
+  display: none;
+}
+
+::ng-deep .no-record {
+  text-align: center;
+  height: 4.8rem;
+  line-height: 4.8rem;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+}
+
+::ng-deep .table-link {
+  color: var(--blue1);
+  text-decoration: underline;
+}
+
+::ng-deep .table-link:hover {
+  text-decoration: none;
+}
+
+::ng-deep .ems-table thead th.mat-sort-header .mat-sort-header-arrow .mat-sort-header-stem,
+::ng-deep .ems-table thead th.mat-sort-header .mat-sort-header-arrow .mat-sort-header-indicator {
+  opacity: 0;
+}
+
+/* ::ng-deep .ems-table thead th.mat-sort-header:hover .mat-sort-header-arrow {
+    opacity: 0.5 !important;
+  } */
+
+/* ::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button svg {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  ::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button[disabled] .mat-mdc-paginator-icon {
+    fill: var(--white3);
+  }
+  ::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button .mat-mdc-paginator-icon {
+    fill: var(--black);
+  } */
+
+::ng-deep .is-table-hidden {
+  display: none !important;
+}
+
+::ng-deep .grid-no-data span {
+  font-size: 1.3rem;
+}
+
+::ng-deep .invalid-data-grid {
+  color: var(--gray2);
+  padding-left: 1.8rem;
+}
+
+::ng-deep .valid-data-grid {
+  color: green;
+  padding-left: 1.8rem;
+}
+
+::ng-deep .attendance-table .name-col {
+  width: 26rem;
+  min-width: 26rem;
+  text-align: left !important;
+  padding: 0.5rem 1rem !important;
+  line-height: 1.3;
+}
+
+::ng-deep .attendance-table .name-col * {
+  text-align: left;
+}
+
+::ng-deep .attendance-table .ro-name {
+  background-color: var(--white) !important;
+  font-weight: 500 !important;
+  color: var(--black) !important;
+  text-align: left !important;
+  border-right: transparent !important;
+  border-bottom: 0.1rem solid var(--tablecell-border) !important;
+  /* border-top: 0.1rem solid var(--tablecell-border) !important; */
+}
+
+::ng-deep .attendance-table tr:not(:last-child) td {
+  border-bottom: 0.1rem solid var(--tablecell-border);
+}
+
+::ng-deep .attendance-table .name-col .new-line {
+  display: block;
+  margin-top: 0.2rem;
+}
+
+::ng-deep .attendance-table .name-col .bold-text {
+  margin-left: 0.4rem;
+}
+
+::ng-deep .attendance-table .name-col .small-text {
+  font-size: 1.2rem;
+}
+
+::ng-deep .attendance-table thead .mat-mdc-header-row th {
+  min-width: 4rem;
+}
+
+::ng-deep .attendance-table-responsive,
+.attendance-table-responsive {
+  position: relative;
+  overflow-x: auto;
+  border-left: 1px solid var(--tablecell-border);
+  border-right: 1px solid var(--tablecell-border);
+}
+
+.attendance-table-responsive.has-sticky-left-col {
+  border-left: none;
+}
+
+::ng-deep .attendance-table tr th:first-child {
+  /* position: sticky; */
+  left: 0;
+  z-index: 2;
+  background-color: var(--light-gray10);
+}
+
+::ng-deep .attendance-table tr td:first-child {
+  /* position: sticky; */
+  left: 0;
+  z-index: 3;
+  /* background-color: var(--white) */
+}
+
+.team-attendance-wrapper .attendance-table {
+  border-left: none !important;
+  /* border-right: 1px solid var(--tablecell-border) !important;
+  margin-right: 1px !important; */
+}
+
+::ng-deep .mat-mdc-table-sticky-border-elem-left {
+  position: relative;
+}
+
+::ng-deep .mat-mdc-table-sticky-border-elem-left:before {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 1px;
+  background-color: var(--tablecell-border);
+  content: " ";
+  top: 0;
+}
+
+/* ::ng-deep .mat-mdc-table-sticky-border-elem-left:before {
+  display: none;
+} */
+::ng-deep .dark-theme .attendance-table {
+  border-color: var(--dark-black5) !important;
+}
+
+::ng-deep .dark-theme .attendance-table-outer .attendance-month-wrapper {
+  background: var(--dark-white5);
+  border-color: var(--dark-black5);
+}
+
+::ng-deep .dark-theme .attendance-table thead .mat-mdc-header-row th {
+  background-color: var(--dark-black3);
+  border-right-color: var(--dark-black5);
+  border-bottom-color: var(--dark-black5);
+  background-clip: inherit;
+  color: var(--dark-white6);
+}
+
+::ng-deep .dark-theme .attendance-table-responsive,
+.dark-theme .attendance-table-responsive {
+  border-left-color: var(--dark-black5);
+  border-right-color: var(--dark-black5);
+}
+
+::ng-deep .dark-theme .mat-mdc-table-sticky-border-elem-left:before {
+  background-color: var(--dark-black5);
+}
+
+::ng-deep .dark-theme .attendance-table .ro-name {
+  background-color: var(--dark-white5) !important;
+  color: var(--white) !important;
+  border-bottom-color: var(--dark-black5) !important;
+}
+
+::ng-deep .dark-theme .attendance-table tbody .mat-mdc-row td {
+  background-color: var(--dark-white5);
+  color: var(--white);
+  border-right-color: var(--dark-black5);
+
+}
+
+::ng-deep .dark-theme .attendance-table tr:not(:last-child) td {
+  border-bottom-color: var(--dark-black5);
+}
+
+::ng-deep .dark-theme .attendance-table-outer .full-leave-box {
+  background-color: var(--brown) !important;
+}
+
+::ng-deep .dark-theme .attendance-table-outer .half-leave-box {
+  background-color: var(--dark-blue2) !important;
+}
+
+::ng-deep .dark-theme .attendance-table-outer .color-box.today-box {
+  border: 0.1rem solid var(--dark-white4) !important;
+}
+
+::ng-deep .dark-theme .attendance-table-outer .mat-mdc-table .today-box {
+  box-shadow: 0 0 0px 1px var(--dark-white4) inset;
+}
+
+::ng-deep .dark-theme .attendance-table-outer .weekend-box {
+  background-color: var(--black4) !important;
+}
+
+::ng-deep .dark-theme .attendance-table-outer .holiday-box {
+  background-color: var(--dark-green5) !important;
+}
+
+@media (min-width:1921px) {
+  ::ng-deep .attendance-table .mat-mdc-form-field-infix {
+    padding: 1rem 1rem !important;
+    min-height: 5.2rem;
+  }
+}
+
+@media (min-width:1760px) {
+  ::ng-deep .attendance-table .mat-mdc-form-field-infix {
+    padding: 0.8rem 0.8em !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .attendance-table thead .mat-mdc-header-row th {
+    padding: 0.5rem 0.3rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .attendance-table-outer .scenario-wrapper {
+    margin-left: 0;
+  }
+
+  ::ng-deep .mat-mdc-paginator-container {
+    flex-direction: column;
+  }
+
+  ::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select,
+  ::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex {
+    height: 3.4rem !important;
+    line-height: 3.4rem !important;
+  }
+
+  ::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix,
+  ::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select {
+    height: 3.4rem;
+  }
+}

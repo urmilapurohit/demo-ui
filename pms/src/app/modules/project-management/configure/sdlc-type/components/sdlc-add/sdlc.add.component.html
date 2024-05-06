@@ -1,0 +1,28 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems"
+        [showBackButton]="false" heading="Add SDLC Type"></app-page-header>
+    <div class="dropdown-link-wrapper">
+      <form class="left-wrapper" [formGroup]="addSdlcTypeFormGroup">
+        <div class="form-row add-sdlc-form sm">
+          <div class="form-col">
+            <lib-form-field *ngIf="name" [config]="name" type="text" [isSubmitted]="submitted"></lib-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="grid-content-wrap">
+    <div class="bottom-btn-wrap">
+      <div class="btn-sm">
+        <lib-button [buttonConfig]="saveButtonConfig"></lib-button>
+      </div>
+      <div class="btn-sm">
+        <lib-button [buttonConfig]="saveAndContinueButtonConfig"></lib-button>
+      </div>
+      <div class="btn-sm">
+        <lib-button [buttonConfig]="cancelButtonConfig"></lib-button>
+      </div>
+    </div>
+  </div>
+</div>

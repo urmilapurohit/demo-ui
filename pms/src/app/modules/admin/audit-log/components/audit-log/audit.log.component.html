@@ -1,0 +1,29 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]=false heading="Audit Log"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="filterForm">
+                <lib-form-field *ngIf="member" [config]="member" type="dropdown"></lib-form-field>
+                <lib-form-field *ngIf="auditLogType" [config]="auditLogType" type="dropdown"></lib-form-field>
+                <lib-form-field *ngIf="moduleAccess && isModuleFilterVisible" [config]="moduleAccess"
+                    type="dropdown"></lib-form-field>
+                <lib-form-field *ngIf="pageAccess && isPageFilterVisible" [config]="pageAccess" type="dropdown"></lib-form-field>
+                <lib-form-field *ngIf="startDate" [config]="startDate" type="datepicker"></lib-form-field>
+                <lib-form-field *ngIf="endDate" [config]="endDate" type="datepicker"></lib-form-field>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                </div>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                </div>
+            </form>
+            <lib-button [buttonConfig]="deleteBtnConfig"
+                *ngIf="pagePermissions.isDeletePermission"></lib-button>
+        </div>
+    </div>
+
+    <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="auditLogGridConfig" [gridConfig]="auditLogGridConfig" [resetSort]="resetSorting"
+            [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+@import url("@styles/modal.css");
+
+::ng-deep .pre-sales-wrapper .filter-title-wrapper .right-wrapper {
+    margin-bottom: 0;
+}
+::ng-deep .pre-sales-wrapper .workspace-table-wrapper .custom-textarea .mdc-text-field--filled:not(.mdc-text-field--disabled){
+    height: 3.6rem;
+}
+::ng-deep .pre-sales-wrapper  .custom-textarea .mdc-text-field--no-label:not(.mdc-text-field--textarea) .mat-mdc-form-field-input-control.mdc-text-field__input,.pre-sales-wrapper  .custom-textarea .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control{
+    height: 3.4rem;
+}
+::ng-deep .pre-sales-wrapper .workspace-table-wrapper .custom-textarea .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix{
+    min-height: 3.4rem;
+}
+
+::ng-deep .workspace-table-wrapper .employee-name-column {
+    width: 19rem;
+    min-width: 19rem;
+    max-width: 19rem;
+    white-space: normal !important;
+}
+::ng-deep .workspace-table-wrapper .employee-role-column {
+    width: 28rem;
+    min-width: 28rem;
+    max-width: 28rem;
+    white-space: normal !important;
+}
+::ng-deep .workspace-table-wrapper .emp-role-column {
+    width: 8rem;
+    min-width: 8rem;
+    max-width: 8rem;
+    white-space: normal !important;
+}
+::ng-deep .workspace-table-wrapper .onedrive-path-column {
+    width: 39rem;
+    min-width: 33rem;
+    max-width: 39rem;
+    white-space: normal !important;
+}

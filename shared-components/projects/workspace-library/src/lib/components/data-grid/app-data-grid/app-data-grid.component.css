@@ -1,0 +1,27 @@
+::ng-deep .skeleton-loader {
+    margin-top: 5px;
+    margin-bottom: 0 !important;
+    background-color: #F5F5F8 !important;
+    border-radius: 2px !important;
+}
+
+::ng-deep.skeleton-loader.circle {
+    margin: 0 !important;
+    border-radius: 50% !important;
+}
+
+::ng-deep .skeleton-loader.circle+.circle {
+    margin-left: 5px !important;
+}
+
+::ng-deep .grid-no-data {
+    display: flex;
+    /* color: var(--error); */
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  ::ng-deep .grid-no-data span {
+    font-size: 1.3rem;
+  }

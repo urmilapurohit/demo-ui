@@ -1,0 +1,26 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+      <app-page-header [items]="breadcrumbItems" [showAddButton]="false"
+      [heading]="isEdit ? 'Edit Type': 'Add Type'"></app-page-header>
+      <div class="dropdown-link-wrapper">
+        <form class="left-wrapper" [formGroup]="addProjectTypeFormGroup">
+          <div class="form-row add-group-form sm">
+            <div class="form-col">
+              <lib-form-field *ngIf="name" [config]="name" type="text" [isSubmitted]="submitted"></lib-form-field>
+            </div>
+            <div class="form-col">
+              <lib-form-field *ngIf="status" [config]="status" [isSubmitted]="submitted" type="dropdown"></lib-form-field>
+            </div>
+            <div class="form-col">
+              <lib-form-field *ngIf="displayOrder" [config]="displayOrder" type="text" [isSubmitted]="submitted"></lib-form-field>
+            </div>
+          </div>
+        </form>
+        <div class="right-wrapper"></div>
+      </div>
+    </div>
+    <div class="grid-content-wrap">
+      <app-save-cancel-button [saveButtonConfig]="saveButtonConfig"
+        [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+    </div>
+  </div>

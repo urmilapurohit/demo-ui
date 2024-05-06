@@ -1,0 +1,11 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+
+.workspace-table .days-column  {
+    width: 7rem;
+    min-width: 7rem;
+    max-width: 7rem;
+    white-space: normal;
+}

@@ -1,0 +1,23 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" (handleAddClick)="addTechnicalSkill()" tooltipMessage="Add Technical Skill"
+            [showAddButton]="pagePermissions.isAddPermission" heading="Technical Skills"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="filterForm">
+                <lib-form-field [config]="searchName" type="text"></lib-form-field>
+                <lib-form-field *ngIf="status" [config]="status" type="dropdown"></lib-form-field>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                </div>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="technicalSkillGridConfig" [gridConfig]="technicalSkillGridConfig" [resetSort]="resetSorting"
+            [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+</div>

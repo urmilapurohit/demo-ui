@@ -1,0 +1,16 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+@import url("@styles/modal.css");
+
+.sdlc-type-wrapper .filter-title-wrapper .right-wrapper{
+    margin-bottom: 0;
+}
+.project-name-col{
+    max-width: 100%;
+    min-width: 100%;
+}
+.action-col{
+    width: 7rem;
+}

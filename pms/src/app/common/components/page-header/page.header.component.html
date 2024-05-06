@@ -1,0 +1,23 @@
+<div class="title-link-wrap">
+    <div class="header-breadcrum-nav">
+        <ul>
+            <li *ngFor="let item of items">
+                <a *ngIf="item.link" [routerLink]="item.link">{{ item.label }}</a>
+                <a *ngIf="!item.link">{{ item.label }}</a>
+            </li>
+        </ul>
+        <h1>{{heading}}</h1>
+    </div>
+    <div class="right-wrapper mb-0">
+        <lib-button [buttonConfig]="addBtnConfig" *ngIf="showAddButton"></lib-button>
+        <lib-button [buttonConfig]="saveBtnConfig" *ngIf="showSaveButton"></lib-button>
+        <!-- <div class="btn-sm" *ngIf="showSaveButton">
+            <lib-button [buttonConfig]="saveBtnConfig"></lib-button>
+        </div>         -->
+    </div>
+    <div class="right-wrapper mb-0" *ngIf="showBackButton">
+        <div class="btn-sm">
+            <lib-button [buttonConfig]="backBtnConfig" *ngIf="showBackButton"></lib-button>
+        </div>
+    </div>
+</div>

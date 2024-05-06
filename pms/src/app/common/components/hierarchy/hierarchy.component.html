@@ -1,0 +1,71 @@
+<div class="hierarchy-wrapper">
+  <div class="hierarchy-wrapper-inner">
+    <div class="hierarchy-card-wrap first-level" *ngIf="hierarchyConfig?.parentData">
+      <div class="hierarchy-card-outer">
+        <div class="hierarchy-card has-child">
+          <div class="card-inner" #tooltip="matTooltip"
+            [matTooltip]="hierarchyConfig.parentData?.technicalSkills ? hierarchyConfig.parentData?.technicalSkills! : ''"
+            matTooltipClass="custom-tooltip centered plus-below" [matTooltipPosition]="'below'">
+            <div class="img-wrap">
+              @if (hierarchyConfig.parentData?.profilePhoto && hierarchyConfig.parentData?.profilePhoto.fileContents &&
+              hierarchyConfig.parentData?.profilePhoto.contentType) {
+              <img
+                [src]="('data:' + hierarchyConfig.parentData?.profilePhoto.contentType + ';base64,' + hierarchyConfig.parentData?.profilePhoto.fileContents)"
+                alt="Team member" />
+              } @else {
+              <img [src]="hierarchyConfig.previewImgUrl" alt="Team member" />
+              }
+            </div>
+            <div class="content-wrap">
+              <div class="inner-content">
+                <span class="name">{{ hierarchyConfig.parentData?.fullName }}</span>
+                <span class="members">({{ hierarchyConfig.parentData?.immediateChildrenCount }}/{{
+                  hierarchyConfig.parentData?.totalChildrenCount
+                  }})</span>
+                <span class="position">{{ hierarchyConfig.parentData?.designation }} ({{
+                  hierarchyConfig.parentData?.totalExp }})</span>
+              </div>
+              <button mat-fab class="expand-btn" *ngIf="hierarchyConfig.parentData?.id !== loggedInUserID"
+                (click)="onExpandHierarchy(hierarchyConfig.parentData?.reportingToMemberId)">
+                <img [src]="hierarchyConfig.previousImgUrl" alt="Minus Icon" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hierarchy-card-wrap second-level" *ngIf="hierarchyConfig?.childData"
+      onWheel="this.scrollLeft+=event.deltaY>0?70:-70">
+      <div class="hierarchy-card-outer">
+        <div class="hierarchy-card" *ngFor="let childUserData of hierarchyConfig.childData"
+          [ngClass]="{'has-child': childUserData.totalChildrenCount}">
+          <div class="card-inner" #tooltip="matTooltip"
+            [matTooltip]="childUserData.technicalSkills ? childUserData.technicalSkills : ''"
+            matTooltipClass="custom-tooltip centered plus-below" [matTooltipPosition]="'below'">
+            <div class="img-wrap">
+              @if (childUserData.profilePhoto && childUserData.profilePhoto.fileContents &&
+              childUserData.profilePhoto.contentType) {
+              <img
+                [src]="('data:' + childUserData.profilePhoto.contentType + ';base64,' + childUserData.profilePhoto.fileContents)"
+                alt="Team member" />
+              } @else {
+              <img [src]="hierarchyConfig.previewImgUrl" alt="Team member" />
+              }
+            </div>
+            <div class="content-wrap">
+              <div class="inner-content">
+                <span class="name">{{ childUserData.fullName }} {{ childUserData.totalChildrenCount ? " (" +
+                  childUserData.totalChildrenCount + ")" : '' }}</span>
+                <span class="position">{{ childUserData.designation }} ({{ childUserData.totalExp }})</span>
+              </div>
+              <button mat-fab class="expand-btn" *ngIf="childUserData.totalChildrenCount"
+                (click)="onExpandHierarchy(childUserData.id)">
+                <img [src]="hierarchyConfig.nextImgUrl" alt="Plus Icon" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

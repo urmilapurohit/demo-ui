@@ -1,0 +1,47 @@
+<div class="grid-wrapper-inner grid-error-wrapper">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Error Log Trace"
+      [showBackButton]="true" (handleBackClick)="backToErrorLog()" backButtonTitle="Back to Error logs"
+      heading='Error Log Trace'></app-page-header>
+  </div>
+  <div class="grid-content-wrap">
+    <div class="error-inner-wrapper mb-20">
+      <div class="dropdown-link-wrapper">
+        <div class="left-wrapper">
+          <div class="form-row add-error-form sm">
+            <div class="form-col">
+              <div class="input-wrap">
+                <mat-label>IP Address</mat-label>
+                <div class="error-desc">{{errorLogDetails.ipAddress}}</div>
+              </div>
+            </div>
+            <div class="form-col">
+              <div class="input-wrap">
+                <mat-label>Date</mat-label>
+                <div class="error-desc">{{errorLogDetails.createdOn}}</div>
+              </div>
+            </div>
+            <div class="form-col">
+              <div class="input-wrap">
+                <mat-label>Browser</mat-label>
+                <div class="error-desc">{{errorLogDetails.clientBrowser}}</div>
+              </div>
+            </div>
+            <div class="form-col full-width">
+              <div class="input-wrap">
+                <mat-label>Message</mat-label>
+                <div class="error-desc">{{errorLogDetails.errorMessage}}</div>
+              </div>
+            </div>
+            <div class="form-col full-width">
+              <div class="input-wrap">
+                <mat-label>Error Description</mat-label>
+                <div class="error-desc">{{errorLogDetails.errorStackTrace}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

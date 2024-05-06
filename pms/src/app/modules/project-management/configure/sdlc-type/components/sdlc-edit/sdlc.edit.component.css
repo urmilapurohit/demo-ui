@@ -1,0 +1,43 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+@import url("@styles/modal.css");
+
+.sdlc-type-wrapper .filter-title-wrapper .right-wrapper {
+  margin-bottom: 0;
+}
+
+.sdlc-inner-wrapper .title-link-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sdlc-inner-wrapper .title-link-wrap h2 {
+  font-size: 1.6rem;
+}
+::ng-deep.workspace-table  tr th.isClose-col,
+::ng-deep.workspace-table  tr td.isClose-col,
+::ng-deep.workspace-table  tr th.flowStep-col,
+::ng-deep.workspace-table  tr td.flowStep-col,
+::ng-deep.workspace-table tr th.displayOrder-col,
+::ng-deep.workspace-table  tr td.displayOrder-col
+::ng-deep.workspace-table tr th.isDefect-col,
+::ng-deep.workspace-table tr td.isDefect-col,
+::ng-deep.workspace-table tr th.action-column,
+::ng-deep.workspace-table tr td.action-column,
+::ng-deep.workspace-table tr th.abbreviation-col,
+::ng-deep.workspace-table tr td.abbreviation-col{
+  width: 12rem;
+}
+.grid-content-wrap{
+  padding-top: 0rem !important;
+}
+.dropdown-link-wrapper .left-wrapper {
+  align-items: normal;
+}
+
+.filter-btn-wrapper {
+  margin-top: 2rem;
+}

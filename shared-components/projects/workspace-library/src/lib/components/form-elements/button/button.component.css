@@ -1,0 +1,10 @@
+button {
+  padding: 7px;
+}
+
+.customFullWidthClass {
+  width: 100%;
+}
+.disable-class {
+  pointer-events: none;
+}

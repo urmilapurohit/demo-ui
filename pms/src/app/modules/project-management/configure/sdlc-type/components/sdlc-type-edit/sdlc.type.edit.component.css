@@ -1,0 +1,9 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+
+.add-sdlc-form {
+  margin-bottom: -1rem !important;
+}
+.add-sdlc-form .form-col.full-width{
+  margin-bottom: 1.5rem;
+}

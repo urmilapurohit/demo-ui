@@ -1,0 +1,99 @@
+<ng-template [ngIf]="isAllowMultiple" [ngIfThen]="multiSelectDropdown" [ngIfElse]="dropdown">
+</ng-template>
+<!-- Multi Select drop-down -->
+<ng-template #multiSelectDropdown>
+    <div class="custom-dropdown-wrapper">
+        <form [formGroup]="parentFormGroup">
+            <mat-label *ngIf="config.label" [class.required-label]="config.isRequired">
+                {{ config.label }}
+            </mat-label>
+            <mat-form-field class="custom-form-group sm-form-group custom-multiselect">
+                <ng-container *ngIf="!config?.isSearchable">
+                    <mat-select multiple [class]="getCustomSelectClass" [formControlName]="config.formControlName"
+                        [disabled]="isDisabled" (selectionChange)="selectionChange($event)" (keyup.enter)="onEnterPress()"  [placeholder]="config.placeHolder ?? ''">
+                        <mat-option *ngFor="let option of dropDownOptions" [value]="option.id">
+                            {{option.text}}
+                        </mat-option>
+                    </mat-select>
+                </ng-container>
+                <ng-container *ngIf="config?.isSearchable">
+                    <mat-select multiple [class]="getCustomSelectClass" [formControlName]="config.formControlName"
+                        #select [disabled]="isDisabled" (selectionChange)="selectionChange($event)" (keyup.enter)="onEnterPress()" [placeholder]="config.placeHolder ?? ''">
+                        <mat-option>
+                            <form [formGroup]="searchForm">
+                                <ngx-mat-select-search noEntriesFoundLabel="No data found" placeholderLabel="Search"
+                                    formControlName="searchTxt"></ngx-mat-select-search>
+                            </form>
+                        </mat-option>
+                        <div class="select-all">
+                            <mat-checkbox [color]="'primary'" [(ngModel)]="allSelected" class="custom-check"
+                                            [ngModelOptions]="{standalone: true}"
+                                            (change)="toggleAllSelection()">Select All</mat-checkbox>
+                        </div>
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">
+                            {{option.text}}
+                        </mat-option>
+                    </mat-select>
+                </ng-container>
+            </mat-form-field>
+            <lib-show-error [ctrl]="config.formControlName" [formGroup]="parentFormGroup"
+                [submit]="isSubmitted"></lib-show-error>
+        </form>
+    </div>
+</ng-template>
+
+
+<!-- Single select dropdown -->
+<ng-template #dropdown>
+    <div class="custom-dropdown-wrapper">
+        <form [formGroup]="parentFormGroup">
+            <mat-label *ngIf="config.label" [class.required-label]="config.isRequired">
+                {{ config.label }}
+            </mat-label>
+            <mat-form-field [class]="getCustomFormFieldClass" class="custom-form-group sm-form-group">
+                <ng-container *ngIf="!config?.isSearchable">
+                    <mat-select *ngIf="!isColorDropDown" [class]="getCustomSelectClass"
+                        [formControlName]="config.formControlName" [disabled]="isDisabled"
+                        (selectionChange)="selectionChange($event)" (keyup.enter)="onEnterPress()">
+                        <mat-option *ngFor="let option of dropDownOptions" [value]="option.id">
+                            {{option.text}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-select *ngIf="isColorDropDown" [class]="getCustomSelectClass"
+                        [formControlName]="config.formControlName" [disabled]="isDisabled"
+                        (selectionChange)="selectionChange($event)" (keyup.enter)="onEnterPress()">
+                        <mat-select-trigger>
+                            <div class="color-option-box">
+                                <div class="color-box" style="background: {{selectedColorValue}}"></div>
+                                <div class="color-name">{{selectedColorValue}}</div>
+                            </div>
+                        </mat-select-trigger>
+                        <mat-option *ngFor="let option of dropDownOptions" [value]="option.text">
+                            <div class="color-option-box">
+                                <div class="color-box" style="background: {{option.text}}"></div>
+                                <div class="color-name">{{option.text}}</div>
+                            </div>
+                        </mat-option>
+                    </mat-select>
+                </ng-container>
+                <ng-container *ngIf="config?.isSearchable">
+                    <mat-select [class]="getCustomSelectClass" [formControlName]="config.formControlName" #singleSelect
+                        [disabled]="isDisabled" (selectionChange)="selectionChange($event)"
+                        (keyup.enter)="onEnterPress()">
+                        <mat-option>
+                            <form [formGroup]="searchForm">
+                                <ngx-mat-select-search noEntriesFoundLabel="No data found" placeholderLabel="Search"
+                                    formControlName="searchTxt"></ngx-mat-select-search>
+                            </form>
+                        </mat-option>
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">
+                            {{ option.text }}
+                        </mat-option>
+                    </mat-select>
+                </ng-container>
+            </mat-form-field>
+            <lib-show-error [ctrl]="config.formControlName" [formGroup]="parentFormGroup"
+                [submit]="isSubmitted"></lib-show-error>
+        </form>
+    </div>
+</ng-template>

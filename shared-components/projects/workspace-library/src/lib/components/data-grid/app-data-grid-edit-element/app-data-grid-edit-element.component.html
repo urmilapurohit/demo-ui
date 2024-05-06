@@ -1,0 +1,14 @@
+<ng-container *ngIf="shouldShowEditElement; else NormalColumn">
+  <form [formGroup]="formGroup">
+    <mat-form-field class="input-wrapper">
+      <input (keyup.enter)="onEnterClick()" [type]="controlType" [readonly]="disabled" matInput
+        [formControlName]="column.field" [ngClass]="{ 'has-error': control?.invalid }"
+        (change)="onInputValueChange(column)" />
+    </mat-form-field>
+    <lib-show-error [ctrl]="column.field" [formGroup]="formGroup" [submit]="isSubmitted"> </lib-show-error>
+  </form>
+</ng-container>
+
+<ng-template #NormalColumn>
+  <lib-data-grid-element [formGroup]="formGroup" [column]="column" [rowData]="rowData"></lib-data-grid-element>
+</ng-template>

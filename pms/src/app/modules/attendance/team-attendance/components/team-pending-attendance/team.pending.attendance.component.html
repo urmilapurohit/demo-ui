@@ -1,0 +1,56 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false"
+    [showBackButton]="true" (handleBackClick)="backToAttendance()" backButtonTitle="Back to Team Attendance"
+    heading='Team Pending Attendance'></app-page-header>
+    <div class="dropdown-link-wrapper">
+      <form class="left-wrapper pending-attendance" [formGroup]="formGroup">
+        <div class="datepicker-wrapper">
+          <lib-date-field *ngIf="date" [config]="date"></lib-date-field>
+        </div>
+        <div class="pending-attendance-count">
+          Pending Attendance Count : <span class="count">{{pendingAttendanceList.length || 0}}</span>
+        </div>
+      </form>
+      <div class="right-wrapper"></div>
+    </div>
+  </div>
+  @if (dataSource && displayedColumns) {
+  <div class="grid-content-wrap workspace-table-wrapper">
+    <div class="pending-table-wrapper workspace-table-responsive"
+      [ngClass]="pendingAttendanceList.length > 0 ? 'border':''">
+      <cdk-virtual-scroll-viewport tvsItemSize="39" class="wrapper">
+        <table mat-table [dataSource]="dataSource" matSortActive="ROs" matSortDirection="asc"
+          class="workspace-table pending-attendance-table mat-elevation-z8 visible" matSort matSortDisableClear
+          (matSortChange)="onSortChange($event)" [ngClass]="!isGridLoading ? 'visible' : 'hidden'">
+          <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky:true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <ng-container matColumnDef="fullName">
+            <th class="name-column" mat-header-cell *matHeaderCellDef mat-sort-header="FullName">Name</th>
+            <td class="name-column" mat-cell *matCellDef="let element">
+              <div *ngIf="!isGridLoading">{{ element.fullName }}</div>
+              <div *ngIf="isGridLoading">
+                <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="rOs">
+            <th class="ro-name-column" mat-header-cell *matHeaderCellDef mat-sort-header="ROs">ROs</th>
+            <td class="ro-name-column" mat-cell *matCellDef="let element">
+              <div *ngIf="!isGridLoading">{{ element.rOs }}</div>
+              <div *ngIf="isGridLoading">
+                <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+              </div>
+            </td>
+          </ng-container>
+
+        </table>
+        <div class="grid-no-data" *ngIf="pendingAttendanceList.length=== 0">
+          <span>{{ "No Records Found" }}</span>
+        </div>
+      </cdk-virtual-scroll-viewport>
+    </div>
+  </div>
+  }
+</div>

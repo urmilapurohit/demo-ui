@@ -1,0 +1,40 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper pb-15">
+    <div class="title-link-wrap">
+      <div class="header-breadcrum-nav">
+        <ul>
+          <li><a title="Team">Team</a></li>
+          <li><a title="Manage">Manage</a></li>
+        </ul>
+        <h1>Manage Team</h1>
+      </div>
+      <div class="right-wrapper mb-0">
+        <mat-button-toggle-group [(ngModel)]="currentTab" class="btn-sm-group mr-10">
+          <mat-button-toggle (click)="showTab('ListView')" value="ListView" #tooltip="matTooltip" matTooltip="List View"
+            matTooltipClass="custom-tooltip centered" [matTooltipPosition]="'below'">
+            <img src="./assets/images/list-view.svg" alt="List View" />
+          </mat-button-toggle>
+          <mat-button-toggle (click)="showTab('HierarchyView')" value="HierarchyView" #tooltip="matTooltip"
+            matTooltip="Hierarchy" matTooltipClass="custom-tooltip centered" [matTooltipPosition]="'below'">
+            <img src="./assets/images/hierarchy.svg" alt="Hierarchy" />
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+        <button *ngIf="hasAccessForExport()" mat-fab class="icon-btn" #tooltip="matTooltip" matTooltip="Export to Excel"
+          matTooltipClass="custom-tooltip left-pos" [matTooltipPosition]="'left'" (click)="exportToExcel()">
+          <img src="./assets/images/export.svg" alt="Export" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="grid-content-wrap">
+    <div *ngIf="currentTab === 'ListView'">
+      <app-team-manage-list [isEditPermission]="pagePermissions.isEditPermission"
+        [isExportPermission]="pagePermissions.isExportPermission"
+        (handleManageTeamSearchParams)="handleManageTeamSearchParams($event)"
+        (handleTeamManageTotalRecordsParams)="handleTeamManageTotalRecordsParams($event)" />
+    </div>
+    <div *ngIf="currentTab === 'HierarchyView'">
+      <app-team-manage-hierarchy />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Add News/Event"
+            [heading]="isEdit ? 'Edit News/Event': 'Add News/Event'"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="addNewsEventForm">
+                <div class="form-row add-group-form sm">
+                    <div class="form-col">
+                        <lib-form-field *ngIf="title" [config]="title" type="text"
+                            [isSubmitted]="submitted"></lib-form-field>
+                    </div>
+                    <div class="form-col">
+                        <lib-form-field *ngIf="status" [config]="status" [isSubmitted]="submitted"
+                            type="dropdown"></lib-form-field>
+                    </div>
+                    <div class="form-col">
+                        <lib-date-field *ngIf="startDate" [config]="startDate"
+                            [isSubmitted]="submitted"></lib-date-field>
+                    </div>
+                    <div class="form-col">
+                        <lib-date-field *ngIf="endDate" [config]="endDate" [isSubmitted]="submitted"></lib-date-field>
+                    </div>
+                    <div class="form-col">
+                        <lib-file-input #fileInputComponent (selectedFileChange)="fileBrowseHandler($event)"
+                            [fileList]="this.fileList" [config]="file"
+                            (fileErrorStatusChanged)="handleFileError($event)" [isSubmitted]="fileSubmitted"
+                            (previewFile)="previewFile($event)" (deleteFile)="deleteFile($event)">
+                        </lib-file-input>
+                    </div>
+                </div>
+            </form>
+            <div class="right-wrapper"></div>
+        </div>
+    </div>
+    <div class="grid-content-wrap">
+        <app-save-cancel-button [saveButtonConfig]="saveButtonConfig"
+            [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+    </div>
+</div>

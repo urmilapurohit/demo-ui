@@ -1,0 +1,52 @@
+<div class="grid-wrapper-inner sdlc-type-wrapper">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Edit SDLC Type"
+      [showBackButton]="true" (handleBackClick)="backToManageSDLCType()" backButtonTitle="Back to SDLC Type"
+      heading='Edit SDLC Type'></app-page-header>
+    <div class="dropdown-link-wrapper">
+      <form class="left-wrapper" [formGroup]="editSdlcTypeFormGroup">
+        <div class="input-wrap" [ariaDisabled]="isEditMode">
+          <lib-form-field *ngIf="name" [config]="name" type="text" [isSubmitted]="submitted"></lib-form-field>
+        </div>
+        <div *ngIf="!isEditMode" class="filter-btn-wrapper">
+          <div class="btn-sm">
+            <button mat-button class="icon-btn icon-only" (click)="enterEditMode()">
+              <em class="primary-icon">
+                <img src="./assets/images/edit-pencil-gray.svg" alt="Edit Pencil Gray" />
+              </em>
+            </button>
+          </div>
+        </div>
+        <div *ngIf="isEditMode" class="filter-btn-wrapper">
+          <div class="inner-wrapper">
+            <div class="btn-sm">
+              <lib-button [buttonConfig]="saveButtonConfig"></lib-button>
+            </div>
+            <div class="btn-sm">
+              <lib-button [buttonConfig]="cancelButtonConfig"></lib-button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="grid-content-wrap" *ngIf="typePagePermissions.isViewPermission">
+    <div class="sdlc-inner-wrapper">
+      <div class="title-link-wrap pb-10">
+        <h2>Work Flow Type</h2>
+        <lib-button [buttonConfig]="addWorkFlowTypeButtonConfig" *ngIf="typePagePermissions.isAddPermission"></lib-button>
+      </div>
+      <lib-data-grid *ngIf="sdlcWorkFlowTypeGridConfig" [gridConfig]="sdlcWorkFlowTypeGridConfig"
+        [isLoading]="sdlcWorkFlowTypeLoading"></lib-data-grid>
+    </div>
+  </div>
+  <div class="grid-content-wrap" *ngIf="stepPagePermissions.isViewPermission">
+    <div class="sdlc-inner-wrapper">
+      <div class="title-link-wrap pb-10">
+        <h2>Work Flow Step</h2>
+        <lib-button [buttonConfig]="addWorkFlowStepButtonConfig" *ngIf="stepPagePermissions.isAddPermission"></lib-button>
+      </div>
+      <lib-data-grid *ngIf="sdlcWorkFlowStepGridConfig" [gridConfig]="sdlcWorkFlowStepGridConfig"
+        [isLoading]="sdlcWorkFlowStepLoading"></lib-data-grid>
+    </div>
+  </div>

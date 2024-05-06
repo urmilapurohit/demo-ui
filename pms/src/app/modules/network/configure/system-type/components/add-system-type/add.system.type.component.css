@@ -1,0 +1,20 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+
+.add-item-wrapper {
+    margin-bottom: -2rem;
+    width: 100%;
+}
+
+.add-item-form .form-row {
+    margin-bottom: 0;
+}
+
+.add-item-form .form-row .form-col {
+    padding: 0 1rem;
+    flex: 0;
+}
+
+.add-item-form .form-row .form-col .btn-wrapper {
+    margin-top: 18px;
+}

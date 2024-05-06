@@ -1,0 +1,29 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems"
+      [showSaveButton]="pagePermissions.isAddPermission && pageRightsGridData.length > 0"
+      heading="Member Wise Authorization" (handleSaveClick)="handleSaveClick()" tooltipMessage="Save"></app-page-header>
+    <div class="dropdown-link-wrapper">
+      <form [formGroup]="filterForm" class="left-wrapper">
+        <lib-form-field *ngIf="memberDropdownConfig" [config]="memberDropdownConfig" type="dropdown"
+          [isSubmitted]="submitted"></lib-form-field>
+        <lib-form-field *ngIf="moduleDropdownConfig" [config]="moduleDropdownConfig" type="dropdown"></lib-form-field>
+        <div class="filter-btn-wrapper">
+          <div class="inner-wrapper">
+            <div class="btn-sm">
+              <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+            </div>
+            <div class="btn-sm">
+              <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="grid-content-wrap" *ngIf="pageRightsGridData.length">
+    <lib-data-grid *ngIf="pageRightsGridConfig" [gridConfig]="pageRightsGridConfig"
+      [isLoading]="isGridLoading"></lib-data-grid>
+  </div>
+</div>

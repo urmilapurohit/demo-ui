@@ -1,0 +1,45 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+::ng-deep .workspace-table.visible.mat-mdc-table tr:hover td.mat-mdc-cell {
+    background-color: var(--light-gray);
+}
+
+::ng-deep .workspace-table tr .action-column, 
+.workspace-table tr.action-column {
+    white-space: normal !important;
+    width: 6rem;
+    min-width: 6rem;
+    max-width: 6rem;
+}
+::ng-deep .workspace-table tr th.appconfig-datatype-column,
+.workspace-table tr th.appconfig-datatype-column,
+::ng-deep .workspace-table tr td.appconfig-datatype-column,
+.workspace-table tr td.appconfig-datatype-column,
+::ng-deep .workspace-table tr th.appconfig-config-column, 
+.workspace-table tr th.appconfig-config-column,
+::ng-deep .workspace-table tr td.appconfig-config-column, 
+.workspace-table tr td.appconfig-config-column {
+    white-space: normal !important;
+    width: 15rem;
+    min-width: 15rem;
+    max-width: 15rem;
+}
+::ng-deep .workspace-table tr th.appconfig-name-column, 
+.workspace-table tr th.appconfig-name-column,
+::ng-deep .workspace-table tr td.appconfig-name-column, 
+.workspace-table tr td.appconfig-name-column {
+    white-space: normal !important;
+    width: 25rem;
+    min-width: 25rem;
+    max-width: 25rem;
+}
+::ng-deep .workspace-table tr th.appconfig-description-column, 
+.workspace-table tr th.appconfig-description-column,
+::ng-deep .workspace-table tr td.appconfig-description-column, 
+.workspace-table tr td.appconfig-description-column {
+    white-space: normal !important;
+    min-width: 25rem;
+}

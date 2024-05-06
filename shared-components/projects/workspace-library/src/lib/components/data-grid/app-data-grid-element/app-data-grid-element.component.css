@@ -1,0 +1,11 @@
+::ng-deep .text-red {
+    color: red;
+}
+
+::ng-deep .text-darkblue {
+    color: darkblue;
+}
+
+::ng-deep .text-green {
+    color: green;
+}

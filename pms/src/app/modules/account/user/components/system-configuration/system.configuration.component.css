@@ -1,0 +1,72 @@
+@import url("../../../../../../assets/css/filter-block.css");
+@import url("../../../../../../assets/css/form-elements.css");
+@import url("../../../../../../assets/css/workspace-table.css");
+@import url("../../../../../../assets/css/custom-helper.css");
+
+.grid-content-wrap.flex{
+    display: flex;
+}
+.grid-content-wrap.flex .right-block{
+    max-width: 28rem;
+    flex:  0 0 28rem;
+}
+.grid-content-wrap.flex .left-block{
+    flex: 1;
+    margin-right: 2rem;
+}
+/* .list-item-block   */
+.list-item-block{
+    border: 0.1rem solid var(--tablecell-border);
+}
+.list-item-block .title{
+    padding: 1.2rem 1.5rem;
+    border-bottom: 0.1rem solid var(--tablecell-border);
+    font-size: 1.4rem;
+    font-weight: 500;
+
+}
+.list-item-block ul{
+    padding: 0.5rem 0;
+}
+.list-item-block li {
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+
+}
+.list-item-block li img{
+    width: 1.6rem;
+    margin-right: 1.2rem;
+}
+.list-item-block li span.number{
+    display: inline-block;
+    margin-left: 0.2rem;
+
+}
+.item-model-col{
+    min-width: 30.8rem;
+    max-width: 30.8rem;
+}
+.item-type-col{
+    min-width: 29.2rem;
+    max-width: 29.2rem;
+}
+.grid-content-wrap.flex .left-block td div, .grid-content-wrap.flex .left-block th div{
+    white-space: break-spaces;
+}
+::ng-deep .dark-theme .list-item-block .title,::ng-deep .dark-theme .list-item-block{
+  border-color: var(--dark-black5) !important;
+}
+::ng-deep .dark-theme .list-item-block li img{
+    filter: brightness(0) invert(1);
+  }
+@media(max-width:1560px){
+    .item-model-col{
+        min-width: 20.8rem;
+        max-width: 20.8rem;
+    }
+    .item-type-col{
+        min-width: 19.2rem;
+        max-width: 19.2rem;
+    } 
+}

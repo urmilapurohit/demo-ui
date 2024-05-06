@@ -1,0 +1,22 @@
+<div class="grid-wrapper-inner sdlc-type-wrapper">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" (handleAddClick)="addCategory()" tooltipMessage="Add Category"
+            [showAddButton]="pagePermissions.isAddPermission" heading="Category"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="filterForm">
+                <lib-form-field *ngIf="category" [config]="category" type="dropdown"></lib-form-field>
+                <lib-form-field *ngIf="department" [config]="department" type="dropdown"></lib-form-field>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                </div>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="categoryGridConfig" [gridConfig]="categoryGridConfig" [isLoading]="isGridLoading"
+            [resetSort]="resetSorting"></lib-data-grid>
+    </div>
+</div>

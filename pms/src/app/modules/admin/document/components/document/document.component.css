@@ -1,0 +1,29 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+::ng-deep .workspace-table .doc-category-column {
+    white-space: normal !important;
+    width: 34.5rem;
+    min-width: 34.5rem;
+    max-width: 34.5rem;
+}
+::ng-deep .workspace-table .doc-title-column {
+    white-space: normal !important;
+    width: 30rem;
+    min-width: 30rem;
+    max-width: 30rem;
+}
+::ng-deep .workspace-table .doc-name-column {
+    white-space: normal !important;
+    width: 64rem;
+    min-width: 64rem;
+    max-width: 64rem;
+}
+::ng-deep .workspace-table .doc-displayorder-column {
+    white-space: normal !important;
+    width: 17rem;
+    min-width: 17rem;
+    max-width: 17rem;
+}

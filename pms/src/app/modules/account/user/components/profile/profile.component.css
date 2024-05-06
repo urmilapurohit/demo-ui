@@ -1,0 +1,251 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+
+.profile-details-block {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile-details-block .content-block .custom-border-btn em {
+    margin-right: 0.9rem;
+}
+
+::ng-deep .dark-theme .profile-details-block .content-block .custom-border-btn em img {
+    filter: brightness(0) invert(2);
+}
+
+.profile-details-block .content-block {
+    flex: 0 0 calc(100% - 12rem);
+    max-width: calc(100% - 12rem);
+    padding-left: 2rem;
+}
+
+.profile-details-block .profile-edit-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.profile-details-block .image-block {
+    flex: 0 0 12rem;
+    max-width: 12rem;
+}
+
+.profile-details-block .image-block img {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    border: 0.1rem solid var(--tablecell-border);
+}
+
+::ng-deep .dark-theme .profile-details-block .image-block img {
+    border-color: var(--dark-white6);
+}
+
+.profile-details-block .content-block h2 {
+    font-size: 3.2rem;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.profile-details-block .content-block ul {
+    display: flex;
+    align-items: center;
+}
+
+.profile-details-block .content-block ul .profile-edit-block {
+    display: flex;
+    align-items: center;
+}
+
+::ng-deep .profile-details-block .content-block ul li .field-wrapper .input-wrap .custom-form-group .mdc-text-field {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-right-width: 0.1rem !important;
+}
+
+::ng-deep .profile-details-block .content-block ul li .field-wrapper .custom-dropdown-wrapper .custom-form-group .mdc-text-field {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-left-width: 0.1rem !important;
+}
+
+::ng-deep .profile-details-block .content-block ul li .field-wrapper .custom-form-group.sm-form-group .mdc-text-field {
+    width: 16rem !important;
+    /* height: 3rem !important; */
+}
+
+.profile-details-block .content-block ul li .field-wrapper {
+    display: inline-flex;
+    align-items: flex-start;
+}
+
+.profile-details-block .content-block ul li+li {
+    position: relative;
+    padding-left: 4rem;
+}
+
+.profile-details-block .content-block ul li+li::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2rem;
+    width: 0.1rem;
+    height: 1.8rem;
+    background-color: var(--hover-secondary-gray);
+}
+
+.profile-details-block .content-block ul li span {
+    font-size: 1.3rem;
+}
+
+.profile-details-block .content-block ul .profile-edit-block a>em {
+    display: inline-block;
+}
+
+.profile-details-block .content-block ul .profile-edit-block a>em img {
+    min-width: 1.2rem;
+    height: auto;
+}
+
+::ng-deep .dark-theme .profile-details-block .content-block ul .profile-edit-block a>em img {
+    filter: brightness(0) invert(2);
+}
+
+.profile-details-block .content-block ul .profile-edit-block>em {
+    display: inline-block;
+    margin-right: 0.6rem;
+    min-width: 1.5rem;
+}
+
+::ng-deep .dark-theme .profile-details-block .content-block ul .profile-edit-block>em img {
+    filter: brightness(0) invert(2);
+}
+
+.profile-details-block .content-block ul li span+a {
+    margin-left: 0.8rem;
+}
+
+/* profile table styles */
+.profile-info-wrapper {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+}
+
+.profile-info-wrapper ul {
+    min-width: 52.2rem;
+    border: 0.1rem solid var(--tablecell-border);
+    border-bottom: 0;
+    height: 100%;
+}
+
+::ng-deep .dark-theme .profile-info-wrapper ul {
+    border-color: var(--dark-black5) !important;
+}
+
+.profile-info-wrapper ul+ul {
+    border-left: 0;
+}
+
+.profile-info-wrapper ul li {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 0.1rem solid var(--tablecell-border);
+    text-transform: capitalize;
+}
+
+.profile-info-wrapper ul li span {
+    padding: 1rem;
+}
+
+.profile-info-wrapper ul .no-text-transform {
+    text-transform: none;
+}
+
+::ng-deep .dark-theme .profile-info-wrapper ul li {
+    border-color: var(--dark-black5) !important;
+}
+
+.profile-info-wrapper ul .title-col {
+    background-color: var(--light-gray);
+    color: var(--black);
+    font-size: 1.3rem;
+    flex: 0 0 35%;
+    max-width: 50%;
+    border-right: 0.1rem solid var(--tablecell-border);
+    /* min-width: 15rem; */
+}
+
+::ng-deep .dark-theme .profile-info-wrapper ul .title-col {
+    background-color: var(--dark-black3) !important;
+    color: var(--dark-white6) !important;
+    border-color: var(--dark-black5) !important;
+}
+
+.profile-info-wrapper ul .detail-col {
+    /* min-width: 35rem; */
+    flex: 0 0 65%;
+    max-width: 70%;
+    color: var(--black);
+    font-size: 1.3rem;
+}
+
+::ng-deep .edit-field img {
+    padding-top: 1.3rem !important;
+}
+
+::ng-deep li app-toggle-icon img {
+    margin-left: 5px !important;
+}
+
+::ng-deep .dark-theme .profile-info-wrapper ul .detail-col {
+    color: var(--dark-white6) !important;
+}
+
+.profile-edit-controls {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    max-width: 107.4rem;
+    justify-content: flex-end;
+}
+
+.profile-edit-controls .btn-sm+.btn-sm {
+    margin-left: 1rem;
+}
+
+@media(max-width:1400px) {
+    .profile-details-block {
+        display: block;
+        padding-bottom: 3rem;
+    }
+
+    .profile-details-block .image-block {
+        margin-bottom: 1.5rem;
+    }
+
+    .profile-details-block .content-block {
+        padding-left: 0;
+        max-width: 100%;
+    }
+}
+
+@media(max-width:1199px) {
+    .profile-info-wrapper {
+        display: block;
+    }
+
+    .profile-info-wrapper ul {
+        max-width: 100%;
+    }
+
+    .profile-info-wrapper ul+ul {
+        border-right: 0.1rem solid var(--tablecell-border);
+        border-top: 0;
+    }
+
+}

@@ -1,0 +1,49 @@
+<!-- Check which button type to load -->
+<ng-template [ngIf]="isMenuButton" [ngIfElse]="normalButton"> </ng-template>
+
+<!-- Normal Button -->
+<ng-template #normalButton>
+  <ng-container [ngSwitch]="buttonConfig.buttonVariant">
+    <ng-container *ngSwitchDefault [ngTemplateOutlet]="strokedButton"></ng-container>
+    <ng-container *ngSwitchCase="buttonVariants.iconOnly" [ngTemplateOutlet]="iconOnlyButton"></ng-container>
+    <ng-container *ngSwitchCase="buttonVariants.anchorButton" [ngTemplateOutlet]="isAnchorButton"></ng-container>
+    <ng-container *ngSwitchCase="buttonVariants.iconWithText" [ngTemplateOutlet]="isIconWithText"></ng-container>
+  </ng-container>
+</ng-template>
+
+<!-- Strocked button default case -->
+<ng-template #strokedButton>
+  <button *ngIf="!buttonConfig?.hideButton" mat-stroked-button [class]="btnClass" (click)="onBtnClick($event)"
+    [disabled]="isButtonDisable()">
+    {{ buttonConfig.buttonText ? buttonConfig.buttonText : "" }}
+  </button>
+</ng-template>
+
+<!-- Button with icon only-->
+<ng-template #iconOnlyButton>
+  <button mat-icon-button [matTooltip]="tooltip" [class]="btnClass"
+    [matTooltipClass]="this.buttonConfig.tooltipClass ?? 'custom-tooltip centered'" (click)="onBtnClick($event)"
+    [disabled]="isButtonDisable()"
+    [matTooltipPosition]="this.buttonConfig.tooltipDirection ?? this.tooltipDirections.below">
+    <ng-container *ngIf="isImageButton">
+      <em><img *ngIf="buttonConfig.imgUrl" [src]="buttonConfig.imgUrl" alt="" /></em>
+    </ng-container>
+  </button>
+</ng-template>
+
+<!-- Anchor button -->
+<ng-template #isAnchorButton>
+  <a *ngIf="this.buttonConfig.isVisible"  (click)="onBtnClick($event)" [ngClass]="{ 'disable-class': isButtonDisable() }"
+    [class]="btnClass">{{ buttonConfig.buttonText ? buttonConfig.buttonText : "" }}</a>
+</ng-template>
+
+<!-- Button with icon and text-->
+<ng-template #isIconWithText>
+  <button *ngIf="!buttonConfig?.hideButton" mat-stroked-button [class]="btnClass" (click)="onBtnClick($event)"
+    [disabled]="isButtonDisable()">
+    <em class="primary-icon">
+      <img [src]="buttonConfig.imgUrl" [alt]="buttonConfig.buttonText || ''" />
+  </em>
+    {{ buttonConfig.buttonText ? buttonConfig.buttonText : "" }}
+  </button>
+</ng-template>

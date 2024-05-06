@@ -1,0 +1,87 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Template Preview"
+      [showBackButton]="true" (handleBackClick)="backToEmailTemplate()" backButtonTitle="Back to Email Template"
+      heading="Template Preview"></app-page-header>
+  </div>
+  <div class="grid-content-wrap">
+    <div class="template-preview-block outer">
+      <div class="template-preview-block">
+        <table width="600" align="center" class="table">
+          <tbody>
+            <!-- template header -->
+            <tr>
+              <td style="border: 1px solid #e9ebec">
+                <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #e9f2ff">
+                  <tbody>
+                    <tr>
+                      <td width="15" class="outer-td-width"></td>
+                      <td>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td height="15" class="outer-td-height"></td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <table width="100%" cellpadding="0" cellspacing="0" border="0" valign="top">
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <a href="" (click)="$event.preventDefault()" title="Workspace" width="122"
+                                          height="34" style="
+                                              display: block;
+                                              width: 122px;
+                                              height: 34px;
+                                            " class="small-image">
+                                          <img
+                                            src="https://www.anasource.com/team4new/workspace-rewamp-email-template/images/workspace-logo-blue.svg"
+                                            width="122" height="34" style="
+                                                display: block;
+                                                width: 122px;
+                                                height: 34px;
+                                              " class="small-image" />
+                                        </a>
+                                      </td>
+                                      <td width="15" class="outer-td-width"></td>
+                                      <td valign="middle" style="
+                                            color: #212121;
+                                            font-family: Arial, sans-serif;
+                                            font-size: 16px;
+                                            font-weight: 500;
+                                            text-align: right;
+                                          ">
+                                        <div [innerHTML]="subject"></div>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td height="15" class="outer-td-height"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td width="15" class="outer-td-width"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <!-- template body -->
+            <tr>
+              <td style="border: 1px solid #e9ebec;padding: 10px;">
+                <table width="100%">
+                  <tbody [innerHTML]="templateData | safeHtml">
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+.grid-content-wrap .bottom-btn-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.grid-content-wrap .bottom-btn-wrap .btn-sm:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.filter-title-wrapper {
+    padding-bottom: 0;
+}
+
+.right-col {
+    flex: 0 0 63.8%;
+    max-width: 63.8%;
+    padding-right: 2rem;
+}
+
+.history-lable {
+    padding-bottom: 2rem;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+.left-col {
+    flex: 0 0 36.2% !important;
+    max-width: 36.2% !important;
+    padding-right: 5rem;
+    padding-left: 2rem;
+    padding-top: 0;
+}
+
+.two-col-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+::ng-deep .large-width-field .mat-mdc-form-field-flex {
+    width: 100% !important;
+}

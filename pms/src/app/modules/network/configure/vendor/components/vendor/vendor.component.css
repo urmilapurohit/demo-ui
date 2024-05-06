@@ -1,0 +1,35 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+::ng-deep .workspace-table .vendor-name-column {
+    white-space: normal !important;
+    width: 25rem;
+    min-width: 25rem;
+    max-width: 25rem;
+}
+::ng-deep .workspace-table .vendor-phnnum-column {
+    white-space: normal !important;
+    width: 24rem;
+    min-width: 24rem;
+    max-width: 24rem;
+}
+::ng-deep .workspace-table .vendor-alternate-phnnum-column {
+    white-space: normal !important;
+    width: 24rem;
+    min-width: 24rem;
+    max-width: 24rem;
+}
+::ng-deep .workspace-table .vendor-address-column {
+    white-space: normal !important;
+    width: 35.6rem;
+    min-width: 35.6rem;
+    max-width: 40.6rem;
+}
+::ng-deep .workspace-table .vendor-comments-column {
+    white-space: normal !important;
+    width: 35.6rem;
+    min-width: 35.6rem;
+    max-width: 35.6rem;
+}

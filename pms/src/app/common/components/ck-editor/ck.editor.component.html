@@ -1,0 +1,5 @@
+<form [formGroup]="form">
+    <ckeditor [class]="customClass" [formControlName]="config.formControlName" [editor]="editor" data=""
+        (keyup)="onKeyUp($event)"></ckeditor>
+    <lib-show-error [ctrl]="config.formControlName" [formGroup]="form" [submit]="isSubmitted"></lib-show-error>
+</form>

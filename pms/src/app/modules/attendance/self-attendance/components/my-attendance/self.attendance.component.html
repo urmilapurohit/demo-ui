@@ -1,0 +1,116 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false" heading="Self Attendance"></app-page-header>
+
+    <div class="dropdown-link-wrapper">
+      <form class="left-wrapper" [formGroup]="filterForm">
+        <lib-form-field *ngIf="monthDropDown" [config]="monthDropDown" type="dropdown"></lib-form-field>
+        <lib-form-field *ngIf="yearDropDown" [config]="yearDropDown" type="dropdown"></lib-form-field>
+        <div class="filter-btn-wrapper">
+          <div class="inner-wrapper">
+            <div class="btn-sm">
+              <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+            </div>
+            <div class="btn-sm">
+              <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="right-wrapper"></div>
+    </div>
+  </div>
+
+  <div class="grid-content-wrap">
+    <div class="attendance-table-outer">
+      <div class="note-scenario-wrapper">
+        <div class="note-wrapper">
+          <p class="info-note" *ngIf="!editableDay?.isSubmitted">Note: System will only save attendance for today. All
+            unsaved changes will be shown in
+            <span class="red-font">red</span> font.
+          </p>
+          <p class="red-font" *ngIf="editableDay?.isSubmitted">
+            Today's attendance has been submitted by your RO. Please contact him/her now in case of any corrections.
+          </p>
+        </div>
+        <div class="scenario-wrapper">
+          <div class="scenario-item" *ngFor="let item of AttendanceTypeLabels">
+            <div class="color-box" [ngClass]="item.className"></div>
+            <p>{{item.attendanceType}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="attendance-month-wrapper">
+        <h2 class="month">{{monthYearLabel}}</h2>
+        <div class="attendance-details">
+          <div class="details-inner">
+            Present <div class="round-badge">{{presentDay}}</div>
+          </div>
+          <div class="details-inner">
+            Absent <div class="round-badge absent">{{absentDay}}</div>
+          </div>
+          <div class="details-inner">= Total {{totalDays}} days</div>
+        </div>
+      </div>
+      <div class="attendance-table-wrapper">
+        <div class="attendance-table-responsive">
+          @if (attendanceData && attendanceData.attendance && displayedColumns ) {
+          <table class="attendance-table mat-elevation-z8 team-attendance-wrapper">
+            <thead>
+              <tr class="mat-mdc-header-row">
+                @for (col of displayedColumns; track $index) {
+                <th> {{col | extractDay}}
+                  <span class="day">{{col.split("_")[1]| shortName:1}}</span>
+                </th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="mat-mdc-row">
+                <ng-container *ngFor="let item of attendanceData.attendance">
+                  <td [class.today-box]="editableDay?.attendanceDate === item.attendanceDate"
+                    [class.weekend-box]="item.isWeekOff || isDisabled(item.attendanceDate)"
+                    [class.holiday-box]="item.isPublicHoliday && !item.isWeekOff" [class.green-font]="item.isSubmitted"
+                    [class.red-font]="!item.isSubmitted" [class.full-leave-box]="item.attendanceType === 'A'"
+                    [class.half-leave-box]="item.attendanceType === 'H'"
+                    [title]="getDateFormat(item.attendanceDate) + ' ' + item.nameOfDay">
+                    @if (!item.isEditable && !item.isPublicHoliday && !item.isWeekOff)
+                    {
+                    {{item.attendanceType}}
+                    }
+                    @else if (item.isEditable && !item.isSubmitted) {
+                    <div [matMenuTriggerFor]="menu" [matMenuTriggerData]=" {menuData:{date:item.attendanceDate} }"
+                      class="td-full-width">
+                      {{item.attendanceType}}
+                    </div>
+                    }
+                  </td>
+                </ng-container>
+              </tr>
+            </tbody>
+          </table>
+          <mat-menu #menu="matMenu">
+            <ng-template matMenuContent let-menuData="menuData">
+              @for (item of attendanceOptions; track $index) {
+              <button disableRipple mat-menu-item [class.active]="menuData.attendanceType === item.id"
+                (click)="onAttendanceSelect(menuData,item.id.toString())">{{item.text}}</button>
+              }
+            </ng-template>
+          </mat-menu>
+          }
+          @else {
+          <div class="no-data-found">
+            No data found.
+          </div>
+          }
+        </div>
+      </div>
+      <div class="bottom-btn-wrap">
+        <div class="fill-btn-wrapper btn-sm">
+          <lib-button *ngIf="pagePermissions.isEditPermission && editableDay && !editableDay?.isSubmitted"
+            [buttonConfig]="fillAttendanceBtnConfig"></lib-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

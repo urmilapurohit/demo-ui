@@ -1,0 +1,91 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+
+.form-group h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.form-group.title-wrapper.has-border {
+    position: relative;
+}
+
+.form-group.title-wrapper.has-border::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    height: 0.15rem;
+    background-color: var(--tablecell-border);
+}
+
+::ng-deep .dark-theme .form-group.title-wrapper.has-border::before {
+    background-color: var(--dark-tablecell-border);
+}
+
+.form-group.title-wrapper {
+    padding-bottom: 1.5rem;
+}
+
+.form-group-wrapper.pre-sales-status-wrapper {
+    max-width: 841px;
+    margin: 0 -1rem -1.5rem;
+}
+
+.form-group-wrapper.pre-sales-status-wrapper .form-group {
+    padding: 0 1rem 1.5rem;
+}
+
+.form-group-wrapper.pre-sales-status-wrapper .form-row .form-col {
+    padding: 0 1.8rem 1.5rem !important;
+}
+
+
+::ng-deep .pre-sales-status-wrapper .custom-check+.custom-check {
+    margin-left: 2rem;
+}
+
+::ng-deep .pre-sales-status-wrapper .custom-check .mdc-label {
+    max-width: inherit;
+}
+
+.pre-sales-status-wrapper .btn-wrap {
+    display: flex;
+}
+
+.pre-sales-status-wrapper .btn-wrap .btn-sm+.btn-sm {
+    margin-left: 1rem;
+}
+
+.pt-20 {
+    padding-top: 2rem !important;
+}
+
+.mt-10 {
+    margin-top: 1rem !important;
+}
+
+.pb-15 {
+    padding-bottom: 1.5rem !important;
+}
+
+.pt-5 {
+    padding-top: 0.5rem !important;
+}
+
+.checkbox-row lib-checkbox {
+    display: inline-block;
+    width: max-content;
+}
+
+.checkbox-row lib-checkbox+lib-checkbox {
+    margin-left: 2.1rem;
+}
+
+.filter-title-wrapper {
+    padding-bottom: 0.5rem;
+}

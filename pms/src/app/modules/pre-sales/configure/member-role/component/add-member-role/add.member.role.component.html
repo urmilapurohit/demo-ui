@@ -1,0 +1,31 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Add Member Role"
+      [heading]="isEdit ? 'Edit Member Role': 'Add Member Role'"></app-page-header>
+  </div>
+  <div class="grid-content-wrap">
+    <form class="form-row sm pre-sales-member-edit-form" [formGroup]="addMemberRoleFormGroup">
+      <div class="form-col col-2">
+        <lib-form-field *ngIf="member" [config]="member" type="dropdown" [isSubmitted]="submitted"></lib-form-field>
+      </div>
+      <div class="form-col col-2">
+        <lib-form-field *ngIf="status" [config]="status" type="dropdown"></lib-form-field>
+      </div>
+      <div class="form-col full-width">
+        <div class="input-wrap checkbox-row">
+          <lib-checkbox [config]="isBde" type="checkbox"></lib-checkbox>
+          <lib-checkbox [config]="isBa" type="checkbox"></lib-checkbox>
+          <lib-checkbox [config]="isPreSalesAdmin" type="checkbox"></lib-checkbox>
+        </div>
+      </div>
+      <div class="form-col full-width">
+        <lib-form-field *ngIf="oneDrivePath" [config]="oneDrivePath" type="text"
+          [isSubmitted]="submitted"></lib-form-field>
+      </div>
+      <div class="form-col full-width">
+        <app-save-cancel-button [saveButtonConfig]="saveButtonConfig"
+          [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+      </div>
+    </form>
+  </div>
+</div>

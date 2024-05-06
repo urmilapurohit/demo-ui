@@ -1,0 +1,31 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+
+::ng-deep .workspace-table .update-date-column,
+.workspace-table .update-date-column {
+  width: 16rem;
+  min-width: 16rem;
+  max-width: 16rem;
+}
+
+::ng-deep .workspace-table .update-by-column,
+.workspace-table .update-by-column {
+  width: 18rem;
+  min-width: 18rem;
+  max-width: 18rem;
+}
+
+::ng-deep .workspace-table .field-name-column {
+  width: 16.25rem;
+  min-width: 16rem;
+  max-width: 16.25rem;
+}
+
+::ng-deep .workspace-table .value-column {
+  width: 50rem;
+  min-width: 30rem;
+  max-width: 55rem;
+  white-space: normal !important;
+}

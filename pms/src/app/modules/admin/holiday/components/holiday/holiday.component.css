@@ -1,0 +1,23 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+.btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+::ng-deep .workspace-table tr th.holiday-type-column,
+::ng-deep .workspace-table tr td.holiday-type-column {
+    width: 18rem;
+}
+
+.dropdown-link-wrapper .left-wrapper {
+    align-items: normal;
+}
+
+.filter-btn-wrapper {
+    margin-top: 2rem;
+}

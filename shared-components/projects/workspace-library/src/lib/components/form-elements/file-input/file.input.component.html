@@ -1,0 +1,26 @@
+<mat-label *ngIf="config.label" [class.required-label]="config.isRequired" class="input-label">
+  {{ config.label }}
+</mat-label>
+<div class="file-upload-block">
+  <div class="custom-form-group file-upload-form-group">
+    <label for="fileInput">
+      <input id="fileInput" #fileInput type="file" [accept]="this.config.allowedExtensions" [multiple]="false"
+        (change)="onFileSelected($event)" style="opacity: 0; width: 0; height: 0;" class="file-upload-control" /> <span
+        class="file-upload-button">Choose
+        File</span>
+    </label>
+    <span class="file-name" *ngIf="this.fileList.length === 0">No file chosen</span>
+  </div>
+  <div *ngFor="let file of fileList" class="file-item">
+    <a (click)="onPreview(file)" class="link">{{ file.name }}</a>
+    <div class="file-icons">
+      <span (click)="onDelete(file.id)" class="delete-icon"><img src="./assets/images/close-icon-gray.svg"
+          alt="close"></span>
+    </div>
+  </div>
+</div>
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<div class="file-notes">
+  {{config.suggestionMessage}}
+</div>

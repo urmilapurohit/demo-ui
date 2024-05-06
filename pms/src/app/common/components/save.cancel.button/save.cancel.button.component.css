@@ -1,0 +1,11 @@
+.bottom-btn-wrap {
+    padding-top: 0!important;
+    display: flex;
+    align-items: center;
+}
+.bottom-btn-wrap .btn-sm:not(:last-child) {
+    margin-right: 1rem;
+}
+::ng-deep.modal-wrapper .modal-footer button:last-child {
+    margin-left: 1rem;
+}

@@ -1,0 +1,15 @@
+<div class="grid-wrapper-inner pre-sales-wrapper">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" tooltipMessage="History" [showAddButton]="false" heading="History"
+            [showBackButton]="true" (handleBackClick)="backToInquiryList()"
+            backButtonTitle="Back to Inquiry"></app-page-header>
+    </div>
+    <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="historyGridConfig" [gridConfig]="historyGridConfig"
+            [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+    <ng-template #historyDetailTemplate let-row>
+        <lib-data-grid *ngIf="historyDetailsGridConfig" [gridConfig]="getHistoryDetailsGrid(row.historyDetails)"
+            [isLoading]="isGridLoading"></lib-data-grid>
+    </ng-template>
+</div>

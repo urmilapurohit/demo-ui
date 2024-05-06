@@ -1,0 +1,222 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/custom-helper.css");
+
+::ng-deep .hierarchy-wrapper .hierarchy-wrapper-inner {
+    padding: 1px 0 0;
+}
+
+::ng-deep .hierarchy-card-wrap.second-level {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+::ng-deep .hierarchy-card-wrap.second-level .hierarchy-card-outer {
+    display: flex;
+    position: relative;
+    padding: 0 0 2rem;
+}
+
+::ng-deep .hierarchy-card {
+    text-align: center;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+::ng-deep .hierarchy-card:not(:last-child) {
+    margin-right: 15px;
+}
+
+::ng-deep .hierarchy-card .card-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+::ng-deep .hierarchy-card .img-wrap {
+    width: 90px;
+    height: 90px;
+    min-height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--tablecell-border);
+    overflow: hidden;
+    margin: 0 auto -15px;
+    position: relative;
+    z-index: 1;
+}
+
+::ng-deep .hierarchy-card-outer .hierarchy-card.has-child .img-wrap {
+    border-color: var(--hover-gray);
+}
+
+::ng-deep .hierarchy-card .img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+::ng-deep .hierarchy-card .content-wrap {
+    background-color: var(--light-gray);
+    border-radius: 2px;
+    padding: 20px 8px 10px;
+    min-height: 90px;
+    position: relative;
+    transition: box-shadow 0.5s ease;
+    height: 100%;
+}
+
+::ng-deep .hierarchy-card-wrap.first-level .hierarchy-card .content-wrap {
+    padding: 20px 8px 14px;
+}
+
+::ng-deep .hierarchy-card:hover .content-wrap {
+    box-shadow: 4px 4px 12px 0px rgba(0, 0, 0, 0.06);
+}
+
+::ng-deep .hierarchy-card-outer .hierarchy-card.has-child .content-wrap {
+    background-color: var(--hover-gray);
+}
+
+::ng-deep .hierarchy-card .content-wrap .name {
+    display: block;
+    font-size: 14px;
+    line-height: 1.3;
+    text-transform: capitalize;
+    color: var(--black);
+    margin: 0 0 3px;
+}
+
+::ng-deep .hierarchy-card .content-wrap .members {
+    display: block;
+    font-size: 12px;
+    line-height: 1.2;
+    text-transform: capitalize;
+    color: var(--black);
+    margin: 0 0 10px;
+}
+
+::ng-deep .hierarchy-card .content-wrap .position {
+    display: block;
+    font-size: 12px;
+    line-height: 1.2;
+    text-transform: capitalize;
+    color: var(--black);
+    margin: 7px 0 0;
+}
+
+::ng-deep .hierarchy-card .content-wrap .expand-btn {
+    background-color: var(--white) !important;
+    border: 2px solid var(--hover-gray) !important;
+    width: 2.8rem;
+    height: 2.8rem;
+    color: var(--black);
+    display: none;
+    box-shadow: none;
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+}
+
+::ng-deep .hierarchy-card .content-wrap .expand-btn .mdc-button__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+::ng-deep .hierarchy-card.has-child .content-wrap .expand-btn {
+    display: block;
+}
+
+::ng-deep .hierarchy-card .content-wrap .expand-btn.mat-mdc-fab .mat-mdc-button-touch-target {
+    width: 100%;
+    height: 100% !important;
+}
+
+::ng-deep .hierarchy-card-outer .hierarchy-card::before,
+::ng-deep .first-level .hierarchy-card-outer .hierarchy-card.has-child::after {
+    content: '';
+    background-color: var(--tablecell-border);
+    height: 35px;
+    width: 2px;
+    margin: 0 auto;
+    display: block;
+}
+
+::ng-deep .hierarchy-card-wrap.first-level .hierarchy-card-outer .hierarchy-card::before {
+    display: none;
+}
+
+::ng-deep .hierarchy-card-wrap.second-level .hierarchy-card-outer::before {
+    content: '';
+    width: calc(100% - 150px);
+    height: 2px;
+    display: block;
+    background-color: var(--tablecell-border);
+    position: absolute;
+    top: 0;
+    left: 75px;
+}
+
+::ng-deep .hierarchy-card .card-link {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+::ng-deep .hierarchy-card.has-child .card-link {
+    display: block;
+}
+
+::ng-deep .custom-tooltip.plus-below {
+    margin-top: 1.4rem;
+}
+
+::ng-deep .dark-theme .hierarchy-card-wrap.second-level .hierarchy-card-outer::before,
+::ng-deep .dark-theme .hierarchy-card-outer .hierarchy-card::before,
+::ng-deep .dark-theme .first-level .hierarchy-card-outer .hierarchy-card.has-child::after {
+    background-color: var(--dark-black5);
+}
+
+::ng-deep .dark-theme .hierarchy-card .content-wrap {
+    background-color: var(--dark-white5);
+}
+
+::ng-deep .dark-theme .hierarchy-card .img-wrap {
+    border-color: var(--dark-black7);
+}
+
+::ng-deep .dark-theme .hierarchy-card .content-wrap .name {
+    color: var(--white);
+}
+
+::ng-deep .dark-theme .hierarchy-card .content-wrap .members {
+    color: var(--white);
+}
+
+::ng-deep .dark-theme .hierarchy-card .content-wrap .position {
+    color: var(--white);
+}
+
+::ng-deep .dark-theme .hierarchy-card-outer .hierarchy-card.has-child .content-wrap {
+    background-color: var(--dark-blue3);
+}
+
+::ng-deep .dark-theme .hierarchy-card-outer .hierarchy-card.has-child .img-wrap {
+    border-color: var(--dark-blue3);
+}
+
+::ng-deep .dark-theme .hierarchy-card .content-wrap .expand-btn {
+    background-color: var(--dark-blue4) !important;
+    border: 2px solid var(--dark-blue-border) !important;
+    color: var(--white);
+}

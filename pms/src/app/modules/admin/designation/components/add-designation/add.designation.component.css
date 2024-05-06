@@ -1,0 +1,7 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+
+::ng-deep .form-row .custom-radio-checkbox-wrapper .custom-radio-checkbox-list {
+    margin-top: 0;
+    min-height: max-content;
+}

@@ -1,0 +1,9 @@
+<div class="datepicker-wrapper">
+    <mat-form-field class="custom-form-group sm-form-group datepicker">
+        <mat-label>Pending Attandance</mat-label>
+        <input matInput [matDatepicker]="picker" class="custom-form-control" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</div>

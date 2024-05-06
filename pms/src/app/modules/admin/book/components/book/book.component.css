@@ -1,0 +1,19 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+::ng-deep .workspace-table tr th.category-column,
+::ng-deep .workspace-table tr td.category-column {
+    width: 10rem;
+}
+
+::ng-deep .workspace-table tr th.author-column,
+::ng-deep .workspace-table tr td.author-column {
+    width: 10rem
+}
+
+::ng-deep .workspace-table tr th.name-column,
+::ng-deep .workspace-table tr td.name-column {
+    width: 30rem
+}

@@ -1,0 +1,18 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/custom-helper.css");
+
+::ng-deep .custom-textarea .mdc-text-field--filled {
+    height: 26.5rem !important;
+}
+
+::ng-deep .custom-textarea .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+    height: 25rem !important;
+}
+
+.edit-template-form {
+    margin-bottom: -1rem !important;
+    max-width: 100%;
+    width: 100%;
+    align-items: flex-start;
+}

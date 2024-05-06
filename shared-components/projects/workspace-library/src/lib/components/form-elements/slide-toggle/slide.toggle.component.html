@@ -1,0 +1,12 @@
+<div class="input-wrap">
+  <ng-container *ngIf="config.label">
+    <mat-label>{{ config.label }}</mat-label>
+  </ng-container>
+  <div class="custom-switch-wrapper">
+    <form [formGroup]="formGroup">
+        <mat-slide-toggle class="custom-switch" [formControlName]="config.formControlName" (click)="click($event)"
+          (change)="change($event)">
+        </mat-slide-toggle>
+    </form>
+  </div>
+</div>

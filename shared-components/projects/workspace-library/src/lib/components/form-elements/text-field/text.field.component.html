@@ -1,0 +1,48 @@
+<ng-container *ngIf="config.isLabelFloating">
+  <div class="input-wrap">
+    <form [formGroup]="formGroup">
+      <mat-form-field class="custom-form-group sm-form-group">
+        <mat-label *ngIf="config.label">
+          {{config.label}}
+        </mat-label>
+        <input autocomplete="false" matInput [class]="customClass" [formControlName]="formControlName"
+          [placeholder]="placeholder ? placeholder : ''" (keyup.enter)="onEnterPress()" (blur)="onBlur()"
+          [type]="inputType" />
+      </mat-form-field>
+      <lib-show-error [ctrl]="formControlName" [formGroup]="formGroup" [submit]="isSubmitted"></lib-show-error>
+    </form>
+  </div>
+</ng-container>
+<ng-container *ngIf="!config?.isLabelFloating">
+  <div class="input-wrap">
+    <form [formGroup]="formGroup">
+      <mat-label *ngIf="config.label" [class.required-label]="config.isRequired">
+        {{ config.label }}
+      </mat-label>
+      <ng-container *ngIf="inputType === 'text' || inputType === 'number' ||inputType === 'email' ">
+        <mat-form-field class="custom-form-group sm-form-group">
+          <input autocomplete="false" [maxlength]="config.maxLength || null" matInput [class]="customClass"
+            [formControlName]="formControlName" [placeholder]="placeholder ? placeholder : ''"
+            (keyup.enter)="onEnterPress()" (blur)="onBlur()" [type]="inputType" libNumberOnly
+            [isNumber]="inputType === 'number' ? true : false" />
+        </mat-form-field>
+      </ng-container>
+      <ng-container *ngIf="inputType === 'password'">
+        <mat-form-field class="custom-form-group sm-form-group">
+          <input matInput [type]="showPassword ? 'text' : 'password'" [class]="customClass"
+            [formControlName]="formControlName" [placeholder]="placeholder ? placeholder : ''" [maxlength]="config.maxLength || null"
+            (keyup.enter)="onEnterPress()" (blur)="onBlur()">
+          <button type="button" class="password-eye-icon" disableRipple mat-icon-button matSuffix
+            (click)="showPassword = !showPassword" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="showPassword">
+            <i>
+              <img *ngIf="!showPassword" src="../../../assets/images/visibility-off.svg" alt="Visibility Off" />
+              <img *ngIf="showPassword" src="../../../assets/images/visibility-on.svg" alt="Visibility On" />
+            </i>
+          </button>
+        </mat-form-field>
+      </ng-container>
+      <lib-show-error [ctrl]="formControlName" [formGroup]="formGroup" [submit]="isSubmitted"></lib-show-error>
+    </form>
+  </div>
+</ng-container>

@@ -1,0 +1,26 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+      <app-page-header [showAddButton]="false" tooltipMessage="System Configuration"
+      [showBackButton]="true" (handleBackClick)="backToUserProfile()" backButtonTitle="Back to My Profile"
+      heading='System Configuration'></app-page-header>
+    </div>
+    <div class="grid-content-wrap flex">
+      <div class="left-block">
+      <lib-data-grid *ngIf="systemConfigurationGridConfig" [gridConfig]="systemConfigurationGridConfig"
+      [isLoading]="isGridLoading"></lib-data-grid>
+      </div>
+        <div class="right-block">
+           <div class="list-item-block">
+                <div class="title">Assigned Additional Items</div>
+                <ul>
+                    <li><img src="./assets/images/webcam-icon.svg" alt="Logitech Web Camera Icon">Logitech Web Camera <span class="number">(2)</span></li>
+                    <li><img src="./assets/images/plug-cable.svg" alt="HDMI Cable ">HDMI Cable <span class="number">(2)</span></li>
+                    <li><img src="./assets/images/smart-card-reader.svg" alt="Card Reader Icon">Smart Card Reader <span class="number">(3)</span></li>
+                    <li><img src="./assets/images/external-hard-drive.svg" alt="Hard Drive Icon">External Hard Drive <span class="number">(2)</span></li>
+                    <li><img src="./assets/images/multi-function-printer.svg" alt="Printer Icon">Multi - Function Printer<span class="number">(1)</span></li>
+                    <li><img src="./assets/images/tablet-icon.svg" alt="Tablet Icon">Samsung 17’’ Android Tablet <span class="number">(1)</span></li>
+                </ul>
+           </div>
+        </div>
+      </div>
+</div>

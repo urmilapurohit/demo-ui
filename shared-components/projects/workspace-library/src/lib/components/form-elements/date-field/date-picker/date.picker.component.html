@@ -1,0 +1,15 @@
+<div class="datepicker-wrapper">
+  <form [formGroup]="formGroup">
+    <mat-label [class.required-label]="config.isRequired">{{ config.label }}</mat-label>
+    <mat-form-field *ngIf="!config?.isHidden" class="custom-form-group sm-form-group datepicker">
+      <input [formControlName]="formControlName" matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate"
+        [placeholder]="placeholder ? placeholder : ''" (dateChange)="onChangeDate()" class="custom-form-control"
+        (keydown)="onKeyDown($event)" />
+      <mat-hint>{{config.hint}}</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <lib-show-error [ctrl]="formControlName" [formGroup]="formGroup" [submit]="isSubmitted">
+    </lib-show-error>
+  </form>
+</div>

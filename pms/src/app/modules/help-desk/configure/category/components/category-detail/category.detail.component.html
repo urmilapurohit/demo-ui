@@ -1,0 +1,53 @@
+<div class="grid-wrapper-inner category-type-wrapper">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]="false" heading='Edit Category'
+            [showBackButton]="true" (handleBackClick)="backToCategoryGrid()"
+            backButtonTitle="Back to Category"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="editCategoryFormGroup">
+                <div class="input-wrap" [ariaDisabled]="isEditMode">
+                    <div class="form-row add-sdlc-form sm">
+                        <div class="form-col">
+                            <lib-form-field *ngIf="name" [config]="name" type="text"
+                                [isSubmitted]="submitted"></lib-form-field>
+                        </div>
+                        <div class="form-col">
+                            <lib-form-field *ngIf="department" [config]="department" type="dropdown"
+                                [isSubmitted]="submitted"></lib-form-field>
+                        </div>
+                        <div class="form-col full-width">
+                            <lib-form-field *ngIf="description" [config]="description" type="textarea"
+                                [isSubmitted]="submitted"></lib-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="!isEditMode" class="button-wrapper">
+                    <div class="btn-sm">
+                        <button mat-button class="icon-btn icon-only" (click)="enterEditMode()">
+                            <em class="primary-icon">
+                                <img src="./assets/images/edit-pencil-gray.svg" alt="Edit Pencil Gray" />
+                            </em>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="grid-content-wrap">
+        <div *ngIf="isEditMode" class="bottom-btn-wrap">
+            <div class="btn-sm">
+                <lib-button [buttonConfig]="saveButtonConfig"></lib-button>
+            </div>
+            <div class="btn-sm">
+                <lib-button [buttonConfig]="cancelButtonConfig"></lib-button>
+            </div>
+        </div>
+        <div class="category-inner-wrapper">
+            <div class="title-link-wrap pb-10">
+                <h2>Sub Category</h2>
+                <lib-button [buttonConfig]="addSubCategoryButtonConfig" *ngIf="pagePermissions.isAddPermission"></lib-button>
+            </div>
+            <lib-data-grid *ngIf="subCategoryGridConfig" [gridConfig]="subCategoryGridConfig"
+                [isLoading]="isGridLoading"></lib-data-grid>
+        </div>
+    </div>

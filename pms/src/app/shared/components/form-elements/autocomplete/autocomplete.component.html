@@ -1,0 +1,12 @@
+<div class="input-wrap">
+    <mat-label>Number</mat-label>
+    <mat-form-field class="example-full-width custom-form-group sm-form-group">
+        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            @for (option of filteredOptions | async; track option) {
+            <mat-option [value]="option">{{option}}</mat-option>
+            }
+        </mat-autocomplete>
+    </mat-form-field>
+</div>

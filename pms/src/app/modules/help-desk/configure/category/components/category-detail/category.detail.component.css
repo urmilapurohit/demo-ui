@@ -1,0 +1,41 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/custom-helper.css");
+@import url("@styles/modal.css");
+
+.category-inner-wrapper {
+  margin-top: 2rem;
+}
+.category-type-wrapper .filter-title-wrapper .right-wrapper {
+  margin-bottom: 0;
+}
+
+.category-inner-wrapper .title-link-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-inner-wrapper .title-link-wrap h2 {
+  font-size: 1.6rem;
+}
+
+.grid-content-wrap {
+  padding-top: 0rem !important;
+}
+
+.grid-content-wrap .bottom-btn-wrap {
+  display: flex;
+  align-items: center;
+}
+.grid-content-wrap .bottom-btn-wrap .btn-sm:not(:last-child) {
+  margin-right: 1rem;
+}
+
+::ng-deep .custom-textarea .mdc-text-field--filled {
+  background-color: transparent !important;
+  border: 0.2rem solid var(--formfield-border);
+  border-radius: 0.3rem !important;
+  padding: 1rem !important;
+}

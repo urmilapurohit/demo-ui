@@ -1,0 +1,29 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]=false heading="Error Log"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="filterForm">
+                <lib-form-field *ngIf="startDate" [config]="startDate" type="datepicker"
+                    [isSubmitted]="submitted"></lib-form-field>
+                <lib-form-field *ngIf="endDate" [config]="endDate" type="datepicker"
+                    [isSubmitted]="submitted"></lib-form-field>
+                <div class="filter-btn-wrapper">
+                    <div class="inner-wrapper">
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                        </div>
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <lib-button [buttonConfig]="deleteBtnConfig" *ngIf="pagePermissions.isDeletePermission"></lib-button>
+        </div>
+    </div>
+
+    <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="errorLogGridConfig" [gridConfig]="errorLogGridConfig" [resetSort]="resetSorting"
+            [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+</div>

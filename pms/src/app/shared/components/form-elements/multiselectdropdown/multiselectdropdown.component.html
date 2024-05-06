@@ -1,0 +1,21 @@
+<!-- <div class="custom-dropdown-wrapper">
+    <mat-label>Multiple Select</mat-label>
+    <mat-form-field class="custom-form-group sm-form-group custom-multiselect">
+        <mat-select multiple>
+        <mat-option value="option1">Option 1</mat-option>
+        <mat-option value="option2">Option 2</mat-option>
+        <mat-option value="option3">Option 3</mat-option>
+        <mat-option value="option4">Option 4</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div> -->
+<div class="custom-dropdown-wrapper">
+    <mat-label>Select Multiple</mat-label>
+    <mat-form-field class="example-full-width custom-form-group sm-form-group">
+        <mat-select [formControl]="toppings" multiple>
+            @for (topping of toppingList; track topping) {
+            <mat-option [value]="topping">{{topping}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+</div>

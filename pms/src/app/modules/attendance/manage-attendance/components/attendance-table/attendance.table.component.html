@@ -1,0 +1,104 @@
+@if(getMemberCount() > 200){
+<cdk-virtual-scroll-viewport itemSize="39" class="viewport" #viewport>
+    <table class="attendance-table mat-elevation-z8 team-attendance-wrapper">
+        <ng-container *ngTemplateOutlet="tableHeader"></ng-container>
+        <tbody>
+            <ng-container *cdkVirtualFor="let firstItem of attendanceData">
+                <ng-container [ngTemplateOutlet]="tableContent"
+                    [ngTemplateOutletContext]="{firstItem:firstItem}"></ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+</cdk-virtual-scroll-viewport>
+}
+@else {
+<table class="attendance-table mat-elevation-z8 team-attendance-wrapper">
+    <ng-container *ngTemplateOutlet="tableHeader"></ng-container>
+    <tbody>
+        <ng-container *ngFor="let firstItem of attendanceData">
+            <ng-container [ngTemplateOutlet]="tableContent"
+                [ngTemplateOutletContext]="{firstItem:firstItem}"></ng-container>
+        </ng-container>
+    </tbody>
+</table>
+}
+
+<mat-menu #menu="matMenu">
+    <ng-template matMenuContent let-menuData="menuData">
+        @for (item of attendanceOptions; track $index) {
+        <button disableRipple mat-menu-item [class.active]="menuData.attendanceType === item.id"
+            (click)="onAttendanceSelect(menuData,item.id.toString())">{{item.text}}</button>
+        }
+    </ng-template>
+</mat-menu>
+
+
+<ng-template #tableHeader>
+    <thead>
+        <tr class="mat-mdc-header-row">
+            @for (col of displayedColumns; track $index) {
+            @if (col === 'name') {
+            <th class="name-col" [style.top]="inverseOfTranslation">
+                Name
+            </th>
+            }
+            @else {
+            <th [style.top]="inverseOfTranslation"> {{col | extractDay}}
+                <span class="day">{{col.split("_")[1]| shortName:1}}</span>
+                @if(isEditable(col)){
+                <form [formGroup]="formGroup">
+                    <mat-checkbox (change)="onCheckBoxChange($event,col.split('_')[0])"
+                        [formControlName]="col.split('_')[0]" class="custom-check"></mat-checkbox>
+                </form>
+                }
+            </th>
+            }}
+        </tr>
+    </thead>
+</ng-template>
+
+
+<ng-template #tableContent let-firstItem="firstItem">
+    <tr class="mat-mdc-row">
+        <th class="ro-name">
+            {{firstItem.parentMemberName}}
+        </th>
+        <th [attr.colspan]="displayedColumns.length - 1" class="ro-name"></th>
+    </tr>
+    <ng-container *ngFor="let secondItem of firstItem.teamMembers">
+        <tr class="mat-mdc-row">
+            <td class="name-col">
+                @if (secondItem.isParentMember) {
+                <p (click)="onParentClick(secondItem.memberId)">
+                    <a class="link-underline with-underline">{{secondItem.fullName}}</a>
+                </p>
+                }
+                @else {
+                <p>
+                    {{secondItem.fullName}}
+                </p>
+                }
+            </td>
+            <ng-container *ngFor="let thirdItem of secondItem.attendance">
+                <td [class.today-box]="thirdItem.attendanceDate === today"
+                    [class.weekend-box]="thirdItem.isWeekOff || isDisabled(thirdItem.attendanceDate,secondItem.joinDate)"
+                    [class.holiday-box]="thirdItem.isPublicHoliday && !thirdItem.isWeekOff"
+                    [class.green-font]="thirdItem.isSubmitted" [class.red-font]="!thirdItem.isSubmitted"
+                    [class.full-leave-box]="thirdItem.attendanceType === 'A'"
+                    [class.half-leave-box]="thirdItem.attendanceType === 'H'"
+                    [title]="getDateFormat(thirdItem.attendanceDate) + ' ' + thirdItem.nameOfDay">
+                    @if (thirdItem.isEditable && !thirdItem.isSubmitted) {
+                    <div [matMenuTriggerFor]="menu"
+                        [matMenuTriggerData]=" {menuData:{memberId:secondItem.memberId,date:thirdItem.attendanceDate,attendanceType:thirdItem.attendanceType} }"
+                        class="td-full-width">
+                        {{thirdItem.attendanceType}}
+                    </div>
+                    }
+                    @else{
+                    {{thirdItem.attendanceType}}
+                    }
+                </td>
+            </ng-container>
+        </tr>
+    </ng-container>
+</ng-template>

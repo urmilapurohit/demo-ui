@@ -1,0 +1,33 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" heading="Add Category"></app-page-header>
+    <div class="dropdown-link-wrapper">
+      <form class="left-wrapper" [formGroup]="addCategoryFormGroup">
+        <div class="form-row add-group-form sm">
+          <div class="form-col">
+            <lib-form-field *ngIf="name" [config]="name" type="text" [isSubmitted]="submitted"></lib-form-field>
+          </div>
+          <div class="form-col">
+            <lib-form-field *ngIf="department" [config]="department" type="dropdown"
+              [isSubmitted]="submitted"></lib-form-field>
+          </div>
+          <div class="form-col full-width">
+            <lib-form-field *ngIf="description" [config]="description" type="textarea"
+              [isSubmitted]="submitted"></lib-form-field>
+          </div>
+        </div>
+      </form>
+      <div class="right-wrapper"></div>
+    </div>
+  </div>
+  <div class="grid-content-wrap">
+    <div class="bottom-btn-wrap">
+      <div class="btn-sm">
+        <lib-button [buttonConfig]="saveButtonConfig"></lib-button>
+      </div>
+      <div class="btn-sm">
+        <lib-button [buttonConfig]="cancelButtonConfig"></lib-button>
+      </div>
+    </div>
+  </div>
+</div>

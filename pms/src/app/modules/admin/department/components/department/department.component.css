@@ -1,0 +1,24 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+::ng-deep .skeleton-loader {
+    margin-top: 5px;
+    margin-bottom: 0 !important;
+    background-color: #F5F5F8 !important;
+    border-radius: 2px !important;
+}
+
+::ng-deep .action-column .skeleton-loader.circle {
+    margin: 0 !important;
+    border-radius: 50% !important;
+}
+
+::ng-deep .action-column .skeleton-loader.circle+.circle {
+    margin-left: 5px !important;
+}
+
+::ng-deep .workspace-table.visible.mat-mdc-table tr:hover td.mat-mdc-cell {
+    background-color: var(--light-gray);
+}

@@ -1,0 +1,9 @@
+<div class="input-wrap custom-radio-checkbox-wrapper">
+  <form [formGroup]="formGroup">
+    <div class="custom-radio-checkbox-list">
+      <mat-checkbox color="primary" [formControlName]="config.formControlName" (click)="click($event)"
+        (change)="change($event)" class="custom-check full-width">{{ config.label }}
+      </mat-checkbox>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<div class="grid-wrapper-inner add-edit-sales-wrapper">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Add Status"
+            [heading]="isEdit ? 'Edit Status': 'Add Status'"></app-page-header>
+    </div>
+    <div class="grid-content-wrap">
+        <form class="form-group-wrapper pre-sales-status-wrapper" [formGroup]="addStatusFormGroup">
+            <div class="form-group title-wrapper col-1">
+                <h3>Manage pre sale status</h3>
+            </div>
+            <div class="form-row sm">
+                <div class="form-col">
+                    <lib-form-field *ngIf="name" [config]="name" type="text" [isSubmitted]="submitted"></lib-form-field>
+                </div>
+                <div class="form-col">
+                    <lib-form-field *ngIf="displayOrder" [config]="displayOrder" [isSubmitted]="submitted"
+                        type="text"></lib-form-field>
+                </div>
+            </div>
+            <div class="form-group col-1">
+                <div class="input-wrap checkbox-row">
+                    <lib-checkbox [config]="isVisibleInBde" type="checkbox"></lib-checkbox>
+                    <lib-checkbox [config]="isVisibleInBa" type="checkbox"></lib-checkbox>
+                    <lib-checkbox [config]="isOpenInquiry" type="checkbox"></lib-checkbox>
+                    <lib-checkbox [config]="isEstimationDateRequired" type="checkbox"></lib-checkbox>
+                </div>
+            </div>
+            <div class="form-group title-wrapper col-1 pt-20 mt-10 has-border">
+                <h3>Reminder Notifications</h3>
+            </div>
+            <div class="form-group col-2">
+                <lib-form-field *ngIf="sendStatusChangeMailToOtherMemberIds"
+                    [config]="sendStatusChangeMailToOtherMemberIds" [isSubmitted]="submitted"
+                    type="text"></lib-form-field>
+            </div>
+
+            <div class="form-group col-1">
+                <div class="input-wrap checkbox-row">
+                    <lib-checkbox [config]="isSendStatusChangeMail" type="checkbox"></lib-checkbox>
+                    <lib-checkbox [config]="isSendStatusChangeMailToPreSalesAdmin" type="checkbox"></lib-checkbox>
+                </div>
+            </div>
+            <div class="form-group col-1">
+                <div class="input-wrap checkbox-row">
+                    <mat-label>Mail To</mat-label>
+                    <lib-checkbox [config]="isSendStatusChangeMailToBde" type="checkbox"></lib-checkbox>
+                    <lib-checkbox [config]="isSendStatusChangeMailToBa" type="checkbox"></lib-checkbox>
+                </div>
+            </div>
+            <div class="form-group col-1 pt-5">
+                <app-save-cancel-button [saveButtonConfig]="saveButtonConfig"
+                    [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+            </div>
+        </form>
+    </div>
+</div>

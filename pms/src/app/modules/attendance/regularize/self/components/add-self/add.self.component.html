@@ -1,0 +1,41 @@
+<div class="grid-wrapper-inner">
+  <div class="filter-title-wrapper">
+    <app-page-header [items]="breadcrumbItems" [showAddButton]="false" [heading]="isEdit ? 'Edit Self': 'Add Self'"
+      tooltipMessage="Add Self" [showBackButton]="isViewOnly || isEdit" (handleBackClick)="backToSelfGrid()"
+      backButtonTitle="Back to Self"></app-page-header>
+  </div>
+  <div class="two-col-wrapper">
+    <div class="left-col">
+      <div class="history-lable">
+        <p>Request Details</p>
+      </div>
+      <form [formGroup]="addSelfFormGroup">
+        <div class="form-row">
+          <div class="form-col full-width">
+            <lib-form-field *ngIf="attendanceDate" [config]="attendanceDate" type="datepicker"
+              [isSubmitted]="submitted"></lib-form-field>
+          </div>
+          <div class="form-col full-width">
+            <lib-form-field *ngIf="submittedAttendance" [config]="submittedAttendance" type="dropdown"
+              [isSubmitted]="submitted"></lib-form-field>
+          </div>
+          <div class="form-col full-width">
+            <lib-form-field *ngIf="correctedAttendance" [config]="correctedAttendance" type="dropdown"
+              [isSubmitted]="submitted"></lib-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="right-col status-history-table" *ngIf="isEdit">
+      <div class="history-lable">
+        <p>Request Status History</p>
+      </div>
+      <lib-data-grid *ngIf="requestStatusHistoryGridConfig" [gridConfig]="requestStatusHistoryGridConfig"
+        [resetSort]="resetSorting" [isLoading]="loading"></lib-data-grid>
+    </div>
+  </div>
+  <div class="grid-content-wrap" *ngIf="!isViewOnly || !isEdit">
+    <app-save-cancel-button [saveButtonConfig]="submitButtonConfig"
+      [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+  </div>
+</div>

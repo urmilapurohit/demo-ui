@@ -1,0 +1,72 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+
+.grid-content-wrap .bottom-btn-wrap {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.grid-content-wrap .bottom-btn-wrap .btn-sm:not(:last-child) {
+    margin-right: 1rem;
+}
+
+::ng-deep.modal-wrapper .modal-footer button:last-child {
+    margin-left: 1rem;
+}
+
+
+::ng-deep .workspace-table .name-column {
+    width: 250px;
+}
+
+::ng-deep .workspace-table .status-column {
+    width: 175px;
+}
+
+::ng-deep .workspace-table .status-changed-column {
+    width: 290px;
+}
+
+::ng-deep .workspace-table .comments-column {
+    width: 250px;
+}
+
+::ng-deep .add-group-form .form-row.sm {
+    max-width: 600px;
+}
+
+::ng-deep .grid-content-wrap .title,
+.table-heading-wrapper .table-heading {
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 21px;
+    margin-bottom: 15px;
+}
+
+.right-col {
+    flex: 0 0 63.8%;
+    max-width: 63.8%;
+    padding-right: 2rem;
+}
+
+.history-lable {
+    padding-bottom: 2rem;
+    font-size: 16px !important;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+.left-col {
+    flex: 0 0 36.2% !important;
+    max-width: 36.2% !important;
+    padding-right: 5rem;
+    padding-left: 2rem;
+    padding-top: 0;
+}
+
+.two-col-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}

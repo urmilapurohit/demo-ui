@@ -1,0 +1,10 @@
+<div class="toast-message-wrap">
+  <div class="left-block">
+    <p>{{data?.message}}</p>
+  </div>
+  <span matSnackBarActions>
+    <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()" class="icon-btn">
+      <img src="../../../assets/images/close-icon-gray.svg" alt="close" />
+    </button>
+  </span>
+</div>

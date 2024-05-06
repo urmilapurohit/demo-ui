@@ -1,0 +1,9 @@
+@import url("@styles/filter-block.css");
+@import url("@styles/form-elements.css");
+@import url("@styles/workspace-table.css");
+@import url("@styles/modal.css");
+
+::ng-deep .mat-column-Name.system-status-name-col {
+  width: 40%;
+  min-width: 40%;
+}

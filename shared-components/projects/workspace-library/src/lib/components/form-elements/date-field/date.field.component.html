@@ -1,0 +1,7 @@
+<ng-container *ngIf="config.isYearPicker">
+  <lib-year-picker [config]="config" [isSubmitted]="isSubmitted" [startView]="startView"></lib-year-picker>
+</ng-container>
+
+<ng-container *ngIf="!config.isYearPicker">
+<lib-date-picker [config]="config" [isSubmitted]="isSubmitted"></lib-date-picker>
+</ng-container>

@@ -1,0 +1,98 @@
+<div class="grid-wrapper-inner pre-sales-wrapper">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" (handleAddClick)="addInquiry()" tooltipMessage="Add Inquiry"
+            [showAddButton]="pagePermissions.isAddPermission" heading="Inquiry"></app-page-header>
+    </div>
+    <div class="grid-content-wrap">
+        <form class="sales-list-wrapper form-group-wrapper" [formGroup]="filterForm">
+            <div class="sales-list-item col-4 px-05 mb-10">
+                <lib-form-field *ngIf="bdeDropDownConfig" [config]="bdeDropDownConfig" type="dropdown"></lib-form-field>
+            </div>
+            <div class="sales-list-item col-4 px-05 mb-10">
+                <lib-form-field *ngIf="baDropDownConfig" [config]="baDropDownConfig" type="dropdown"></lib-form-field>
+            </div>
+            <div class="sales-list-item col-4 px-05 mb-10">
+                <lib-form-field *ngIf="statusIds" [config]="statusIds" type="dropdown"></lib-form-field>
+            </div>
+            <div class="sales-list-item col-4 px-05 mb-10">
+                <lib-form-field [config]="searchName" type="text"></lib-form-field>
+            </div>
+            <div class="hide-wrapper" *ngIf="showHideWrapper">
+                <div class="sales-list-item col-4 px-05 mb-10">
+                    <lib-form-field *ngIf="fromDate" [config]="fromDate" type="datepicker"></lib-form-field>
+                </div>
+                <div class="sales-list-item col-4 px-05 mb-10">
+                    <lib-form-field *ngIf="toDate" [config]="toDate" type="datepicker"></lib-form-field>
+                </div>
+                <div class="sales-list-item col-4 px-05 mb-10">
+                    <lib-form-field *ngIf="country" [config]="country" type="dropdown"></lib-form-field>
+                </div>
+                <div class="sales-list-item col-4 px-05 mb-10">
+                    <lib-form-field *ngIf="source" [config]="source" type="dropdown"></lib-form-field>
+                </div>
+                <div class="sales-list-item col-4 px-05 mb-10">
+                    <lib-form-field *ngIf="rating" [config]="rating" type="dropdown"></lib-form-field>
+                </div>
+                <div class="sales-list-item col-4 px-05 mb-10">
+                    <lib-form-field *ngIf="projectTechnology" [config]="projectTechnology"
+                        type="dropdown"></lib-form-field>
+                </div>
+                <div class="sales-list-item col-4 px-05 mb-10">
+                    <lib-form-field *ngIf="inquiryType" [config]="inquiryType" type="dropdown"></lib-form-field>
+                </div>
+            </div>
+            <div class="sales-list-item col-1 px-05">
+                <div class="btn-wrapper">
+                    <div class="left-wrapper">
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                        </div>
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="advanceSearchBtnConfig"></lib-button>
+                        </div>
+                        <div class="mr-10">
+                            <lib-form-field *ngIf="openInquiries" [config]="openInquiries"
+                                type="checkbox"></lib-form-field>
+                        </div>
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                        </div>
+                    </div>
+                    <div class="right-wrapper">
+                        <lib-form-field [config]="saveSearch" type="text"></lib-form-field>
+                        <lib-button [buttonConfig]="saveSearchBtnConfig"></lib-button>
+                    </div>
+                </div>
+            </div>
+            <div class="sales-list-item col-1 px-05 mb-20">
+                <div class="search-chip-dropdown-wrapper">
+                    <div class="chip-block">
+                        <div class="chip-outer">
+                            <span class="chip-title">
+                                Saved Search:
+                            </span>
+                            <ul class="chip-wrapper" *ngIf="savedSearchList">
+                                <li *ngFor="let search of savedSearchList; trackBy: getIdTracking" class="chip-list">
+                                    <a (click)="onClickSavedSearchText(search.id)">
+                                        {{ search.searchName }}
+                                    </a>
+                                    <em (click)="onDeleteButtonClick(search.id)">
+                                        <img src="./assets/images/close.svg" alt="Edit Icon" />
+                                    </em>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dropdown-block">
+                        <lib-form-field *ngIf="personalizedView" [config]="personalizedView"
+                            type="dropdown"></lib-form-field>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="inquiryGridConfig" [gridConfig]="inquiryGridConfig" [resetSort]="resetSorting"
+            [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+</div>

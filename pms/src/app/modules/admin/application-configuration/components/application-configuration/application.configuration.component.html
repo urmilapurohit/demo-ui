@@ -1,0 +1,32 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <div class="title-link-wrap">
+            <div class="header-breadcrum-nav">
+                <ul>
+                    <li><a title="Admin">Admin</a></li>
+                    <li><a title="Application Configuration">Application Configuration</a></li>
+                </ul>
+                <h1>Application Configuration</h1>
+            </div>
+            <div class="btn-sm">
+                <lib-button [buttonConfig]="resetCacheBtnConfig"></lib-button>
+            </div>
+        </div>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="filterForm">
+                <lib-form-field [config]="searchName" type="text"></lib-form-field>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                </div>
+                <div class="btn-sm">
+                    <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="grid-content-wrap">
+        <lib-data-grid *ngIf="applicationConfigurationGridConfig" [gridConfig]="applicationConfigurationGridConfig"
+            [resetSort]="resetSorting" [isLoading]="isGridLoading"></lib-data-grid>
+    </div>
+</div>

@@ -1,0 +1,158 @@
+::ng-deep .toast-message-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+::ng-deep .toast-message-wrap .left-block {
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+}
+
+::ng-deep .toast-message-wrap .left-block::before {
+    content: "";
+    height: 2rem;
+    width: 2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 1.5rem;
+}
+
+::ng-deep .toast-message-wrap .icon-btn {
+    height: 2.7rem !important;
+    width: 2.7rem !important;
+    border-radius: 100%;
+    padding: 0.7rem !important;
+    min-width: auto !important;
+    margin: 0 0 0 1rem !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+::ng-deep.toast-message-wrap .icon-btn .mdc-button__label img {
+    width: 1.1rem !important;
+}
+
+::ng-deep .toast-message-wrap .icon-btn .mat-mdc-button-persistent-ripple,
+::ng-deep .toast-message-wrap .icon-btn .mat-mdc-focus-indicator,
+::ng-deep .toast-message-wrap .icon-btn .mat-mdc-button-touch-target,
+::ng-deep .toast-message-wrap .icon-btn .mat-ripple.mat-mdc-button-ripple,
+.toast-message-wrap .icon-btn .mat-mdc-button-persistent-ripple,
+.toast-message-wrap .icon-btn .mat-mdc-focus-indicator,
+.toast-message-wrap .icon-btn .mat-mdc-button-touch-target,
+.toast-message-wrap .icon-btn .mat-ripple.mat-mdc-button-ripple {
+    height: 2.7rem !important;
+    width: 2.7rem !important;
+}
+
+::ng-deep .toast-message-wrap .icon-btn .mdc-button__ripple {
+    display: none !important;
+}
+
+::ng-deep .mdc-snackbar__surface {
+    background-color: var(--white) !important;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0 !important;
+    align-items: center;
+    box-shadow: 0 0 #000, 0 0 #0000, 0 0 #000, 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+    max-width: 350px;
+    margin: 0;
+}
+
+::ng-deep .mat-mdc-snack-bar-label {
+    padding: 1.2rem 0.7rem 1.2rem 1.5rem !important;
+    min-height: 5.5rem;
+    min-width: 35rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+::ng-deep .mat-mdc-snack-bar-label>div {
+    width: 100%;
+}
+
+::ng-deep .mat-mdc-snack-bar-handset {
+    flex: inherit;
+}
+
+::ng-deep .info-message .mdc-snackbar__surface {
+    border-radius: 5px !important;
+    background: var(--info-toast-bg) !important;
+    box-shadow: 0px 1px 2px -1px rgba(0, 20, 62, 0.16), 0px 1px 3px 0px rgba(0, 20, 62, 0.16) !important;
+}
+
+::ng-deep .info-message .mat-mdc-snack-bar-label {
+    color: var(--blue2) !important;
+}
+
+::ng-deep .info-message .left-block::before {
+    background-image: url('../../../assets/images/info-ic.svg');
+}
+
+::ng-deep .warning-message .mdc-snackbar__surface {
+    border-radius: 5px !important;
+    background: var(--warning-toast-bg) !important;
+    box-shadow: 0px 1px 2px -1px rgba(66, 40, 0, 0.16), 0px 1px 3px 0px rgba(66, 40, 0, 0.16) !important;
+}
+
+::ng-deep .warning-message .mat-mdc-snack-bar-label {
+    color: var(--warning-toast) !important;
+}
+
+::ng-deep .warning-message .left-block::before {
+    background-image: url('../../../assets/images/warning-ic.svg');
+}
+
+::ng-deep .error-message .mdc-snackbar__surface {
+    border-radius: 3px !important;
+    background: var(--red2) !important;
+    box-shadow: var(--ds-shadow-overlay, 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31));
+}
+
+::ng-deep .error-message .mat-mdc-snack-bar-label {
+    color: var(--error) !important;
+}
+
+::ng-deep .error-message .left-block::before {
+    background-image: url('../../../assets/images/error-ic.svg');
+}
+
+::ng-deep .success-message .mdc-snackbar__surface {
+    border-radius: 5px;
+    background: var(--light-green2) !important;
+    box-shadow: 0px 1px 2px -1px rgba(0, 55, 9, 0.16), 0px 1px 3px 0px rgba(0, 55, 9, 0.16) !important;
+}
+
+::ng-deep .success-message .mat-mdc-snack-bar-label {
+    color: var(--success-toast) !important;
+}
+
+::ng-deep .success-message .left-block::before {
+    background-image: url('../../../assets/images/success-ic.svg');
+}
+
+::ng-deep .cdk-global-overlay-wrapper .cdk-overlay-pane .mdc-snackbar {
+    margin-right: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+::ng-deep .cdk-global-overlay-wrapper .cdk-overlay-pane .mdc-snackbar .mdc-snackbar__surface {
+    bottom: 3rem !important;
+    animation: slide-from-right 0.3s ease-out;
+}
+
+::ng-deep .toast-message-wrap .icon-btn:hover img {
+    filter: brightness(30%);
+}
+
+::ng-deep .toast-message-wrap .icon-btn img {
+    filter:none;
+}

@@ -1,0 +1,139 @@
+<div class="grid-wrapper-inner add-edit-sales-wrapper">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]="false" tooltipMessage="Add Inquiry"
+            [heading]="isEdit ? 'Edit Inquiry': 'Add Inquiry'"></app-page-header>
+    </div>
+    <div class="grid-content-wrap">
+        <form [formGroup]="addInquiryForm">
+            <div class="sales-list-wrapper form-group-wrapper">
+                <div class="form-row has-three-col add-inquiry-form">
+                    <div class="form-col">
+                        <lib-form-field [config]="date" type="text"></lib-form-field>
+                    </div>
+                    <div class="form-col">
+                        <lib-form-field *ngIf="country" [config]="country" type="dropdown"
+                            [isSubmitted]="isSubmitted"></lib-form-field>
+                    </div>
+                    <div class="form-col">
+                        <lib-form-field *ngIf="status" [config]="status" type="dropdown"
+                            [isSubmitted]="isSubmitted"></lib-form-field>
+                    </div>
+                    <div class="form-col" *ngIf="showClosedReasonDropDown">
+                        <lib-form-field *ngIf="closedReason" [config]="closedReason" type="dropdown"
+                            [isSubmitted]="isSubmitted"></lib-form-field>
+                    </div>
+                    <div class="form-col" *ngIf="showOtherReasonField">
+                        <lib-form-field [config]="otherReason" type="text" [isSubmitted]="isSubmitted"></lib-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="role-history-outer">
+                <div class="role-history-wrapper">
+                    <div class="role-block">
+                        <div class="custom-tabs" *ngIf="currentMember.memberId">
+                            <mat-tab-group [selectedIndex]="currentMember.isBa ? 1 : 0">
+                                <mat-tab label="Business Development Executive">
+                                    <div class="tab-content-wrapper">
+                                        <div class="form-col">
+                                            <lib-form-field *ngIf="bde" [config]="bde" type="dropdown"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field [config]="projectName" type="text"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field [config]="clientBudget" type="text"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field *ngIf="rating" [config]="rating" type="dropdown"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field *ngIf="source" [config]="source" type="dropdown"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <div class="svn-path-wrapper">
+                                                <p class="svn-path">
+                                                    <span>OneDrive Path</span> {{svnPath}}
+                                                </p>
+                                                <div class="update-checkbox" *ngIf="isEdit">
+                                                    <lib-form-field *ngIf="updateSvn" class="checkbox-filter"
+                                                        [config]="updateSvn" type="checkbox"></lib-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field *ngIf="estimatedGivenDate" [config]="estimatedGivenDate"
+                                                [isSubmitted]="isSubmitted" type="text"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field [config]="remarkBDE" type="textarea"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                                <mat-tab label="Business Analyst">
+                                    <div class="tab-content-wrapper">
+                                        <div class="form-col">
+                                            <lib-form-field *ngIf="ba" [config]="ba" type="dropdown"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field *ngIf="projectTechnology" [config]="projectTechnology"
+                                                type="dropdown" [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field [config]="otherMember" type="text"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field [config]="hours" type="text"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field *ngIf="inquiryType" [config]="inquiryType"
+                                                [isSubmitted]="isSubmitted" type="dropdown"></lib-form-field>
+                                        </div>
+                                        <div class="form-col">
+                                            <lib-form-field [config]="remarkBA" type="textarea"
+                                                [isSubmitted]="isSubmitted"></lib-form-field>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+                            </mat-tab-group>
+                        </div>
+                    </div>
+                    <div class="history-block workspace-table-wrapper" *ngIf="isEdit">
+                        <div class="table-heading-wrapper">
+                            <span class="table-heading">Pre-Sales History</span>
+                            <div class="table-controls btn-wrapper">
+                                <lib-button [buttonConfig]="historyButtonConfig"></lib-button>
+                            </div>
+                        </div>
+                        <lib-data-grid *ngIf="historyGridConfig" [gridConfig]="historyGridConfig"
+                            [resetSort]="resetSorting" [isLoading]="isGridLoading"></lib-data-grid>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="remarks-listing-block">
+            <app-save-cancel-button [saveButtonConfig]="saveButtonConfig"
+                [cancelButtonConfig]="cancelButtonConfig"></app-save-cancel-button>
+            <ng-container *ngIf="isEdit && preSalesRemarks.length !== 0">
+                <p class="title">Last Remarks </p>
+                <div class="remarks-list">
+                    <div class="remark-item" *ngFor="let remark of preSalesRemarks; trackBy: getRemarkTracking">
+                        <div class="remark-inner">
+                            <p class="remark-by">{{remark.memberName}} <span class="remark-meta">remarked on
+                                    {{remark.createdOn | date:'medium'}}</span></p>
+                            <p class="remark-text">{{remark.remark}}</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="custom-dropdown-wrapper">
+  <mat-label>multiselect search dropdown</mat-label>
+  <mat-form-field class="custom-form-group sm-form-group multiple-search-group">
+    <mat-select multiple [formControl]="providers" (openedChange)="onOpenChange(multiUserSearch)">
+      <mat-select-trigger>
+        {{providers.value }}
+      </mat-select-trigger>
+      <mat-form-field class="custom-form-group sm-form-group">
+        <input matInput #multiUserSearch type="text" autocomplete="off" matInput placeholder="Search"
+          (input)="onInputChange($event)" />
+        <a class="table-icon-btn" matPrefix>
+          <em class="primary-icon">
+            <img src="./assets/images/search-icon.svg" alt="search-icon" />
+          </em>
+        </a>
+      </mat-form-field>
+      <mat-option *ngFor="let provider of filteredProviders" [value]="provider.PROV">{{provider.PROV}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

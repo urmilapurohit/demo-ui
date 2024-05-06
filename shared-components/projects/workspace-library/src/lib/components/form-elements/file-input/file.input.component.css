@@ -1,0 +1,11 @@
+.error {
+  color: red;
+  text-transform: capitalize;
+  font-size: 11px;
+}
+
+.input-label {
+  margin-bottom: 0.3rem;
+  display: block;
+  text-transform: capitalize;
+}

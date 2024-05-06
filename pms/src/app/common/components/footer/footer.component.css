@@ -1,0 +1,98 @@
+.site-footer {
+    padding: 1rem 0 0.6rem;
+    background-color: transparent;
+    background-color: var(--white);
+}
+::ng-deep .dark-theme .site-footer,
+body.dark-theme .site-footer {
+    background-color: var(--dark-black4);
+    border-top-color: var(--dark-tablecell-border);
+}
+.site-footer .container-fluid {
+    padding: 0 2rem;
+}
+
+.site-footer .footer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-footer .footer-wrapper .logo-block {
+    height: 3.1rem;
+}
+
+.site-footer .footer-wrapper .logo-block img {
+    width: 12rem;
+    height: auto;
+}
+
+.site-footer .footer-wrapper .logo-block img.dark {
+    display: none;
+}
+
+::ng-deep .dark-theme .site-footer .footer-wrapper .logo-block img.dark {
+    display: block !important;
+}
+
+::ng-deep .dark-theme .site-footer .footer-wrapper .logo-block img.light {
+    display: none;
+}
+
+.site-footer .text-block {
+    display: flex;
+    align-items: center;
+}
+
+.site-footer .text-block li+li {
+    margin-left: 1.5rem;
+}
+
+.site-footer .text-block li {
+    position: relative;
+    font-size: 1.2rem;
+}
+::ng-deep .dark-theme .site-footer .text-block li {
+    color: var(--light-gray5);
+}
+.site-footer .text-block li+li::before {
+    position: absolute;
+    content: " ";
+    top: 0.2rem;
+    left: -0.75rem;
+    height: calc(100% - 0.5rem);
+    width: 0.8px;
+    background-color: transparent;
+    border-right: 1px solid var(--black);
+}
+.dark-theme .site-footer .text-block li+li::before,
+::ng-deep .dark-theme .site-footer .text-block li+li::before {
+    border-color: var(--light-gray5) !important;
+}
+
+@media(max-width:767px) {
+    .site-footer .footer-wrapper {
+        flex-direction: column;
+    }
+
+    .site-footer .footer-wrapper .logo-block img {
+        margin-bottom: 1rem;
+    }
+}
+
+@media(max-width:479px) {
+    .site-footer .text-block {
+        flex-wrap: wrap;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .site-footer .text-block li+li {
+        margin-left: 0;
+        margin-top: 3px;
+    }
+
+    .site-footer .text-block li+li:before {
+        display: none;
+    }
+}

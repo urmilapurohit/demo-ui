@@ -1,0 +1,26 @@
+<div class="grid-wrapper-inner">
+    <div class="filter-title-wrapper">
+        <app-page-header [items]="breadcrumbItems" [showAddButton]="false" heading="Documents"></app-page-header>
+        <div class="dropdown-link-wrapper">
+            <form class="left-wrapper" [formGroup]="filterForm">
+                <lib-form-field *ngIf="category" [config]="category" type="dropdown"
+                    [isSubmitted]="submitted"></lib-form-field>
+                <lib-form-field *ngIf="subCategory" [config]="subCategory" type="dropdown"
+                    [isSubmitted]="submitted"></lib-form-field>
+                <div class="filter-btn-wrapper">
+                    <div class="inner-wrapper">
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="searchBtnConfig"></lib-button>
+                        </div>
+                        <div class="btn-sm">
+                            <lib-button [buttonConfig]="resetBtnConfig"></lib-button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="viewDocument(document)" class="iframe-block">
+    <iframe id="docFrame" [src]="document" frameborder="0"></iframe>
+</div>

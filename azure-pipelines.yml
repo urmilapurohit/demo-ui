@@ -1,0 +1,38 @@
+pool:
+  name: Azure Pipelines
+steps:
+- task: NodeTool@0
+  displayName: 'Use Node 20.x'
+  inputs:
+    versionSpec: 20.x
+
+- task: Npm@1
+  displayName: 'Angular CLI'
+  inputs:
+    command: custom
+    workingDir: account
+    verbose: false
+    customCommand: 'install @angular/cli@17.0.7'
+
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    workingDir: account
+    verbose: false
+
+- task: Npm@1
+  displayName: 'npm Build'
+  inputs:
+    command: custom
+    workingDir: account
+    verbose: false
+    customCommand: 'run build'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive Files'
+
+- task: PublishPipelineArtifact@1
+  displayName: 'Publish Pipeline Artifact'
+  inputs:
+    targetPath: account
+    artifact: Drop3

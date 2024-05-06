@@ -1,0 +1,1040 @@
+::ng-deep .workspace-table-wrapper .workspace-table-responsive {
+  overflow-x: auto;
+  /* border: 1px solid var(--tablecell-border); */
+  /* border-bottom: 0; */
+}
+
+::ng-deep .workspace-table.mat-mdc-table {
+  width: 100%;
+  background: var(--white);
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px solid var(--tablecell-border) !important;
+  border-bottom: 0 !important;
+}
+
+::ng-deep .workspace-table.mat-mdc-table tr th {
+  background: var(--light-gray10);
+  font-size: 12px;
+  text-transform: capitalize;
+  padding: 0.5rem 0.5rem;
+  vertical-align: middle;
+  border: 1px solid var(--tablecell-border);
+  line-height: 1.35;
+  white-space: nowrap;
+  font-weight: 400;
+  background-clip: inherit;
+  border-bottom-width: 0.2rem;
+}
+
+::ng-deep .workspace-table tr .center-text {
+  text-align: center;
+}
+
+::ng-deep .workspace-table.mat-mdc-table tr td.mat-mdc-cell {
+  background: var(--white);
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 400;
+  /* text-transform: capitalize; */
+  padding: 0.5rem 0.5rem;
+  white-space: nowrap;
+  vertical-align: middle;
+  /* border: none; */
+  border: 1px solid var(--tablecell-border);
+  background-clip: padding-box;
+}
+
+::ng-deep .workspace-table.mat-mdc-table tr td.mat-mdc-cell .two-lines span {
+  display: block;
+}
+
+::ng-deep .workspace-table.mat-mdc-table tr td.mat-mdc-cell.email-column {
+  text-transform: none;
+}
+
+::ng-deep .workspace-table tr td .primary-btn.small-btn {
+  height: 2.6rem !important;
+  font-size: 1.2rem !important;
+}
+
+::ng-deep .workspace-table tr td .text-link {
+  text-decoration: underline;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+::ng-deep .workspace-table .table-icon-btn {
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: transparent;
+  transition: all 0.5s;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+
+::ng-deep .workspace-table .table-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+::ng-deep .workspace-table .table-icon img {
+  width: 1.6rem;
+  height: 1.6rem;
+  filter: brightness(46.4%);
+}
+
+::ng-deep .workspace-table.mat-mdc-table thead th.mat-sort-header[aria-sort="ascending"] .mat-sort-header-arrow {
+  background-image: url("../images/descending-arrow.svg");
+ 
+}
+
+::ng-deep .workspace-table.mat-mdc-table thead th.mat-sort-header[aria-sort="descending"] .mat-sort-header-arrow {
+  background-image: url("../images/ascending-arrow.svg");
+}
+
+::ng-deep .workspace-table.mat-mdc-table thead th.mat-sort-header .mat-sort-header-arrow {
+  background-repeat: no-repeat;
+  background-position: center calc(50%);
+  background-size: 8px 10px;
+  height: 10px;
+  transform: none !important;
+  background-image: url("../images/ascending-arrow.svg");
+  margin-left: 2px !important;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .mat-sort-header-stem,
+::ng-deep .workspace-table.mat-mdc-table .mat-sort-header-indicator {
+  display: none;
+}
+
+::ng-deep .workspace-table .table-icon-btn:hover img {
+  filter: brightness(0);
+}
+
+::ng-deep .workspace-table .table-icon-btn:hover {
+  background-color: var(--light-gray2);
+}
+
+::ng-deep .workspace-table .table-icon-btn img {
+  width: 1.6rem;
+  height: 1.6rem;
+  filter: brightness(46.4%);
+}
+
+::ng-deep .workspace-table .table-icon-btn.sm-icon img {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+::ng-deep .workspace-table .action-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .workspace-table .table-badge {
+  font-size: 1.2rem;
+  padding: 0.5rem 0.5rem;
+}
+
+::ng-deep .workspace-table .table-badge.applied {
+  background-color: var(--blue4);
+  color: var(--blue5);
+}
+
+::ng-deep .workspace-table .table-badge.approved {
+  background-color: var(--light-green);
+  color: var(--green);
+}
+
+::ng-deep .workspace-table .table-badge.rejected {
+  background-color: var(--light-red);
+  color: var(--dark-red);
+}
+
+::ng-deep .workspace-table .table-badge.paid {
+  background-color: var(--light-purple);
+  color: var(--purple);
+}
+
+/* .workspace-table tr th.action-column {
+  padding-left: 1.6rem;
+} */
+
+::ng-deep .workspace-table .status-column {
+  width: 13rem;
+}
+
+::ng-deep .workspace-table .action-column {
+  width: 9.4rem !important;
+  min-width: 9.4rem !important;
+  max-width: 9.4rem !important;
+}
+
+::ng-deep .workspace-table .action-count-1 {
+  width: 6rem !important;
+  min-width: 6rem !important;
+  max-width: 6rem !important;
+}
+
+::ng-deep .workspace-table .action-count-2 {
+  width: 7.6rem !important;
+  min-width: 7.6rem !important;
+  max-width: 7.6rem !important;
+}
+
+::ng-deep .workspace-table .action-count-3 {
+  width: 11rem !important;
+  min-width: 11rem !important;
+  max-width: 11rem !important;
+}
+
+::ng-deep .workspace-table .checkbox-column {
+  width: 12rem;
+}
+
+::ng-deep .workspace-table tr th.yes-no-column,
+::ng-deep .workspace-table tr td.yes-no-column {
+  width: 12rem;
+}
+
+::ng-deep .workspace-table tr th.date-column,
+::ng-deep .workspace-table tr td.date-column {
+  width: 14rem;
+}
+
+::ng-deep .workspace-table tr th.order-column,
+::ng-deep .workspace-table tr td.order-column {
+  width: 1rem;
+}
+
+::ng-deep .workspace-table tr th.abbreviation-column,
+::ng-deep .workspace-table tr td.abbreviation-column {
+  width: 15rem;
+}
+
+::ng-deep .workspace-table tr th.bonus-column,
+::ng-deep .workspace-table tr td.bonus-column {
+  white-space: inherit;
+}
+
+::ng-deep .workspace-table tr th.qty-column,
+::ng-deep .workspace-table tr td.qty-column {
+  width: 10rem;
+}
+
+::ng-deep .workspace-table tr th.system-status-col,
+::ng-deep .workspace-table tr td.system-status-col,
+.workspace-table tr th.system-status-col,
+.workspace-table tr td.system-status-col {
+  width: 15rem;
+  max-width: 15rem;
+  min-width: 15rem;
+}
+
+::ng-deep .workspace-table tr th.processor-column,
+::ng-deep .workspace-table tr td.processor-column,
+.workspace-table tr th.processor-column,
+.workspace-table tr td.processor-column {
+  width: 15rem;
+  max-width: 15rem;
+  min-width: 15rem;
+}
+
+::ng-deep .workspace-table tr th.desc-column,
+::ng-deep .workspace-table tr td.desc-column {
+  width: 600px;
+  white-space: normal !important;
+}
+
+::ng-deep .workspace-table .sr-no-column,
+.workspace-table .sr-no-column {
+  width: 4.1rem;
+  min-width: 4.1rem;
+  max-width: 4.1rem;
+}
+
+::ng-deep .workspace-table tr th.single-checkbox-column,
+::ng-deep .workspace-table tr td.single-checkbox-column {
+  width: 4.1rem;
+  min-width: 4.1rem;
+  max-width: 4.1rem;
+  text-align: center;
+}
+
+::ng-deep .workspace-table tr th.PCName-column,
+::ng-deep .workspace-table tr td.PCName-column,
+.workspace-table tr th.PCName-column,
+.workspace-table tr td.PCName-column {
+  width: 12rem;
+  min-width: 12rem;
+  max-width: 12rem;
+}
+
+
+::ng-deep .workspace-table tr th.pc-location-column,
+::ng-deep .workspace-table tr td.pc-location-column,
+.workspace-table tr th.pc-location-column,
+.workspace-table tr td.pc-location-column {
+  width: 21rem;
+  max-width: 21rem;
+  min-width: 21rem;
+}
+
+::ng-deep .workspace-table tr th.system-location-column,
+::ng-deep .workspace-table tr td.system-location-column,
+.workspace-table tr th.system-location-column,
+.workspace-table tr td.system-location-column {
+  width: 13rem;
+  max-width: 13rem;
+  min-width: 13rem;
+}
+
+::ng-deep .workspace-table tr th.item-type-column,
+::ng-deep .workspace-table tr td.item-type-column {
+  width: 23rem;
+  min-width: 23rem;
+  max-width: 23rem;
+}
+
+::ng-deep .workspace-table tr th.item-model-column,
+::ng-deep .workspace-table tr td.item-model-column {
+  width: 25rem;
+  min-width: 25rem;
+  max-width: 25rem;
+}
+
+::ng-deep .workspace-table tr th.quantity-column,
+::ng-deep .workspace-table tr td.quantity-column {
+  width: 10rem;
+  min-width: 10rem;
+  max-width: 10rem;
+}
+
+::ng-deep .workspace-table tr th.item-home-column,
+::ng-deep .workspace-table tr td.item-home-column {
+  width: 13rem;
+  min-width: 13rem;
+  max-width: 13rem;
+}
+
+::ng-deep .workspace-table tr th.serial-no-column,
+::ng-deep .workspace-table tr td.serial-no-column {
+  width: 25rem;
+  min-width: 25rem;
+  max-width: 25rem;
+}
+
+::ng-deep .workspace-table tr th.index-column,
+::ng-deep .workspace-table tr td.index-column {
+  width: 4.1rem;
+  min-width: 4.1rem;
+  max-width: 4.1rem;
+}
+
+::ng-deep .workspace-table tr .action-column .input-action-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .workspace-table thead .mat-mdc-header-row {
+  height: 3.8rem;
+}
+
+::ng-deep .workspace-table tbody .mat-mdc-row {
+  height: 4rem;
+}
+
+::ng-deep .workspace-table .workspace-nested-table .mat-mdc-header-row,
+::ng-deep .workspace-table .workspace-nested-table .mat-mdc-row {
+  height: 2.8rem !important;
+}
+
+::ng-deep .mat-mdc-paginator {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  overflow: hidden;
+}
+
+::ng-deep .mat-mdc-paginator-container {
+  min-height: auto !important;
+  padding: 0 0.5rem !important;
+  justify-content: flex-start !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container {
+  padding: 1rem 0 0;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size {
+  align-items: center;
+  margin-right: 1.8rem;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-label {
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 400;
+  margin-right: 1.2rem;
+  margin-left: 0;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select {
+  width: 7rem;
+  height: 3.6rem;
+  padding: 0;
+  margin: 0;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper {
+  padding: 0;
+  border: none !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex {
+  height: 3.6rem !important;
+  line-height: 3.6rem !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix {
+  padding: 0;
+  width: 100%;
+  height: 3.6rem;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select {
+  height: 3.6rem !important;
+  line-height: 3.4rem !important;
+  border-radius: 3px;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--formfield-border) !important;
+  border-width: 0.2rem !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select:hover {
+  background-color: var(--formfield-hover-bg) !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__leading,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__notch,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-color: var(--blue2) !important;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select .mat-mdc-select-arrow svg {
+  display: none;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-value {
+  flex: 0 0 calc(100% - 2.4rem);
+  max-width: calc(100% - 2.4rem);
+  padding: 0 0.5rem 0 1.3rem;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-value .mat-mdc-select-value-text {
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-arrow-wrapper {
+  flex: 0 0 2.4rem;
+  max-width: 2.4rem;
+  height: 3.4rem;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-arrow-wrapper .mat-mdc-select-arrow {
+  height: 100%;
+}
+
+::ng-deep .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-arrow-wrapper .mat-mdc-select-arrow:before {
+  top: 50% !important;
+  transition: all 0.3s;
+  transform: translateY(-50%) !important;
+}
+
+::ng-deep .mat-mdc-select[aria-expanded="true"] .mat-mdc-select-arrow:before {
+  transform: none !important;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-paginator-range-label {
+  margin: 0 0.8rem 0 0;
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button {
+  padding: 0.5rem;
+  height: 3.6rem;
+  width: 3.6rem;
+  opacity: 1;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button[disabled] {
+  cursor: default;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button:hover {
+  background-color: var(--light-gray2);
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-first {
+  background-image: url("../images/page-first.svg");
+  background-position: center;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-first[disabled] {
+  opacity: 0.2;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-previous {
+  background-image: url("../images/page-prev.svg");
+  background-position: center;
+  background-size: 0.7rem;
+  background-repeat: no-repeat;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-previous[disabled] {
+  opacity: 0.2;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-next {
+  background-image: url("../images/page-next.svg");
+  background-position: center;
+  background-size: 0.7rem;
+  background-repeat: no-repeat;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-next[disabled] {
+  opacity: 0.2;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-last {
+  background-image: url("../images/page-last.svg");
+  background-position: center;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-last[disabled] {
+  opacity: 0.2;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions .mat-mdc-icon-button svg {
+  display: none;
+}
+
+::ng-deep .no-record {
+  text-align: center;
+  height: 4.8rem;
+  line-height: 4.8rem;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-size: 1.3rem;
+}
+
+::ng-deep .table-link {
+  color: var(--blue1);
+  text-decoration: underline;
+}
+
+::ng-deep .table-link:hover {
+  text-decoration: none;
+}
+
+::ng-deep .skeleton-loader {
+  margin-top: 5px;
+  margin-bottom: 0 !important;
+  background-color: var(--light-gray) !important;
+  border-radius: 2px !important;
+}
+
+::ng-deep .action-column .skeleton-loader.circle {
+  margin: 0 !important;
+  border-radius: 50% !important;
+}
+
+::ng-deep .action-column .skeleton-loader.circle+.circle {
+  margin-left: 5px !important;
+}
+
+::ng-deep .workspace-table.visible.mat-mdc-table tr:hover>td.mat-mdc-cell {
+  background-color: var(--light-gray);
+}
+
+::ng-deep .workspace-table.visible.mat-mdc-table tr:hover .custom-form-group .mdc-text-field {
+  background: var(--white) !important;
+}
+
+::ng-deep .color-box-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+::ng-deep .color-box-row .color-box-col {
+  display: flex;
+  align-items: center;
+}
+
+::ng-deep .color-box-row .color-box-col:not(:last-child) {
+  margin-right: 15px;
+}
+
+::ng-deep .color-box-row .color-box {
+  margin-right: 5px;
+}
+
+::ng-deep .color-box {
+  width: 24px;
+  height: 24px;
+  background: var(--gray4);
+}
+
+::ng-deep .color-box.yellow-box {
+  background-color: var(--dark-yellow2);
+}
+
+::ng-deep .color-box.blue-box {
+  background-color: var(--dark-blue5);
+}
+
+::ng-deep .color-box.purple-box {
+  background-color: var(--dark-purple2);
+}
+
+::ng-deep .color-box.green-box {
+  background-color: var(--dark-green6);
+}
+
+::ng-deep .color-box.red-box {
+  background-color: var(--red3);
+}
+
+::ng-deep .color-box.aqua-box {
+  background-color: var(--aqua);
+}
+
+::ng-deep .color-box.pink-box {
+  background-color: var(--pink);
+}
+
+::ng-deep .color-box.light-blue-box {
+  background-color: var(--dark-blue6);
+}
+
+::ng-deep .color-box.light-yellow-box {
+  background-color: var(--dark-yellow3);
+}
+
+::ng-deep .dark-theme .workspace-table.visible.mat-mdc-table tr:hover .custom-form-group .mdc-text-field {
+  background: var(--dark-white5) !important;
+}
+
+::ng-deep .workspace-table .mat-sort-header-arrow {
+  /* opacity:1 !important; */
+  transform: translateY(0) !important;
+}
+
+::ng-deep .dark-theme .workspace-table.visible.mat-mdc-table tr:hover>td.mat-mdc-cell {
+  background-color: var(--dark-white7);
+}
+
+/* dark mode */
+::ng-deep .dark-theme .workspace-table.mat-mdc-table {
+  background: var(--dark-white5);
+}
+
+::ng-deep .dark-theme .workspace-table.mat-mdc-table tr td.mat-mdc-cell {
+  background: var(--dark-black4);
+  color: var(--dark-white);
+  border-color: var(--dark-black5);
+}
+
+::ng-deep .dark-theme .workspace-table.mat-mdc-table tr th {
+  background: var(--dark-white5);
+  color: var(--dark-white6);
+  border-color: var(--dark-black5);
+}
+
+
+::ng-deep .dark-theme .workspace-table .table-icon-btn img {
+  filter: brightness(0) invert(0.7);
+}
+
+::ng-deep .dark-theme .workspace-table .table-icon img {
+  filter: brightness(0) invert(0.7);
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator {
+  background: transparent;
+}
+
+::ng-deep .dark-theme .workspace-table .table-icon-btn:hover {
+  background-color: var(--dark-white4);
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-label {
+  color: var(--white);
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+::ng-deep .dark-theme .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+::ng-deep .dark-theme .mat-mdc-paginator-outer-container .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+  border-color: var(--dark-tablecell-border) !important;
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select:hover {
+  background-color: var(--dark-formfield-hover-bg) !important;
+}
+
+::ng-deep .dark-theme .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__leading,
+::ng-deep .dark-theme .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__notch,
+::ng-deep .dark-theme .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-color: var(--white) !important;
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select-value .mat-mdc-select-value-text {
+  color: var(--white);
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-outer-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix .mat-mdc-select {
+  background: var(--dark-black4);
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-range-actions .mat-mdc-paginator-range-label {
+  color: var(--white);
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-first {
+  background-image: url("../images/page-first-white.svg");
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-previous {
+  background-image: url("../images/page-prev-white.svg");
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-next {
+  background-image: url("../images/page-next-white.svg");
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-range-actions .mat-mdc-icon-button.mat-mdc-paginator-navigation-last {
+  background-image: url("../images/page-last-white.svg");
+}
+
+::ng-deep .dark-theme .table-link {
+  color: var(--dark-white);
+  text-decoration: underline;
+}
+
+::ng-deep .dark-theme .mat-mdc-paginator-range-actions .mat-mdc-icon-button:hover {
+  background-color: var(--dark-white4);
+}
+
+::ng-deep .dark-theme .skeleton-loader {
+  background-color: var(--black5) !important;
+}
+
+::ng-deep .grid-no-data {
+  margin: 0 !important;
+  display: flex;
+  color: var(--gray2);
+  justify-content: center;
+  padding: 1.5rem 0;
+  border: 0.1rem solid var(--tablecell-border);
+  border-top: 0;
+}
+
+::ng-deep .dark-theme .workspace-table-wrapper .custom-dropdown-wrapper .mat-mdc-select-min-line,
+::ng-deep .dark-theme .workspace-table-wrapper .custom-dropdown-wrapper .mat-mdc-select-value {
+  color: var(--dark-white) !important;
+}
+
+/* workspace table with title   */
+.workspace-table-title-block {
+  border-bottom: none;
+  padding-bottom: 1rem;
+}
+
+.workspace-table-wrapper:first-child .table-title {
+  margin-top: -3px;
+}
+
+.workspace-table-title-block .table-title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.workspace-table-title-block ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.workspace-table-title-block ul>li {
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.workspace-table-title-block ul li+li {
+  margin-left: 2rem;
+}
+
+.workspace-table-title-block ul li+li:before {
+  content: " ";
+  position: absolute;
+  left: -1rem;
+  background-color: var(--black);
+  height: 1.2rem;
+  width: 0rem;
+  border-left: 0.1rem solid var(--black);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.workspace-table-title-block ul li span {
+  font-size: inherit;
+}
+
+.workspace-table-wrapper+.workspace-table-wrapper {
+  margin-top: 3rem;
+}
+
+.dark-theme .workspace-table-title-block {
+  border-color: var(--dark-black5) !important;
+}
+
+::ng-deep .dark-theme .workspace-table-title-block ul li span {
+  color: var(--white) !important;
+}
+
+::ng-deep .dark-theme .grid-no-data {
+  border-color: var(--dark-black5);
+}
+
+/* help-desk column width start */
+::ng-deep .workspace-table.mat-mdc-table .service-detail-column {
+  max-width: 32rem;
+  min-width: 32rem;
+  width: 32rem;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .service-detail-column {
+  white-space: normal;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .service-detail-column .ng-star-inserted {
+  white-space: normal;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .catagory-column {
+  max-width: 13rem;
+  min-width: 13rem;
+  width: 13rem;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .catagory-column .ng-star-inserted {
+  white-space: normal;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .ticket-column {
+  min-width: 5.7rem;
+  max-width: 5.7rem;
+  width: 5.7rem;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .req-date-column {
+  min-width: 14rem;
+  max-width: 14rem;
+  width: 14rem;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .priority-column {
+  min-width: 6.5rem;
+  max-width: 6.5rem;
+  width: 6.5rem;
+}
+
+/* ::ng-deep .workspace-table.mat-mdc-table .pc-name-column{
+  min-width: 14.5rem;
+  max-width: 14.5rem;
+  width: 14.5rem;
+} */
+::ng-deep .workspace-table.mat-mdc-table .pc-name-column .ng-star-inserted {
+  white-space: normal;
+}
+
+/* help-desk  column width end */
+
+@media (max-width: 1360px) {
+  .workspace-table-title-block ul li {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .workspace-table-title-block ul li+li {
+    margin: 0.5rem 0 0 0;
+  }
+
+  .workspace-table-title-block ul li+li:before {
+    display: none;
+  }
+}
+
+::ng-deep .grid-no-data {
+  margin: 0 !important;
+  padding: 1.5rem 0 1.5rem;
+  border: 0.1rem solid var(--tablecell-border);
+  border-top: 0;
+}
+
+.status-badge {
+  display: inline;
+  padding: 0.2rem 0.6rem 0.3rem;
+  border-radius: 0.2rem;
+}
+
+::ng-deep .status-badge.closed {
+  background-color: var(--close-badge);
+}
+
+::ng-deep .dark-theme .status-badge.closed {
+  background-color: var(--close-badge2);
+}
+
+::ng-deep .status-badge.acknowledge {
+  background-color: var(--info-toast-bg);
+}
+
+::ng-deep .dark-theme .status-badge.acknowledge {
+  background-color: var(--info-toast-bg2);
+}
+
+::ng-deep .status-badge.waterspout {
+  background-color: var(--waterspout);
+}
+
+::ng-deep .dark-theme .status-badge.waterspout {
+  background-color: var(--waterspout2);
+}
+
+::ng-deep .status-badge.palePink {
+  background-color: var(--pink2);
+}
+
+::ng-deep .dark-theme .status-badge.palePink {
+  background-color: var(--brown2);
+}
+
+::ng-deep .status-badge.peach {
+  background-color: var(--dark-yellow4);
+}
+
+::ng-deep .dark-theme .status-badge.peach {
+  background-color: var(--dark-yellow5);
+}
+
+::ng-deep .status-badge.approved {
+  background-color: var(--approved-badge);
+}
+
+::ng-deep .dark-theme .status-badge.approved {
+  background-color: var(--dark-green8);
+}
+
+.team-status-col .status-badge {
+  cursor: pointer;
+}
+
+/* helpdesk table css  */
+::ng-deep .workspace-table.mat-mdc-table .catagory-column {
+  max-width: 13rem;
+  min-width: 13rem;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .catagory-column .ng-star-inserted {
+  white-space: normal;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .team-req-col {
+  max-width: 9.8rem;
+  min-width: 9.8rem;
+  white-space: normal !important;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .team-name-col {
+  max-width: 10rem;
+  min-width: 10rem;
+  white-space: normal !important;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .team-catagory-col,
+::ng-deep .workspace-table.mat-mdc-table .team-sub-catagory-col {
+  max-width: 11rem;
+  min-width: 11rem;
+  white-space: normal !important;
+  word-break: break-all;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .team-priority-col {
+  max-width: 6.2rem;
+  min-width: 6.2rem;
+  white-space: normal !important;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .team-pending-col {
+  max-width: 10.5rem;
+  min-width: 10.5rem;
+  white-space: normal !important;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .team-status-col {
+  max-width: 8.4rem;
+  min-width: 8.4rem;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .team-closedby-col {
+  max-width: 11.9rem;
+  min-width: 11.9rem;
+}
+
+::ng-deep .workspace-table.mat-mdc-table .team-closed-col {
+  max-width: 9.8rem;
+  min-width: 9.8rem;
+  white-space: normal !important;
+}
+
+::ng-deep .dark-theme .table-tooltip.mat-mdc-tooltip .mdc-tooltip__surface {
+  color: var(--dark-white) !important
+}
+
+::ng-deep .dark-theme .workspace-table .custom-check .mdc-label {
+  color: var(--dark-white);
+}
